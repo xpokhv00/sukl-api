@@ -1,0 +1,288 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+}
+
+model Medication {
+  suklCode           String  @id @map("sukl_code")
+  name               String  @map("name")
+  strength           String? @map("strength")
+  ean                String? @map("ean")
+  registrationNumber String? @map("registration_number")
+
+  atcCode                String? @map("atc_code")
+  organizationCode       String? @map("organization_code")
+  formCode               String? @map("form_code")
+  routeCode              String? @map("route_code")
+  dispensingCategoryCode String? @map("dispensing_category_code")
+  registrationStatusCode String? @map("registration_status_code")
+
+  isReimbursed Boolean? @map("is_reimbursed")
+  isActive     Boolean? @default(true) @map("is_active")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  atc                AtcNode?             @relation(fields: [atcCode], references: [code])
+  organization       Organization?        @relation(fields: [organizationCode], references: [code])
+  form               PharmaceuticalForm?  @relation(fields: [formCode], references: [code])
+  route              AdministrationRoute? @relation(fields: [routeCode], references: [code])
+  dispensingCategory DispensingCategory?  @relation(fields: [dispensingCategoryCode], references: [code])
+  registrationStatus RegistrationStatus?  @relation(fields: [registrationStatusCode], references: [code])
+
+  compositions           Composition[]
+  documents              MedicationDocument[]
+  disruptions            Disruption[]
+  priceReports           PriceReport[]
+  dispensingRestrictions DispensingRestriction[]
+
+  @@index([name])
+  @@index([atcCode])
+  @@index([organizationCode])
+  @@index([ean])
+  @@map("medications")
+}
+
+model Substance {
+  id        String   @id @default(cuid())
+  name      String   @map("name")
+  innName   String?  @map("inn_name")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  compositions Composition[]
+  synonyms     Synonym[]
+
+  @@index([name])
+  @@index([innName])
+  @@map("substances")
+}
+
+model Composition {
+  id                 String          @id @default(cuid())
+  medicationSuklCode String          @map("medication_sukl_code")
+  substanceId        String          @map("substance_id")
+  amount             Decimal?        @db.Decimal(14, 4)
+  unit               String?         @map("unit")
+  type               CompositionType @default(ACTIVE)
+  note               String?         @map("note")
+
+  medication Medication @relation(fields: [medicationSuklCode], references: [suklCode], onDelete: Cascade)
+  substance  Substance  @relation(fields: [substanceId], references: [id], onDelete: Cascade)
+
+  @@unique([medicationSuklCode, substanceId, type])
+  @@index([substanceId])
+  @@index([medicationSuklCode])
+  @@map("compositions")
+}
+
+model Synonym {
+  id          String @id @default(cuid())
+  substanceId String @map("substance_id")
+  name        String @map("name")
+
+  substance Substance @relation(fields: [substanceId], references: [id], onDelete: Cascade)
+
+  @@index([substanceId])
+  @@index([name])
+  @@map("synonyms")
+}
+
+model AtcNode {
+  code       String  @id @map("code")
+  name       String  @map("name")
+  parentCode String? @map("parent_code")
+  level      Int     @map("level")
+
+  parent      AtcNode?     @relation("AtcTree", fields: [parentCode], references: [code])
+  children    AtcNode[]    @relation("AtcTree")
+  medications Medication[]
+
+  @@index([parentCode])
+  @@map("atc_nodes")
+}
+
+model Organization {
+  code        String  @id @map("code")
+  name        String  @map("name")
+  countryCode String? @map("country_code")
+  email       String? @map("email")
+  phone       String? @map("phone")
+  website     String? @map("website")
+  address     String? @map("address")
+
+  medications Medication[]
+
+  @@index([name])
+  @@index([countryCode])
+  @@map("organizations")
+}
+
+model MedicationDocument {
+  id                 String       @id @default(cuid())
+  medicationSuklCode String       @map("medication_sukl_code")
+  type               DocumentType @map("type")
+  title              String?      @map("title")
+  url                String       @map("url")
+  updatedAt          DateTime?    @map("updated_at")
+
+  medication Medication @relation(fields: [medicationSuklCode], references: [suklCode], onDelete: Cascade)
+
+  @@index([medicationSuklCode])
+  @@index([type])
+  @@map("medication_documents")
+}
+
+model Disruption {
+  id                  String    @id @default(cuid())
+  medicationSuklCode  String    @map("medication_sukl_code")
+  type                String?   @map("type")
+  reason              String?   @map("reason")
+  isActive            Boolean   @default(false) @map("is_active")
+  reportedAt          DateTime? @map("reported_at")
+  startDate           DateTime? @map("start_date")
+  endDate             DateTime? @map("end_date")
+  replacementSuklCode String?   @map("replacement_sukl_code")
+
+  medication Medication @relation(fields: [medicationSuklCode], references: [suklCode], onDelete: Cascade)
+
+  @@index([medicationSuklCode])
+  @@index([isActive])
+  @@index([replacementSuklCode])
+  @@map("disruptions")
+}
+
+model PriceReport {
+  id                 String    @id @default(cuid())
+  medicationSuklCode String    @map("medication_sukl_code")
+  period             String    @map("period")
+  maxPrice           Decimal?  @map("max_price") @db.Decimal(14, 2)
+  reimbursement      Decimal?  @map("reimbursement") @db.Decimal(14, 2)
+  patientCopay       Decimal?  @map("patient_copay") @db.Decimal(14, 2)
+  dispensingMode     String?   @map("dispensing_mode")
+  reportedAt         DateTime? @map("reported_at")
+
+  medication Medication @relation(fields: [medicationSuklCode], references: [suklCode], onDelete: Cascade)
+
+  @@unique([medicationSuklCode, period])
+  @@index([medicationSuklCode])
+  @@index([period])
+  @@map("price_reports")
+}
+
+model DispensingRestriction {
+  id                 String          @id @default(cuid())
+  medicationSuklCode String          @map("medication_sukl_code")
+  restrictionType    RestrictionType @map("restriction_type")
+  subject            String?         @map("subject")
+  description        String?         @map("description")
+  validFrom          DateTime?       @map("valid_from")
+  validTo            DateTime?       @map("valid_to")
+
+  medication Medication @relation(fields: [medicationSuklCode], references: [suklCode], onDelete: Cascade)
+
+  @@index([medicationSuklCode])
+  @@index([restrictionType])
+  @@map("dispensing_restrictions")
+}
+
+model Pharmacy {
+  id          String   @id @default(cuid())
+  name        String   @map("name")
+  street      String?  @map("street")
+  city        String?  @map("city")
+  postalCode  String?  @map("postal_code")
+  country     String?  @map("country")
+  type        String?  @map("type")
+  email       String?  @map("email")
+  phone       String?  @map("phone")
+  website     String?  @map("website")
+  isMailOrder Boolean? @map("is_mail_order")
+  isDuty      Boolean? @map("is_duty")
+
+  hours PharmacyHour[]
+
+  @@index([name])
+  @@index([city])
+  @@index([postalCode])
+  @@map("pharmacies")
+}
+
+model PharmacyHour {
+  id         String  @id @default(cuid())
+  pharmacyId String  @map("pharmacy_id")
+  dayOfWeek  Int     @map("day_of_week")
+  openTime   String? @map("open_time")
+  closeTime  String? @map("close_time")
+  note       String? @map("note")
+
+  pharmacy Pharmacy @relation(fields: [pharmacyId], references: [id], onDelete: Cascade)
+
+  @@unique([pharmacyId, dayOfWeek])
+  @@index([pharmacyId])
+  @@map("pharmacy_hours")
+}
+
+model PharmaceuticalForm {
+  code     String  @id @map("code")
+  name     String  @map("name")
+  edqmCode String? @map("edqm_code")
+
+  medications Medication[]
+
+  @@index([name])
+  @@map("pharmaceutical_forms")
+}
+
+model AdministrationRoute {
+  code     String  @id @map("code")
+  name     String  @map("name")
+  edqmCode String? @map("edqm_code")
+
+  medications Medication[]
+
+  @@index([name])
+  @@map("administration_routes")
+}
+
+model DispensingCategory {
+  code String @id @map("code")
+  name String @map("name")
+
+  medications Medication[]
+
+  @@index([name])
+  @@map("dispensing_categories")
+}
+
+model RegistrationStatus {
+  code String @id @map("code")
+  name String @map("name")
+
+  medications Medication[]
+
+  @@index([name])
+  @@map("registration_statuses")
+}
+
+enum CompositionType {
+  ACTIVE
+  EXCIPIENT
+}
+
+enum DocumentType {
+  PIL
+  SPC
+  PACKAGE_LEAFLET
+  OTHER
+}
+
+enum RestrictionType {
+  DOCTOR
+  PHARMACIST
+  PATIENT
+  OTHER
+}

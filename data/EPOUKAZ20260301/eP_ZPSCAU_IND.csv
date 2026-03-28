@@ -1,0 +1,335 @@
+kod,ind
+03.08.02.03,"pacienti používající dvoudílný mechanický systém s onemocněním nebo stavem stomie nebo peristomálního okolí nedovolujícím tlak na břišní stěnu; časné pooperační období do 3 měsíců od operace"
+03.08.03.01,"ileostomie; kolostomie s řídkou nebo vodnatou stolicí"
+03.08.04.01,"pacienti používající stomický nebo drenážní systém na stomii nebo píštěl nebo drenáž;  poškozená peristomální kůže; alergická reakce na jiný odstraňovač; kožní choroba v peristomální oblasti"
+03.08.04.02,"pacienti používající stomický nebo drenážní systém na stomii nebo píštěl nebo drenáž;  poškozená peristomální kůže; alergická reakce na jiný odstraňovač; kožní choroba v peristomální oblasti"
+03.08.05.01,zvyšují kompenzační funkci stomické pomůcky
+03.09.01.01,"pacienti používající stomický nebo drenážní systém na stomii nebo píštěl nebo drenáž; ochrana a prevence poškození kůže v peristomální oblasti; léčba poškozené kůže; onkologická léčba; zajištění plné adheze stomického systému"
+03.09.01.02,"výživné stomie, trvalé drenáže, nefrostomie, ureterostomie, epicystostomie"
+04.01.01.01,"dlouhodobější pooperační nebo poúrazová fixace krční páteře (těžký cervikální a cervikobrachiální syndrom; lehčí subluxace; jednoduchá stabilní zlomenina; těžká spondylartróza; degenerativní změny)"
+04.01.02.01,"cervikální syndrom; osteochondróza; spondylartróza; lehká poúrazová subluxace; revmatické obtíže; degenerativní změny"
+04.01.02.02,"velmi lehké případy (tortikolis; spondylóza; revmatické onemocnění; blokové postavení krční páteře; akutní poranění měkkých tkání; degenerativní onemocnění; jizevnaté kontraktury krku do jednoho roku po úrazu)"
+04.02.01.01,"pooperační a poúrazové stavy fraktur klíční kosti; pooperační a poúrazové stavy poranění ramenního kloubu"
+04.02.02.01,poškození a poranění v oblasti hrudníku
+04.02.03.01,"pooperační stavy (zlomenina; stabilizační operace); chronické degenerativní poruchy (osteoporóza; spondylartróza; osteochondróza; olistéza; jiné degenerativní poruchy)"
+04.02.04.01,"pooperační stavy v oblasti bederní páteře; lumbalgie; chronické bolestivé stavy páteře; ledvinové obtíže"
+04.02.05.01,"lehká poškození zad, kde hlavním terapeutickým účinkem je mírná elastická fixace"
+04.02.06.01,"oslabení břišní stěny, kde hlavním terapeutickým účinkem je mírná elastická fixace"
+04.02.06.02,"pooperační stavy v oblasti břicha; zpevnění břicha pro konzervativní terapii; podpora břišního lisu"
+04.02.06.03,"propadávání dělohy; bolesti zad způsobené posturálními změnami během gravidity"
+04.02.07.01,"konzervativní léčba; předoperační období"
+10.08.01.03,"potřeba dlouhodobé umělé plicní ventilace realizovatelné v domácím prostředí; potřeba UPV po převažující část dne, přes omezenou hybnost a závislost na ventilátoru je pacient schopen spolupráce, potřeba běžné ošetřovatelské péče"
+02.01.01.01,inkontinence I. stupně (mimovolní únik moči nad 50 ml do 100 ml (včetně) v průběhu 24 hodin) inkontinence II. stupně (mimovolní únik moči nad 100 ml do 200 ml (včetně) v průběhu 24 hodin) + fekální inkontinence              inkontinence III. stupně (mimovolní únik moči nad 200 ml v průběhu 24 hodin) + smíšená inkontinence
+02.01.01.02,inkontinence III. stupně – mimovolní únik moči nad 200 ml v průběhu 24 hodin samostatně nebo v kombinaci s fekální inkontinencí
+02.02.01.01,"inkontinence u mužů, únik moči nad 100 ml / 24 hodin, kombinace možná pouze s vložkami nebo kapsamii"
+02.02.02.01,"močový katétr, urostomie, nefrostomie, epicystostomie, drén, urinální kondom"
+02.02.02.02,"močový katétr, urostomie, nefrostomie, epicystostomie, drén, urinální kondom"
+02.02.03.01,"močový katétr, urostomie, nefrostomie, epicystostomie, drén, urinální kondom"
+02.02.03.02,"močový katétr, urostomie, nefrostomie, epicystostomie, drén, urinální kondom"
+02.03.01.02,"porucha vyprazdňování močového měchýře; dysfunkce močových cest s fyziologickým či patologickým nálezem; po kontinentních náhradách močového měchýře; ortotopický měchýř; u plegiků; benigní hyperplazie prostaty s obtížným vyprazdňováním"
+02.03.01.03,"porucha vyprazdňování močového měchýře; dysfunkce močových cest s fyziologickým či patologickým nálezem; po kontinentních náhradách močového měchýře; ortotopický měchýř; u plegiků;, benigní hyperplazie prostaty s obtížným vyprazdňováním"
+02.03.02.01,"porucha vyprazdňování močového měchýře; dysfunkce močových cest s fyziologickým či patologickým nálezem; po kontinentních náhradách močového měchýře; ortotopický měchýř; u plegiků; benigní hyperplazie prostaty s obtížným vyprazdňováním"
+02.03.02.02,"porucha vyprazdňování močového měchýře; dysfunkce močových cest s fyziologickým či patologickým nálezem; po kontinentních náhradách močového měchýře; ortotopický měchýř; u plegiků; benigní hyperplazie prostaty s obtížným vyprazdňováním"
+02.03.03.01,"porucha průchodnosti permanentního močového katetru způsobená patologickou příměsí moči, s frekvencí častější než 1x týdně po dobu 1 měsíce při správné péči"
+02.03.04.01,"stenóza análního kanálu; stenóza stomie"
+02.03.05.01,pouze pro nepotahované katetry
+03.01.01.01,"řídká stolice; nekomplikovaná stomie"
+03.01.01.02,"řídká stolice; nekomplikovaná stomie; rovné peristomální okolí; zdravá nebo mírně poškozená peristomální kůže; píštěl"
+03.01.01.03,"řídká stolice; měkké břicho, plovoucí podkoží; stomie v komplikovaném nebo nerovném peristomálním terénu; retrahovaná stomie v úrovni nebo pod úrovní kůže; stenóza stomie; vysoké podkoží a retrahovaná stomie; komplikovaná píštěl"
+03.01.01.04,jakýkoliv typ derivační stomie nebo píštěle odvádějící velmi řídkou až vodnatou stolici v množství nad 1000 ml / 24 hod s možností napojení na velkoobjemový sběrný sáček se širokou odvodnou hadicí
+03.01.01.05,jakýkoliv typ derivační stomie nebo píštěle odvádějící velmi řídkou až vodnatou stolici v množství nad 1000 ml / 24 hod s možností napojení na velkoobjemový sběrný sáček se širokou odvodnou hadicí
+03.01.01.06,"řídká stolice; průměr stomie nad 50 mm; prolaps střeva; poškozená peristomální kůže; vícečetné píštěle"
+03.01.02.01,"formovaná stolice; nekomplikovaná stomie; rovné peristomální okolí; zdravá nebo mírně poškozená peristomální kůže"
+03.01.02.02,"formovaná stolice; měkké břicho, plovoucí podkoží; stomie v komplikovaném nebo nerovném peristomálním terénu; retrahovaná stomie v úrovni nebo pod úrovní kůže; stenóza stomie; vysoké podkoží a retrahovaná stomie"
+03.01.02.03,"průměr stomie nad 50 mm; prolaps střeva; poškozená peristomální kůže"
+03.01.02.04,"formovaná stolice; pravidelné vyprazdňování; irigující stomici"
+03.01.02.05,"formovaná stolice; pravidelné vyprazdňování; irigující stomici"
+03.01.02.06,"stomie s minimální produkcí stolice; střevní mukózní píštěl; irigující stomici; krytí nefrostomií; krytí epycystostomií; krytí trvalých drenáží"
+03.01.03.01,"urostomie; nekomplikovaná stomie; rovné peristomální okolí; zdravá nebo mírně poškozená peristomální kůže; píštěl; drén"
+03.01.03.02,"urostomie nebo píštěl v komplikovaném terénu; měkké břicho, plovoucí podkoží; retrahovaná stomie v úrovni nebo pod úrovní kůže; stenóza stomie; vysoké podkoží a retrahovaná stomie; drén"
+03.02.01.01,"nekomplikovaná stomie; rovné peristomální okolí; zdravá nebo mírně poškozená peristomální kůže; dobrá jemná motorika rukou umožňující stříhání podložky. Do 6 let včetně :řídká nebo vodnatá nebo agresivní stolice nad 1000 ml / 24 hod; komplikované peristomální okolí (jizvy; kožní útvary; pigmentové skvrny; kožní nerovnosti); poškození peristomální oblasti (iritace nebo macerace kůže; stehové píštěle; granulomy; abscesové dutiny; chronické píštěle u IBD; alergická reakce; kontaktní dermatitida; lupénka; atopický ekzém); stomie v úrovni nebo pod úrovní kůže nebo v kožním záhybu; dvě střevní kličky vyústěné v jednom otvoru; dvě terminální stomie vyústěné blízko sebe "
+03.02.01.02,"stomie v komplikovaném nebo nerovném peristomálním terénu; měkké břicho - plovoucí podkoží; retrahovaná stomie v úrovni nebo pod úrovní kůže; stenóza stomie; vysoké podkoží a retrahovaná stomie"
+03.02.01.03,"průměr stomie nad 50 mm; prolaps střeva; vícenásobné vyústění střeva blízko sebe; axiální stomie; poškozená peristomální kůže"
+03.02.02.01,"řídká stolice; píštěl"
+03.02.02.02,"průměr stomie nad 50 mm; masivně secernující píštěl; prolaps střeva; vícenásobné vyústění střeva; axiální stomie; velké odpady ze střeva nebo píštěle"
+03.02.02.03,jakýkoliv typ derivační stomie nebo píštěle odvádějící velmi řídkou až vodnatou stolici v množství nad 1000 ml / 24 hod s možností napojení na velkoobjemový sběrný sáček se širokou odvodnou hadicí
+03.02.03.01,formovaná stolice
+03.02.04.01,"urostomie; píštěl; drén"
+03.03.01.01,"nekomplikovaná stomie; nekomplikovaná píštěl; rovné peristomální okolí; zdravá nebo mírně poškozená peristomální kůže"
+03.03.01.02,"nekomplikovaná stomie; rovné peristomální okolí; manžeta stomie nad úrovní kůže; zdravá nebo mírně poškozená peristomální kůže"
+03.03.01.03,"stomie v komplikovaném nebo nerovném peristomálním terénu; píštěl v komplikovaném nebo nerovném terénu; retrahovaná stomie v úrovni nebo pod úrovní kůže; stenóza stomie; vícečetné píštěle"
+03.03.01.04,"průměr stomie nad 50 mm; prolaps střeva; vícenásobné vyústění střeva blízko sebe; axiální stomie; poškozená peristomální kůže"
+03.03.02.01,"řídká stolice; píštěl"
+03.03.02.02,"průměr stomie nad 50 mm; masivně secernující píštěl; prolaps střeva; vícenásobné vyústění střeva; axiální stomie; velké odpady ze střeva nebo píštěle"
+03.03.02.03,"jakýkoliv typ derivační stomie nebo píštěle, která odvádí velmi řídkou až vodnatou stolici v množství nad 1000 ml za 24 hod; má možnost napojení na velkoobjemový sběrný sáček se širokou odvodnou hadicí"
+03.03.03.01,formovaná stolice
+03.03.04.01,"urostomie; píštěl; drén"
+03.04.01.01,kolostomie s formovanou stolicí
+03.05.01.01,"do 18 let včetně; ode dne dosažení 19 let – tělesná konstituce pacienta vyžaduje malý stomický systém s malou adhezní plochou"
+03.05.01.02,"do 18 let včetně; ode dne dosažení 19 let – tělesná konstituce pacienta vyžaduje malý stomický systém s malou adhezní plochou"
+03.05.01.03,"do 18 let včetně; ode dne dosažení 19 let – tělesná konstituce pacienta vyžaduje malý stomický systém s malou adhezní plochou"
+03.05.02.01,"do 18 let včetně - všechny typy stomie; od 19 let - všechny typy stomie - tělesná konstituce pacienta vyžaduje malý stomický systém s malou adhezní plochou"
+03.05.02.02,"do 18 let včetně; ode dne dosažení 19 let – tělesná konstituce pacienta vyžaduje malý stomický systém s malou adhezní plochou"
+03.05.02.03,"do 18 let včetně; ode dne dosažení 19 let – tělesná konstituce pacienta vyžaduje malý stomický systém s malou adhezní plochou"
+03.06.01.01,"zavedený drén; píštěl do orgánu nebo tělní dutiny; mnohočetné píštěle"
+03.07.01.01,"irigace defekační - kolostomie na distální části tlustého střeva; irigace léčebná - opakovaná aplikace léčebné látky do tenkého nebo tlustého střeva"
+03.07.01.02,"irigace defekační - kolostomie na distální části tlustého střeva; irigace léčebná - opakovaná aplikace léčebné látky do tenkého nebo tlustého střeva"
+03.08.01.01,"komplikovaná stomie; stenóza nebo retrakce nebo prolaps píštěle; stomie nebo píštěl nevhodně vyústěná pro ošetřování; stomie nebo píštěl vyústěná v komplikovaném peristomálním terénu; více stomií současně; odhojená zvýšená manžeta stomie; onkologická léčba; měkké břicho, plovoucí podkoží"
+03.08.01.02,"komplikovaná stomie; stenóza nebo retrakce nebo prolaps píštěle; stomie nebo píštěl nevhodně vyústěná pro ošetřování; stomie nebo píštěl vyústěná v komplikovaném peristomálním terénu; více stomií současně; odhojená zvýšená manžeta stomie; onkologická léčba; měkké břicho, plovoucí podkoží"
+03.08.01.03,"komplikovaná stomie; stenóza nebo retrakce nebo prolaps píštěle; stomie nebo píštěl nevhodně vyústěná pro ošetřování; stomie nebo píštěl vyústěná v komplikovaném peristomálním terénu; více stomií současně; odhojená zvýšená manžeta stomie; onkologická léčba; měkké břicho, plovoucí podkoží"
+03.08.01.04,"komplikovaná stomie; stenóza nebo retrakce nebo prolaps píštěle; stomie nebo píštěl nevhodně vyústěná pro ošetřování; stomie nebo píštěl vyústěná v komplikovaném peristomálním terénu; více stomií současně; odhojená zvýšená manžeta stomie; onkologická léčba; měkké břicho, plovoucí podkoží"
+03.08.01.05,"komplikovaná stomie; stenóza nebo retrakce nebo prolaps píštěle; stomie nebo píštěl nevhodně vyústěná pro ošetřování; stomie nebo píštěl vyústěná v komplikovaném peristomálním terénu; více stomií současně; odhojená zvýšená manžeta stomie; onkologická léčba; měkké břicho, plovoucí podkoží"
+03.08.02.01,"pacienti s jednodílným nebo dvoudílným stomickým systémem s oušky pro uchycení přídržného pásku, potřeba mechanické podpory pásku pro dobrou adhezi prostředku k tělu, prevence podtékání"
+03.08.02.02,všechny typy stomie
+10.07.01.02,"totální laryngektomie; implantovaná hlasová protéza; nelze předepsat současně se zdravotnickými prostředky ze skupiny 01.02"
+04.02.07.02,"konzervativní léčba; předoperační období"
+04.02.08.01,"akutní nebo chronické stavy pánve (v těhotenství; po porodu; po úraze; při dysfunkci kyčelních kloubů; při kyčelní dysplazii; při repozicích kyčle; při pooperační léčbě fraktur pánve; artróza SI skloubení)"
+04.03.01.01,"akutní a chronické stavy prstů horní končetiny (zlomeniny; luxace; akutní šlachové poškození; artróza; revmatická onemocnění; neurologické postižení)"
+04.03.01.02,"pooperační a poúrazové stavy prstů horní končetiny do 3 měsíců od operace/úrazu, kde je nezbytná postupná rehabilitace"
+04.03.02.01,"akutní a chronické stavy zápěstí (fraktury; distorze; luxace; artróza; paréza; revmatická onemocnění; neurologická postižení)"
+04.03.02.02,"akutní a chronické stavy zápěstí (fraktura; distorze; luxace; artróza; entezopatie; revmatická onemocnění; neurologická postižení)"
+04.03.03.01,"pooperační a poúrazové stavy loketního kloubu (zlomeniny; poranění vazů; poranění kloubních pouzder; chronické instability; kontraktury)"
+04.03.03.02,"pooperační a poúrazové stavy loketního kloubu (zlomeniny; poranění vazů; poranění kloubních pouzder; chronické instability; kontraktury)"
+04.03.03.03,"pooperační a poúrazové stavy loketního kloubu; bolestivé stavy při artrózách; bolestivé stavy při epikondylitidě; revmatická onemocnění"
+04.03.03.04,"radiální epikondylitidy; ulnární epikondylitidy"
+04.03.04.01,"pooperační a poúrazové stavy pletence ramenního, zlomeniny horního konce kosti pažní a velkého hrbolu humeru, léčení luxace a omezení hybnosti ramenního kloubu"
+04.03.04.02,"pooperační a poúrazové stavy pletence ramenního, zlomeniny horního konce kosti pažní a velkého hrbolu humeru, léčení luxace a omezení hybnosti ramenního kloubu"
+04.03.04.03,"subluxace a luxace ramenního kloubu, dráždivé stavy a přetížení ramenního kloubu, záněty měkkých tkání ramenního kloubu, distorze, zlomeniny pažní a klíční kosti"
+04.03.04.04,"subluxace ramenního kloubu, dráždivé stavy a přetížení ramenního kloubu, záněty, neurologická postižení"
+04.03.05.01,odlehčení horní končetiny
+04.04.01.01,"pooperační a poúrazové stavy v oblasti hlezna a nohy; poškození Achillovy šlachy"
+04.04.01.02,"pooperační a poúrazové stavy v oblasti hlezna a nohy; poškození Achillovy šlachy; syndrom diabetické nohy"
+04.04.01.03,"lehká instabilita přednoží; lehká instabilita hlezenního kloubu; revmatická onemocnění; stavy po distorzi hlezna; syndrom diabetické nohy"
+04.04.01.04,peroneální paréza při nedostatečné kompenzaci poruchy chůze peroneálním tahem
+04.04.01.05,peroneální paréza
+04.04.02.01,pooperační a poúrazové stavy
+04.04.02.02,"pooperační a poúrazové stavy kolenního kloubu s cílem zajistit limitovaný rozsah pohybu a jeho stabilizaci v sagitální rovině; neurologická postižení"
+04.04.02.03,pooperační a poúrazové stavy kolenního kloubu s cílem zajistit určitý limitovaný rozsah pohybu a jeho mírnou stabilizaci v sagitální rovině
+04.04.02.04,pooperační a poúrazové stavy v oblasti kolenního kloubu s cílem zajistit plnohodnotnou rigidní fixaci
+04.04.02.05,"stabilizace pohybu kolenního kloubu v případě instability; artróza; artritida; poškození menisku"
+07.01.01.02,"možnost zajištění mobility druhou osobou, funkční pohybový deficit nelze řešit pomocí podpůrných zdravotnických prostředků pro lokomoci nebo mechanického vozíku z předchozí úhradové skupiny"
+07.01.01.03,"funkční pohybový deficit nelze řešit pomocí podpůrných zdravotnických prostředků pro lokomoci nebo mechanického vozíku z předchozích úhradových skupin, zachovaná funkce horních končetin, dostatečné fyzické a mentální schopnosti pro bezpečné užití zdravotnického prostředku"
+07.01.01.04,"funkční pohybový deficit nelze řešit pomocí podpůrných zdravotnických prostředků pro lokomoci nebo mechanického vozíku z předchozích úhradových skupin, zachovaná funkce horních končetin, dostatečné fyzické a mentální schopnosti pro bezpečné užití zdravotnického prostředku"
+07.01.01.05,"funkční pohybový deficit nelze řešit pomocí podpůrných zdravotnických prostředků pro lokomoci nebo mechanického vozíku z předchozích úhradových skupin, dostatečné fyzické a mentální schopnosti pro bezpečné užití zdravotnického prostředku"
+07.01.01.06,"zachovaná funkce horních končetin, pro vysoce aktivního uživatele"
+07.01.01.07,"osoby malého vzrůstu, zachovaná funkce horních končetin, dostatečné fyzické a mentální schopnosti pro bezpečné užití zdravotnického prostředku nebo pro zajištění těchto schopností druhou osobou"
+07.01.01.08,"osoby malého vzrůstu, zachovaná funkce horních končetin, dostatečné fyzické a mentální schopnosti pro bezpečné užití zdravotnického prostředku, pro vysoce aktivního uživatele	"
+07.01.01.09,"zachovaná funkce horních končetin nebo zajištění těchto schopností druhou osobou, pacienti nad 120 kg nebo pacienti s abnormálními proporcemi"
+07.01.01.10,"zachovaná funkce jedné horní končetiny, specifické nejtěžší postižení, kde nelze zajistit medicínské potřeby pacienta ostatními mechanickými vozíky"
+07.01.01.11,"zachovaná funkce jedné horní končetiny, specifické nejtěžší postižení, kde nelze zajistit medicínské potřeby pacienta ostatními mechanickými vozíky"
+07.01.01.12,"možnost zajištění mobility druhou osobou, specifické nejtěžší postižení, kde nelze zajistit medicínské potřeby pacienta ostatními mechanickými vozíky z předchozích úhradových skupin a současně k zajištění potřebné osové zátěže dolních končetin a trupu a zlepšení funkce respirační, gastrointestinálního a uropoetického traktu, nelze předepsat současně s vertikalizačním stojanem"
+05.02.04.02,"ostatní typy diabetes mellitus (kromě 1. typu), léčba intenzifikovanou inzulínovou terapií (3 a více injekcí inzulínu denně nebo léčba inzulínovou pumpou)		s nízkou sekrecí inzulínu definovaná hladinou C-peptidu nižší než 0,4 nmol/l (< 400 pmol/l) "
+07.01.01.13,"možnost zajištění mobility druhou osobou, specifické nejtěžší postižení, kde nelze zajistit medicínské potřeby pacienta ostatními mechanickými vozíky z předchozích úhradových skupin"
+07.01.01.14,"možnost zajištění mobility druhou osobou, osoby malého vzrůstu, specifické nejtěžší postižení, kde nelze zajistit medicínské potřeby pacienta ostatními mechanickými vozíky z předchozích úhradových skupin"
+07.01.02.02,funkční pohybový deficit nelze řešit pomocí elektrického invalidního vozíku z předchozí úhradové skupiny
+07.01.02.03,"funkční pohybový deficit nelze řešit pomocí elektrického vozíku z předchozích úhradových skupin, možnost předepsat současně s mechanickým vozíkem do finančního limitu 17.391,00 Kč bez DPH / 1 ks / 7 let včetně příslušenství při indikaci udržení zbytkového svalového potenciálu a mobilizaci funkčních rezerv"
+07.01.02.04,"funkční pohybový deficit nelze řešit pomocí elektrického vozíku z předchozích úhradových skupin, možnost předepsat současně s mechanickým vozíkem do finančního limitu 17.391,00 Kč bez DPH/ 1 ks / 7 let včetně příslušenství při indikaci udržení zbytkového svalového potenciálu a mobilizaci funkčních rezerv"
+07.01.02.05,"funkční pohybový deficit nelze řešit pomocí elektrického vozíku z předchozích úhradových skupin, k zajištění potřebné osové zátěže dolních končetin a trupu a zlepšení funkce respirační, gastrointestinálního a uropoetického traktu, nelze předepsat současně s vertikalizačním stojanem"
+07.01.03.03,"k zajištění samostatné mobility, v kombinaci s těžkou poruchou funkce horních končetin a případně trupu nebo s chronickým onemocněním, které neumožňuje zvýšit zátěž a plné využití mechanického vozíku, možnost předepsat současně s mechanickým vozíkem při indikaci udržení zbytkového svalového potenciálu a mobilizaci funkčních rezerv"
+07.02.01.01,"od dosažení věku 2 let, bez schopnosti samostatné lokomoce, kterou nelze nahradit prostřednictvím mechanického vozíku"
+07.02.02.01,"od dosažení věku 2 let, nutnost částečného polohování a fixace, bez schopnosti samostatné lokomoce, kterou nelze nahradit prostřednictvím mechanického vozíku"
+07.02.03.01,"od dosažení věku 2 let, těžce postižení pacienti s nutností plného polohování a fixace, bez schopnosti samostatné lokomoce, kterou nelze nahradit prostřednictvím mechanického vozíku"
+10.08.01.04,"potřeba dlouhodobé umělé plicní ventilace realizovatelné v domácím prostředí, potřeba UPV je trvalá, pacient je imobilní či s výrazně omezenou hybností, nespolupracuje či spolupráce pacienta je výrazně omezena, potřeba zvýšené ošetřovatelské péče"
+01.02.13.17,"těžké a nehojící se žilní nebo arteriální ulcerace včetně ulcerací u diabetes mellitus, které nedosáhly zhojení do 8 týdnů při použití standardních léčebných postupů včetně chirurgických		"
+05.02.04.02,"diabetes mellitus 1. typu, léčba intenzifikovanou inzulínovou terapií (3 a více injekcí inzulínu denně nebo léčba inzulínovou pumpou); ostatní typy diabetes mellitus kromě 1. typu, léčba neinzulínovými antidiabetiky nebo inzulínem"
+05.02.04.02,"ostatní typy diabetes mellitus (kromě 1. typu), léčba intenzifikovanou inzulínovou terapií (3 a více injekcí inzulínu denně nebo léčba inzulínovou pumpou)	,se syndromem porušeného vnímání hypoglykémie (Clarkova metoda a/nebo Gold score ≥ 4); s častými hypoglykémiemi (> 4 % času); se závažnými hypoglykémiemi (2 a více závažných hypoglykémií v průběhu posledních 12 měsíců); s verifikovanými nočními hypoglykémiemi; s vysokou glykemickou variabilitou (%CV > 36) 	"
+05.02.04.02,"ostatní typy diabetes mellitus (kromě 1. typu), léčba intenzifikovanou inzulínovou terapií (3 a více injekcí inzulínu denně nebo léčba inzulínovou pumpou)		s neuspokojivou kompenzací diabetu (HbA1C ≥ 53 mmol/mol) "
+07.02.04.01,"v kombinaci s ortézou trupu individuálně zhotovené pro sed; stavy, které nelze kompenzovat kočárkem nebo vozíkem"
+07.02.05.01,"od dosažení věku 2 let, bez schopnosti samostatné lokomoce, kterou nelze nahradit prostřednictvím mechanického vozíku"
+07.02.05.02,"v kombinaci s ortézou trupu na zakázku pro sed; stavy, které nelze kompenzovat kočárkem nebo vozíkem"
+07.03.01.01,omezený pohyb dolních končetin
+07.03.01.02,omezený pohyb dolních končetin
+07.03.01.03,trvale omezený pohyb dolních končetin
+07.03.02.07,do 18 let včetně
+07.03.03.01,omezený pohyb dolních končetin a snížená stabilita
+07.04.01.01,"porucha funkce pohybu dolních končetin; obtíže v udržení pozice těla ve stoje v měnění pozice v sedě; stavy po operaci páteře a kyčlí"
+07.04.02.01,"pro prevenci poranění k zajištění bezpečného přesunu a vykonání základních hygienických úkonů u těžce imobilních osob (osoby s parézou; osoby s plegií končetin; osoby s poruchou vestibulárního aparátu; osoby s těžkým stupněm artrózy nosných kloubů; osoby s amputací končetin; osoby s funkčně obdobným velmi těžkým postižením motorických funkcí)"
+07.04.02.02,"pro prevenci poranění k zajištění bezpečného přesunu a vykonání základních hygienických úkonů u těžce imobilních osob (osoby s parézou; osoby s plegií končetin; osoby s poruchou vestibulárního aparátu; osoby s těžkým stupněm artrózy nosných kloubů; osoby s amputací končetin; osoby s funkčně obdobným velmi těžkým postižením motorických funkcí)"
+07.05.01.01,"dlouhodobé až trvalé stavy s těžkými obtížemi v mobilitě na lůžku - změna základní pozice těla vleže a vsedě a přemisťování - přesun vleže a vsedě, k zajištění dlouhodobé péče v domácím prostředí, pacient schopen bezpečně ovládat ovládací jednotku a sám se polohovat, anebo je toho schopna pečující osoba"
+07.05.01.02,"dlouhodobé až trvalé stavy s těžkými obtížemi v mobilitě – změna základní pozice těla vleže a vsedě, přemisťování – přesun vleže a vsedě nebo změny v prostorové orientaci v důsledku základního onemocnění, pacient není bezpečně zajištěn v běžném lůžku, zajištění dlouhodobé péče v domácím prostředí"
+07.05.02.01,"těžké obtíže v udržení pozice těla vsedě; těžká porucha psychomotorických funkcí; těžká porucha svalového tonu trupu; těžká porucha dolních končetin"
+07.05.02.02,"těžké obtíže v udržení pozice těla vsedě; těžká porucha psychomotorických funkcí; těžká porucha svalového tonu trupu; těžká porucha dolních končetin; korekce těžké funkční až strukturální deformity (těžké skoliózy; těžké asymetrie pánve a dolních končetin);  nelze předepsat současně s trupovou ortézou pro sed "
+04.01.03.01,"pooperační, poúrazová nebo preventivní ochrana hlavy (epilepsie; sebepoškozování; postižení nervové soustavy)"
+04.04.02.06,"instabiliyt kolenního kloubu, stabilizace pately, bolestivé stavy při chronických nebo revmatických onemocnění"
+04.04.02.07,"stabilizace pately, femoropatelární artróza, afekce lig. Patellae proprium"
+04.04.03.01,pooperační a poúrazové stavy kyčelního kloubu
+04.04.03.02,"pooperační a poúrazové stavy kyčelního kloubu; zánětlivé stavy"
+04.04.03.03,"kyčelní dysplasie; kyčelní subluxace"
+04.05.01.01,"kompresní terapie pahýlu do 6 měsíců po amputaci, objemově nestabilní pahýl končetin"
+04.05.01.02,"kombinace s protézami, které vyžadují využití pahýlových návleků"
+04.06.01.01,"onkologická onemocnění; po operaci"
+04.06.01.02,"onkologická onemocnění; asymetrické vývojové vady prsu"
+04.06.01.03,"lymfedém; nadměrná velikost; onemocnění páteře"
+04.07.01.01,"dočasné řešení objemových změn nohy po operaci; syndrom diabetické nohy"
+04.07.02.01,"do 18 let věku; neurologická postižení"
+04.07.03.01,diabetik s neuropatií či se speciálními zdravotními požadavky na obutí
+05.01.01.01,"diabetes mellitus; nediabetická hypoglykémie (inzulinom; dialýza; postprandiální hypoglykémie; kongenitální hyperinzulinismus; dědičná metabolická porucha)"
+05.01.02.01,"diabetes mellitus; nediabetická hypoglykémie (inzulinom; dialýza; postprandiální hypoglykémie; kongenitální hyperinzulinismus; dědičná metabolická porucha)"
+05.02.01.01,"diabetes mellitus při léčbě perorálními antidiabetiky; diabetes mellitus při léčbě inzulínem; diabetes mellitus při léčbě injekčními neinzulínovými antidiabetiky; nediabetická hypoglykémie (inzulinom; dialýza; postprandiální hypoglykémie; kongenitální hyperinzulinismus; dědičná metabolická porucha)"
+05.02.01.02,"diabetes mellitus do 18 let včetně; diabetes mellitus v těhotenství; léčba inzulínovou pumpou při anamnéze diabetické ketoacidózy"
+05.02.01.03,diabetes mellitus při léčbě intenzifikovanou inzulínovou terapií s praktickou slepotou
+05.02.01.04,"diabetes mellitus při léčbě intenzifikovanou inzulínovou terapií (léčba inzulínovými pery); při flexibilním dávkování inzulínu"
+05.02.02.01,diabetes mellitus při léčbě perorálními antidiabetiky
+05.02.02.01,"diabetes mellitus při léčbě injekčními neinzulínovými antidiabetiky; nediabetická hypoglykémie (inzulinom; dialýza; postprandiální hypoglykémie)"
+05.02.02.01,diabetes mellitus při léčbě intenzifikovanou inzulínovou terapií (léčba inzulínovými pery nebo pumpou)
+05.02.02.01,"diabetes mellitus do 18 let včetně; diabetes mellitus v těhotenství; nediabetická hypoglykémie do 10 let včetně (kongenitální hyperinzulinismus; dědičná metabolická porucha)"
+05.02.02.02,"diabetes mellitus do 18 let včetně; diabetes mellitus v těhotenství; léčba inzulínovou pumpou"
+05.02.03.01,diabetický pacient léčený inzulínem
+05.02.04.01,"diabetes mellitus I. typu; léčba intenzifikovanou inzulínovou terapií (inzulínové pero nebo pumpa); nelze předepsat současně s glukometrem a přístroji pro kontinuální monitoraci glukózy; po dobu používání FGM lze předepsat současně s max. 100 ks / 1 rok a u dětí do 18 let včetně max. 300 ks / 1 rok diagnostických proužků pro stanovení glukózy z krve, nelze předepsat současně s glukometry a glukometry - pro stanovení ketolátek"
+05.02.04.02,"pacienti po transplantaci slinivky nebo ledvin; ochrana štěpu po transplantaci, pacienti po odstranění slinivky"
+05.02.05.01,"diabetes mellitus 1. typu, léčba intenzifikovanou inzulínovou terapií (3 a více injekcí inzulínu denně nebo léčba inzulínovou pumpou)		 diabetes mellitus 1. typu, léčba intenzifikovanou inzulínovou terapií (3 a více injekcí inzulínu denně nebo léčba inzulínovou pumpou)		 diabetes mellitus 1. typu, léčba intenzifikovanou inzulínovou terapií (3 a více injekcí inzulínu denně nebo léčba inzulínovou pumpou); pacient se systémem limitované kontinuální monitorace glukózy (3 a více injekcí inzulínu denně nebo léčba inzulínovou pumpou), který nedosahuje některého z následujících cílových parametrů: času v cílovém rozmezí > 70 %; hypoglykémie < 4 %; %CV < 36; hyperglykémie (> 10 mmol/l) < 25 % času; ostatní typy diabetes mellitus kromě 1. typu, léčba intenzifikovanou inzulínovou terapií (3 a více injekcí inzulínu denně nebo léčba inzulínovou pumpou)"
+05.03.01.01,"diabetes mellitus; léčba intenzifikovanou inzulínovou terapií (3 a více dávek inzulínu denně); při souběžné aplikaci 2 druhů inzulínu"
+05.03.01.01,diabetes mellitus (1 a/nebo 2 dávky inzulínu)
+05.03.02.01,aplikace inzulínu
+05.03.03.01,"diabetes mellitus léčený intenzifikovanou inzulínovou terapií s neuspokojivou kompenzací diabetu a dobrou spoluprací; prekoncepční péče a těhotenství	"
+05.03.03.02,"diabetes mellitus (včetně těhotných diabetiček a diabetických dětí do 18 let včetně) léčený intenzifikovaným inzulínovým režimem, s častými hypoglykémiemi nebo labilním diabetem a dobrou spoluprací; pacienti po transplantaci Langerhansových ostrůvků	"
+05.02.05.01,"ostatní typy diabetes mellitus (kromě 1. typu), léčba intenzifikovanou inzulínovou terapií (3 a více injekcí inzulínu denně nebo léčba inzulínovou pumpou)	HbA1C ≥ 60 mmol/mol; se syndromem porušeného vnímání hypoglykémie (Clarkova metoda a/nebo Gold score ≥ 4); s častými hypoglykémiemi (> 4 % času); se závažnými hypoglykémiemi (2 a více závažných hypoglykémií v průběhu posledních 12 měsíců); s verifikovanými nočními hypoglykémiemi; s vysokou glykemickou variabilitou (%CV > 36) "
+05.02.05.01,"ostatní typy diabetes mellitus (kromě 1. typu), léčba intenzifikovanou inzulínovou terapií (3 a více injekcí inzulínu denně nebo léčba inzulínovou pumpou)		s nízkou sekrecí inzulínu definovanou hladinou C-peptidu nižší než 0,4 nmol/l (< 400 pmol/l) 		"
+06.01.11.01,"lymfedém; flebolymfedém"
+05.03.03.03,"diabetes mellitus (včetně těhotných diabetiček, žen v prekoncepci a diabetických dětí do 18 let včetně) se syndromem nerozpoznané hypoglykémie nebo závažnými hypoglykémiemi a dobrou spoluprací; pacienti po transplantaci; děti do 18 let včetně s prokázaným zvýšeným rizikem nerozpoznaných hypoglykémií"
+05.03.03.04,"diabetes mellitus léčený intenzifikovanou inzulínovou terapií s neuspokojivou kompenzací diabetu a dobrou spoluprací; prekoncepční péče a těhotenství; předpoklad kratší doby využití pumpy"
+05.03.04.01,facilitovaná subkutánní infúze v souladu s indikačním omezením léčivého přípravku u syndromu primární imunodeficience
+05.03.04.01,subkutánní aplikace léčiv v souladu s indikačním omezením léčivého přípravku u syndromu primární imunodeficience
+05.03.04.02,plicní arteriální hypertenze
+05.03.05.02,"diabetes mellitus; léčba inzulínem"
+05.03.05.04,diabetes mellitus léčený intenzifikovanou inzulínovou terapií (inzulínová pumpa)
+05.03.05.05,diabetes mellitus léčený intenzifikovanou inzulínovou terapií (inzulínová pumpa)
+05.03.05.06,diabetický pacient léčený intenzifikovanou inzulínovou terapií (inzulínová pumpa)
+05.03.05.07,diabetický pacient léčený intenzifikovanou inzulínovou terapií (inzulínová pumpa)
+05.03.05.08,plicní arteriální hypertenze
+05.03.05.09,plicní arteriální hypertenze
+05.03.05.10,plicní arteriální hypertenze
+05.03.05.11,plicní arteriální hypertenze
+05.03.05.12,plicní arteriální hypertenze
+06.01.01.03,"lymfedém; flebolymfedém; kontaktní přecitlivělost"
+06.01.02.04,"bércový vřed žilního původu; bez nároku na kompresivní punčochy"
+06.01.10.01,lymfatický otok
+06.02.01.01,"lymfatický otok; vrozené postižení mízního systému vyžadující soustavnou fyzikální antiedematózní terapii; získané postižení mízního systému vyžadující soustavnou fyzikální antiedematózní terapii (např. po operacích prsu, po úrazech, při zánětlivých onemocnění)		stabilizace stavu, absolvování komplexní protiotokové léčby na specializovaném pracovišti během minimálně čtyřtýdenní terapie a vyčerpání všech dalších léčebných možností (autotechniky lymfodrenážní a používání kompresních elastických návleků); v případech, kdy zdravotní stav vyžaduje soustavnou aplikaci přístrojové antiedematózní terapie častěji než 3x týdně po dobu delší než 1 měsíc, přičemž v lokalitách, kde pravidelná doprava k léčbě do zdravotnického zařízení je obtížně dostupná, je možno zvolit zapůjčení i na kratší dobu"
+06.02.01.02,"lymfatický otok, pouze za podmínky předchozího schválení přístroje pro sekvenční tlakovou lymfodrenáž"
+06.02.01.03,"lymfatický otok, pouze za podmínky předchozího schválení přístroje pro sekvenční tlakovou lymfodrenáž"
+06.02.01.04,"lymfatický otok, pouze za podmínky předchozího schválení přístroje pro sekvenční tlakovou lymfodrenáž	"
+06.02.01.05,"lymfatický otok, pouze za podmínky předchozího schválení přístroje pro sekvenční tlakovou lymfodrenáž"
+06.02.01.06,"lymfatický otok, pouze za podmínky předchozího schválení přístroje pro sekvenční tlakovou lymfodrenáž"
+06.02.01.07,"lymfatický otok, pouze za podmínky předchozího schválení přístroje pro sekvenční tlakovou lymfodrenáž"
+06.03.01.01,stav po popálení II. a III. stupně
+06.03.01.02,stav po popálení II. a III. stupně
+06.03.01.03,stav po popálení II. a III. stupně
+06.03.01.04,stav po popálení II. a III. stupně
+06.03.01.05,stav po popálení II. a III. stupně
+06.03.01.06,stav po popálení II. a III. stupně
+06.03.01.07,stav po popálení II. a III. stupně
+06.03.01.08,stav po popálení II. a III. stupně
+06.04.01.01,pokud nelze použít jiný způsob komprese
+06.04.01.02,pokud nelze použít jiný způsob komprese
+06.04.01.03,pokud nelze použít jiný způsob komprese
+06.04.02.01,pokud nelze použít jiný způsob komprese
+06.04.02.02,pokud nelze použít jiný způsob komprese
+06.04.02.03,pokud nelze použít jiný způsob komprese
+06.04.02.04,pokud nelze použít jiný způsob komprese
+06.04.02.05,pokud nelze použít jiný způsob komprese
+07.01.01.01,"možnost zajištění mobility druhou osobou, pro dočasné použití při postižení jedné dolní končetiny, nutné vyznačení počtu měsíců pro další medicínské řešení"
+10.03.02.01,"mobilní pacient 6minutový test chůze: vzdálenost bez inhalace kyslíku, kterou pacient ujde – 200 metrů a více, procentuální navýšení vzdálenosti při inhalaci kyslíku o alespoň 50 % a v 6. minutě testu s kyslíkem musí být SpO2 alespoň 85%; pacient středně mobilní vyžadující průtok kyslíku více než 2 litry; pacient málo mobilní vyžadující průtok kyslíku více než 10 litrů; při bronchopulmonální dysplasii nedonošeného dítěte se závislostí na kyslíku (SpO2 < 92%), bez rizika retinopatie, přetrvávající po 40. týdnu postkoncepčního věku; pacient zařazený do programu transplantace plic na základě kyslíkového testu"
+10.04.01.01,"AHI ≥ 15, léčebné tlaky do 8 mbar, zbytkový nález AHI při titraci s nutností pravidelných kontrol AHI a compliance"
+10.04.01.02,"AHI ≥ 15, léčebné tlaky do 8 mbar, zbytkový nález AHI při titraci s nutností pravidelných kontrol AHI a compliance"
+10.04.02.01,"AHI ≥ 15 u léčby obstruktivní spánkové apnoe tam, kde jsou zapotřebí tlaky neumožňující léčbu CPAP"
+10.04.02.02,"AHI ≥ 15 u léčby obstruktivní spánkové apnoe tam, kde jsou zapotřebí tlaky neumožňující léčbu CPAP a tam, kde základní onemocnění vyžaduje nastavení záložní frekvence; u hypoventilace při prokázaném dostatečném efektu léčby"
+10.04.02.03,"AHI ≥ 15 u léčby obstruktivní spánkové apnoe tam, kde jsou zapotřebí tlaky neumožňující léčbu CPAP, zbytkový nález AHI při titraci s nutností pravidelných kontrol AHI a compliance"
+03.01.01.02,"do 6 let včetně: řídká nebo vodnatá nebo agresivní stolice nad 1000 ml / 24 hod; komplikované peristomální okolí (jizvy; kožní útvary; pigmentové skvrny; kožní nerovnosti); poškození peristomální oblasti (iritace nebo macerace kůže; stehové píštěle; granulomy; abscesové dutiny; chronické píštěle u IBD; alergická reakce; kontaktní dermatitida; lupénka; atopický ekzém); stomie v úrovni nebo pod úrovní kůže nebo v kožním záhybu; dvě střevní kličky vyústěné v jednom otvoru; dvě terminální stomie vyústěné blízko sebe"
+10.04.02.04,"AHI ≥ 15 u léčby obstruktivní spánkové apnoe tam, kde jsou zapotřebí tlaky neumožňující léčbu CPAP a tam, kde základní onemocnění vyžaduje nastavení záložní frekvence; u hypoventilace při prokázaném dostatečném efektu léčby"
+10.04.03.01,"AHI ≥ 15, intolerance léčby CPAP, syndrom spánkové apnoe s vazbou na polohu či REM spánek"
+10.04.03.02,"AHI ≥ 15, prokázaný nedostatečný efekt léčby CPAP a BPAP"
+10.04.03.03,"hypoventilační syndrom; neinvazivní domácí ventilace či těžký syndrom spánkové apnoe při prokázané nutnosti objemové podpory"
+10.04.03.04,"centrální a komplexní spánková apnoe; periodické dýchání"
+10.04.03.05,"AHI > 15; intolerance léčby CPAP, SAS s vazbou na polohu či REM spánek"
+10.04.03.06,"AHI ≥ 15, prokázaný nedostatečný efekt léčby CPAP a BPAP"
+03.02.02.01,"Do 6 let včetně: řídká nebo vodnatá nebo agresivní stolice nad 1000 ml / 24 hod; komplikované peristomální okolí (jizvy; kožní útvary; pigmentové skvrny; kožní nerovnosti); poškození peristomální oblasti (iritace nebo macerace kůže; stehové píštěle; granulomy; abscesové dutiny; chronické píštěle u IBD; alergická reakce; kontaktní dermatitida; lupénka; atopický ekzém); stomie v úrovni nebo pod úrovní kůže nebo v kožním záhybu; dvě střevní kličky vyústěné v jednom otvoru; dvě terminální stomie vyústěné blízko sebe"
+03.02.02.02,"Do 6 let včetně: řídká nebo vodnatá nebo agresivní stolice nad 1000 ml / 24 hod; komplikované peristomální okolí (jizvy; kožní útvary; pigmentové skvrny; kožní nerovnosti); poškození peristomální oblasti (iritace nebo macerace kůže; stehové píštěle; granulomy; abscesové dutiny; chronické píštěle u IBD; alergická reakce; kontaktní dermatitida; lupénka; atopický ekzém); stomie v úrovni nebo pod úrovní kůže nebo v kožním záhybu; dvě střevní kličky vyústěné v jednom otvoru; dvě terminální stomie vyústěné blízko sebe"
+10.04.03.07,"nestabilní pacient s nutností časté změny ventilačního režimu, hypoventilační syndrom; neinvazivní domácí ventilace či těžký syndrom spánkové apnoe při prokázané nutnosti objemové podpory"
+10.04.03.08,"nestabilní pacient s nutností časté změny ventilačního režimu, centrální a komplexní spánková apnoe; periodické dýchání"
+10.04.04.01,"syndrom spánkové apnoe nebo hypoventilační syndrom, dobrá nosní průchodnost		 hypoventilační syndrom, dobrá nosní průchodnost, při použití nad 12 hodin / den"
+10.04.04.02,"syndrom spánkové apnoe nebo hypoventilační syndrom, dobrá nosní průchodnost		 hypoventilační syndrom, dobrá nosní průchodnost, při použití nad 12 hodin / den"
+10.04.04.03,"syndrom spánkové apnoe nebo hypoventilační syndrom, dobrá nosní průchodnost		 hypoventilační syndrom, dobrá nosní průchodnost, při použití nad 12 hodin / den"
+10.04.04.04,"syndrom spánkové apnoe nebo hypoventilační syndrom		 hypoventilační syndrom, při použití nad 12 hodin / den"
+10.04.04.05,"syndrom spánkové apnoe nebo hypoventilační syndrom, při nočním použití		 hypoventilační syndrom, při použití nad 12 hodin / den"
+10.04.04.06,"syndrom spánkové apnoe nebo hypoventilační syndrom, při nočním použití		 hypoventilační syndrom, při použití nad 12 hodin / den"
+10.04.04.07,"syndrom spánkové apnoe nebo hypoventilační syndrom, špatná tolerance léčby PAP pomocí nosní masky základní		 hypoventilační syndrom, špatná tolerance léčby PAP pomocí nosní masky základní, při použití nad 12 hodin / den"
+10.04.04.08,"syndrom spánkové apnoe nebo hypoventilační syndrom, dobrá tolerance léčby PAP		 hypoventilační syndrom při použití nad 12 hodin / den"
+10.04.04.09,"syndrom spánkové apnoe nebo hypoventilační syndrom, dobrá tolerance léčby PAP		 hypoventilační syndrom při použití nad 12 hodin/den"
+10.04.04.10,syndrom spánkové apnoe nebo hypoventilační syndrom		 hypoventilační syndrom při použití nad 12 hodin / den
+10.04.04.11,syndrom spánkové apnoe nebo hypoventilační syndrom
+10.04.04.12,syndrom spánkové apnoe nebo hypoventilační syndrom
+10.05.01.01,provedená tracheostomie
+10.05.01.02,provedená tracheostomie
+10.05.01.03,provedená tracheostomie
+10.05.01.04,provedená tracheostomie
+10.05.01.05,totální laryngektomie
+10.05.01.06,"do 14 let včetně		provedená tracheostomie; zužující se ústí průdušnice"
+10.05.01.06,"ode dne dosažení 15 let		provedená tracheostomie; zužující se ústí průdušnice"
+10.05.01.07,"tracheostomovaní pacienti, kteří při jídle aspirují a vyžadují přechodné utěsnění průdušnice při každém jídle"
+10.05.01.08,trvalí kanylonosiči se zachovalými hlasivkami
+03.02.03.01,"Do 6 let včetně: řídká nebo vodnatá nebo agresivní stolice nad 1000 ml / 24 hod; komplikované peristomální okolí (jizvy; kožní útvary; pigmentové skvrny; kožní nerovnosti); poškození peristomální oblasti (iritace nebo macerace kůže; stehové píštěle; granulomy; abscesové dutiny; chronické píštěle u IBD; alergická reakce; kontaktní dermatitida; lupénka; atopický ekzém); stomie v úrovni nebo pod úrovní kůže nebo v kožním záhybu; dvě střevní kličky vyústěné v jednom otvoru; dvě terminální stomie vyústěné blízko sebe"
+10.05.01.09,trvalí kanylonosiči se zachovalými hlasivkami
+10.05.01.10,"provedené tracheostomie; trvalé dráždění ke kašli pro tvorbu krust v průdušnici"
+10.05.01.11,"provedená tracheostomie; trvalí kanylonosiči"
+10.05.01.12,"provedená tracheostomie; trvalí kanylonosiči se zvýšenou citlivostí kůže krku vyžadující zvýšenou ochranu; tracheostomie déle než 2 měsíce"
+10.05.01.13,"pacienti po totální laryngektomii se zvýšeným rizikem aspirace nečistot, pro danou lokalitu nelze předepsat současně se ZP ze skupiny 01.02"
+10.06.01.01,"provedená tracheostomie; obtížná toaleta dolních dýchacích cest; stagnace sekretu v dolních dýchacích cestách s nebezpečím bronchopneumonie"
+10.06.01.02,"provedená tracheostomie; obtížná toaleta dolních dýchacích cest; stagnace sekretu v dolních dýchacích cestách s nebezpečím bronchopneumonie"
+10.07.01.01,"totální laryngektomie; voperována hlasová protéza"
+10.07.02.01,"onkologičtí pacienti; totální laryngektomie; rekonstrukční operace hltanu a spodiny ústní		pokud nelze použít náhradní jícnovou řeč "
+10.08.01.01,"chronické respirační selhání s potřebou domácí neinvazivní ventilace k zajištění optimální ventilace bez desaturací a hypoventilace, kdy parametry ventilační podpory neumožňují použití přístrojů BPAP ST nebo ABPAP s proměnlivou objemovou podporou"
+10.08.01.02,"potřeba dlouhodobé umělé neinvazivní plicní ventilace realizovatelné v domácím prostředí, kdy je splněna jedna z následujících situací: a) nutnost užití ventilační podpory více než 12 hodin denně se záložním přístrojem pro zajištění ventilační podpory b) pacient s vysokou dependencí na ventilační podpoře více než 12 hodin denně se zachovanou možností sedu a schopností užívat techniku MPV"
+10.09.01.01,"základní PCF < 160 l / min; spinální svalová atrofie; muskulární dystrofie; myopatie; dětská mozková obrna; transversální míšní léze; amyotrofická laterální skleróza; ostatní vzácná onemocnění spojená s poruchou expektorace (např. poruchy		 metabolismu, Charcot Marie Tooth, Huntingtonova choroba)"
+11,"dle písemného souhlasu ve smyslu § 39r odst. 5 písm. j), anebo dle smlouvy o sdílení rizik"
+03.03.01.01,"Do 6 let včetně: řídká nebo vodnatá nebo agresivní stolice nad 1000 ml / 24 hod; komplikované peristomální okolí (jizvy; kožní útvary; pigmentové skvrny; kožní nerovnosti); poškození peristomální oblasti (iritace nebo macerace kůže; stehové píštěle; granulomy; abscesové dutiny; chronické píštěle u IBD; alergická reakce; kontaktní dermatitida; lupénka; atopický ekzém); stomie v úrovni nebo pod úrovní kůže nebo v kožním záhybu; dvě střevní kličky vyústěné v jednom otvoru; dvě terminální stomie vyústěné blízko sebe"
+07.05.02.03,"těžké obtíže v udržení pozice těla ve stoje; těžká porucha psychomotorických funkcí; těžká porucha svalového tonu trupu; těžká porucha dolních končetin; úplné obtíže v chůzi na krátké vzdálenosti; k zajištění potřebné osové zátěže dolních končetin a trupu a zlepšení funkce respirační, gastrointestinálního a uropoetického traktu; pro pacienty s potřebou pronační vertikalizace; pro pacienty s potřebou supinační vertikalizace		 		"
+07.05.03.01,"stavy s těžkými obtížemi v mobilitě na lůžku – změna základní pozice těla vleže a vsedě a přemisťování – přesun vleže a vsedě; trvalé těžké nebo úplné obtíže při chůzi na krátké vzdálenosti v kombinaci s těžkou poruchou funkce horních končetin a případně trupu, nebo s chronickým onemocněním, které neumožňuje zvýšit zátěž"
+07.05.03.02,"stavy s těžkými obtížemi v mobilitě na lůžku – měnění základní pozice těla vleže a vsedě a přemisťování – přesun vleže a vsedě; trvalé těžké nebo úplné obtíže při chůzi na krátké vzdálenosti v kombinaci s těžkou poruchou funkce horních končetin a případně trupu, nebo s chronickým onemocněním, které neumožňuje zvýšit zátěž;  v kombinaci s pojízdnými zvedáky"
+07.05.04.01,"těžké obtíže v mobilitě na lůžku – měnění základní pozice těla vleže nebo vsedě a přemisťování – přesun vleže a vsedě, nelze předepsat současně s polohovacím lůžkem"
+07.06.01.01,"ekvivalent klasifikace rizika dekubitů dle Nortonové 19-16 (modifikovaná škála); těžké obtíže při chůzi na krátké vzdálenosti, mobilita na vozíku"
+07.06.01.02,"ekvivalent klasifikace rizika dekubitů dle Nortonové 16-14 (modifikovaná škála); funkční změny vedoucí k asymetrii pánve, těžká porucha hybnosti dolních končetin, mobilita na vozíku"
+07.06.01.03,"ekvivalent klasifikace rizika dekubitů dle Nortonové 14-12 (modifikovaná škála); těžká až úplná ztráta čití v sedací oblasti (hýždě; zadní strana stehen; hráz); strukturální změny vedoucí k asymetrii pánve, těžká porucha hybnosti dolních končetin, mobilita na vozíku"
+07.06.01.04,"imobilní pacienti s vysokým rizikem dekubitů s předpokladem dlouhodobého nebo trvalého užívání, ekvivalent klasifikace rizika dekubitů dle Nortonové méně než 12 (modifikovaná škála)"
+07.06.02.01,"ekvivalent klasifikace rizika dekubitů dle Nortonové 19-16 (modifikovaná škála); těžké obtíže při chůzi na krátké vzdálenosti, mobilita na vozíku"
+03.03.01.02,"do 6 let včetně: řídká nebo vodnatá nebo agresivní stolice nad 1000 ml / 24 hod; komplikované peristomální okolí (jizvy; kožní útvary; pigmentové skvrny; kožní nerovnosti); poškození peristomální oblasti (iritace nebo macerace kůže; stehové píštěle; granulomy; abscesové dutiny; chronické píštěle u IBD; alergická reakce; kontaktní dermatitida; lupénka; atopický ekzém); stomie v úrovni nebo pod úrovní kůže nebo v kožním záhybu; dvě střevní kličky vyústěné v jednom otvoru; dvě terminální stomie vyústěné blízko sebe"
+05.03.04.01,subkutánní aplikace léčiv v souladu s indikačním omezením léčivého přípravku u hematoonkologických onemocnění vyžadujících subkutánní podání léčiva
+07.06.02.02,"ekvivalent klasifikace rizika dekubitů dle Nortonové 16-14 (modifikovaná škála); funkční změny vedoucí k asymetrii pánve; těžká porucha hybnosti dolních končetin, mobilita na vozíku"
+07.06.02.03,"ekvivalent klasifikace rizika dekubitů dle Nortonové méně než 14 (modifikovaná škála); těžká až úplná ztráta čití v sedací oblasti (hýždě; zadní strana stehen; hráz); strukturální změny vedoucí k asymetrii pánve; těžká porucha hybnosti dolních končetin, mobilita na vozíku	"
+07.06.02.04,"ekvivalent klasifikace rizika dekubitů dle Nortonové méně než 14; dlouhodobá, anebo trvalá mobilita na vozíku"
+07.06.03.01,"imobilní pacienti s nízkým rizikem dekubitů s předpokladem dlouhodobého nebo trvalého užívání, ekvivalent klasifikace rizika dekubitů dle Nortonové  19 - 16 (modifikovaná)"
+07.06.03.02,"imobilní pacienti s vysokým rizikem dekubitů nebo s již vzniklým dekubitem s předpokladem dlouhodobého nebo trvalého užívání, ekvivalent klasifikace rizika dekubitů dle Nortonové méně než 16 (modifikovaná škála)"
+07.06.04.01,"imobilní pacienti s vysokým rizikem dekubitů nebo s již vzniklým dekubitem s předpokladem dlouhodobého nebo trvalého užívání, ekvivalent klasifikace rizika dekubitů dle Nortonové méně než 16 (modifikovaná škála)"
+08.01.01.01,do 18 let včetně
+08.01.01.02,do 18 let včetně
+03.10.01.01,pacienti se stomií s odpady nad 2000 ml / 24 hod používající jednodílný nebo dvoudílný systém s univerzálním sáčkem
+08.01.01.03,ode dne dosažení 19 let
+08.01.01.04,"ode dne dosažení 19 let;  byla indikována kompenzace binaurální korekce do 18 let včetně; tinnitus, oboustranná získaná nedoslýchavost; hluchoslepí pacienti"
+08.01.02.01,"ztráta sluchu při: anomálii zvukovodu a středouší s těžkou převodní nebo smíšenou nedoslýchavostí; chronickém výtoku ze středouší; stavech po kofochirurgických operacích; při neřešitelných alergiích na tvarovku; špatném efektu sluchadla na vzdušné vedení; při jednostranné hluchotě"
+08.01.02.02,"do 18 let včetně, ztráta sluchu"
+03.01.02.01,"Do 6 let včetně: řídká nebo vodnatá nebo agresivní stolice nad 1000 ml / 24 hod; komplikované peristomální okolí (jizvy; kožní útvary; pigmentové skvrny; kožní nerovnosti); poškození peristomální oblasti (iritace nebo macerace kůže; stehové píštěle; granulomy; abscesové dutiny; chronické píštěle u IBD; alergická reakce; kontaktní dermatitida; lupénka; atopický ekzém); stomie v úrovni nebo pod úrovní kůže nebo v kožním záhybu; dvě střevní kličky vyústěné v jednom otvoru; dvě terminální stomie vyústěné blízko sebe"
+08.01.02.02,"ode dne dosažení 19 let, ztráta sluchu"
+08.01.02.03,"do 18 let včetně		ztráta sluchu při: anomálii zvukovodu a středouší s těžkou převodní nebo smíšenou nedoslýchavostí; chronickém výtoku ze středouší; stavech po kofochirurgických operacích; při neřešitelných alergiích na tvarovku; špatném efektu sluchadla na vzdušné vedení; při jednostranné hluchotě"
+08.01.02.04,"ode dne dosažení 6 let, ztráta sluchu		ztráta sluchu při: anomálii zvukovodu a středouší s těžkou převodní nedoslýchavostí; chronickém výtoku ze středouší; stavech po kofochirurgických a neurochirurgických operacích; při neřešitelných alergiích na tvarovku; špatném efektu sluchadla na vzdušné vedení; při jednostranné hluchotě"
+08.02.01.01,implantace kochleárního implantátu
+09.01.01.01,do 14 let včetně
+09.04.01.01,těžce slabozrací a nevidomí pacienti
+09.04.02.01,těžce slabozrací a nevidomí pacienti
+09.04.03.01,těžce slabozrací a nevidomí pacienti
+09.04.03.02,slabozrací a nevidomí pacienti
+09.04.04.01,hluchoslepí
+10.01.01.02,"primární ciliární dyskineze (PCD) či jiné formy bronchiektázií; cystická fibróza"
+10.01.01.03,od 3 let cystická fibróza
+10.01.01.04,recidivující a chronická onemocnění horních a dolních dýchacích cest
+10.01.01.05,"cystická fibróza; primární ciliární dyskineze (PCD) či jiné formy bronchiektázií"
+10.01.01.06,"cystická fibróza; primární ciliární dyskineze (PCD)"
+10.01.01.07,"cystická fibróza; primární ciliární dyskineze (PCD)"
+10.02.01.01,"astma; CHOPN; bronchiektázie; stavy po pneumoniích; intersticiální plicní procesy; neuromuskulární onemocnění; cystická fibróza"
+10.02.02.01,"astma; CHOPN; bronchiektázie; stavy po pneumoniích; intersticiální plicní procesy; neuromuskulární onemocnění; cystická fibróza"
+10.02.02.02,chronická postižení dolních dýchacích cest vyžadující trvalou fyzioterapii a dechovou rehabilitaci
+10.03.01.01,pacient málo mobilní
+10.03.01.02,"výdej do 2 l / min při zátěži – pacient na elektrickém vozíku nebo pacient mobilní – 6minutový test chůze: vzdálenost chůze bez inhalace kyslíku v rozpětí od 130 do 199 metrů, přičemž s odpovídajícím průtokem kyslíku dojde k navýšení vzdálenosti o alespoň 25 % a v 6. minutě testu s kyslíkem musí být SpO2 alespoň 85 %, v kombinaci se stacionárním koncentrátorem kyslíku"
+10.03.01.03,při potřebě průtoku kyslíku od 5 do 10 litrů
+03.03.02.01,"do 6 let včetně: řídká nebo vodnatá nebo agresivní stolice nad 1000 ml / 24 hod; komplikované peristomální okolí (jizvy; kožní útvary; pigmentové skvrny; kožní nerovnosti); poškození peristomální oblasti (iritace nebo macerace kůže; stehové píštěle; granulomy; abscesové dutiny; chronické píštěle u IBD; alergická reakce; kontaktní dermatitida; lupénka; atopický ekzém); stomie v úrovni nebo pod úrovní kůže nebo v kožním záhybu; dvě střevní kličky vyústěné v jednom otvoru; dvě terminální stomie vyústěné blízko sebe"
+03.03.03.01,"do 6 let včetně: řídká nebo vodnatá nebo agresivní stolice nad 1000 ml / 24 hod; komplikované peristomální okolí (jizvy; kožní útvary; pigmentové skvrny; kožní nerovnosti); poškození peristomální oblasti (iritace nebo macerace kůže; stehové píštěle; granulomy; abscesové dutiny; chronické píštěle u IBD; alergická reakce; kontaktní dermatitida; lupénka; atopický ekzém); stomie v úrovni nebo pod úrovní kůže nebo v kožním záhybu; dvě střevní kličky vyústěné v jednom otvoru; dvě terminální stomie vyústěné blízko sebe"
+07.07.01.01,"součást léčby primární osteoartrózy kolenních kloubů, II. a III. stádium dle Kellgrena (stanovené zobrazovacími metodami nebo přímou peroperační vizualizací)"
+10.04.04.13,syndrom spánkové apnoe nebo hypoventilační syndrom		

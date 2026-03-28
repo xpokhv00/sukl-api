@@ -1,0 +1,342 @@
+kod,udoks,poznamka
+03.01.01.03,30,30 ks/ měsíc
+03.01.01.04,30,30 ks/ měsíc a 60 ks / měsíc při množství stolice nad 4 litry za 24 hod.
+03.01.01.05,30,30 ks/ měsíc a 60 ks / měsíc při množství stolice nad 4 litry za 24 hod.
+03.01.01.06,30,30 ks/ měsíc
+03.01.02.01,60,"60 ks/ měsíc - formovaná stolice; nekomplikovaná stomie; rovné peristomální okolí; zdravá nebo mírně poškozená peristomální kůže; do 6 let včetně - 120 ks/měsíc - řídká, vodnatá nebo agresivní stolice nad 1000 ml / 24 hod; komplikované peristomální okolí (jizvy, kožní útvary, pigmentové skvrny, kožní nerovnosti); poškození peristomální oblasti (iritace nebo macerace kůže, stehové píštěle, granulomy, abscesové dutiny, chronické píštěle u IBD, alergická reakce, kontaktní dermatitida, lupénka, atop"
+03.01.02.02,60,60 ks/ měsíc
+03.01.02.03,60,60 ks/ měsíc
+03.01.02.04,60,60 ks/ měsíc
+03.01.02.05,60,60 ks/ měsíc
+03.01.02.06,60,60 ks/ měsíc
+03.01.03.02,30,30 ks/ měsíc
+03.02.01.02,10,"10 ks/ měsíc - kolostomie; trvalá drenáž; píštěl. 15 ks/měsíc - ileostomie; urostomie"
+03.02.01.03,10,"10 ks/ měsíc - kolostomie; trvalá drenáž; píštěl. 15 ks/měsíc - ileostomie; urostomie"
+03.02.02.01,30,"30 ks/ měsíc; pro děti do 6 let včetně 60 ks/ měsíc"
+03.02.02.02,30,30 ks/ měsíc
+03.02.02.03,30,30 ks/ měsíc a 60 ks / měsíc při množství stolice nad 4 litry za 24 hod.
+03.02.03.01,60,"60 ks/ měsíc; pro děti do 6 let včetně 120 ks/ měsíc"
+03.02.04.01,60,60 ks/ měsíc
+03.03.01.01,30,"30 ks / měsíc - ileostomie; urostomie; do 6 let včetně"
+03.03.01.02,30,"30 ks / měsíc - ileostomie; urostomie; do 6 let včetně"
+03.03.01.03,10,"10 ks/ měsíc - kolostomie; trvalá drenáž; píštěl. 15 ks/měsíc - ileostomie; urostomie"
+03.03.01.04,15,"15 ks / měsíc - ileostomie; urostomie"
+03.03.02.01,60,"60 ks / měsíc; do 6 let včetně"
+03.03.02.02,30,30 ks/ měsíc
+04.01.02.02,1,1 ks/ 1 rok
+04.01.03.01,1,1 ks/ 2 roky
+04.02.01.01,1,1 ks/ 1 rok
+04.02.02.01,1,1 ks/ 1 rok
+04.02.03.01,1,1 ks/ 1 rok
+04.02.04.01,1,1 ks/ 1 rok
+04.02.05.01,1,1 ks/ 1 rok
+04.02.06.01,1,1 ks/ 1 rok
+04.02.06.02,1,1 ks/ 1 rok
+04.02.06.03,1,1 ks/ 1 rok
+04.02.07.01,1,1 ks/ 1 rok
+04.02.07.02,1,1 ks/ 1 rok
+04.02.08.01,1,1 ks/ 1 rok
+04.03.01.01,1,1 ks/ 1 rok
+04.03.01.02,1,1 ks/ 1 rok
+04.03.02.01,1,1 ks/ 1 rok
+04.03.02.02,1,1 ks/ 1 rok
+03.03.02.03,30,30 ks/ měsíc a 60 ks / měsíc při množství stolice nad 4 litry za 24 hod.
+03.03.03.01,120,120 ks/ měsíc
+03.03.04.01,60,"60 ks / měsíc; do 6 let včetně"
+03.05.01.01,30,"30 ks/ měsíc; pro děti do 6 let 60 ks/ měsíc v indikovaných případech"
+03.05.01.02,60,"60 ks/ měsíc; pro děti do 6 let 120 ks/ měsíc v indikovaných případech"
+03.05.01.03,30,"30 ks/ měsíc; pro děti do 6 let 60 ks/ měsíc v indikovaných případech"
+03.05.02.01,10,"10 ks/ měsíc - kolostomie; trvalá drenáž; píštěl; pro děti do 5 let včetně 20 ks/měsíc v indikovaných případech.  15 ks/ měsíc - ileostomie, urostomie; pro děti do 5 let včetně 30 ks/ měsíc v indikovaných případech"
+03.05.02.02,60,"60 ks / měsíc; 120 ks / měsíc do 5 let včetně"
+03.05.02.03,30,"30 ks/ měsíc; pro děti do 5 let včetně 60 ks/ měsíc"
+03.06.01.01,30,30 ks/ měsíc
+03.07.01.01,2,2 sady/ 1 rok
+03.07.01.02,300,300 ks/ rok
+03.08.01.01,60,"60 ks / měsíc,"
+03.08.01.03,1,1 ks/ měsíc
+03.08.01.05,60,60 ks/ měsíc
+03.08.02.01,2,2 ks/ 1 rok
+03.08.02.02,2,2 ks/ 1 rok
+03.08.02.03,10,10 ks/ měsíc - uzavřený systém. 15 ks/ měsíc - výpustný systém.
+03.09.01.02,30,30 ks/ měsíc
+04.01.01.01,1,1 ks/ 1 rok
+04.01.02.01,1,1 ks/ 1 rok
+01.02.13.17,24,24 ml/ 1rok/ 1 lokalizace
+01.04.01.01,1000,1000 g/ měsíc
+01.04.01.02,300,300 ks/ měsíc
+02.01.01.01,150,150
+02.01.01.02,30,
+02.02.01.01,30,30 ks/ měsíc
+02.02.02.01,20,"15 ks / měsíc; 20 ks / měsíc pro pacienty s nefrostomií; bez limitu do 5 let včetně"
+02.02.02.02,20,"15 ks / měsíc; 20 ks / měsíc pro pacienty s nefrostomií; bez limitu do 5 let včetně"
+02.02.03.01,8,8 ks/ 1 rok
+02.02.03.02,2,2 ks/ 1 rok
+02.03.01.01,210,210 ks/ měsíc
+02.03.01.02,210,210 ks/ měsíc
+02.03.01.03,210,210 ks/ měsíc
+02.03.02.01,210,210 ks/ měsíc
+02.03.02.02,210,210 ks/ měsíc
+02.03.03.01,15,15 ks/ měsíc
+02.03.04.01,1,1 balení/ 10 let
+02.03.05.01,750,750 ml/ 1 měsíc
+03.01.01.01,30,30 ks/ měsíc
+03.01.01.02,60,60 ks/ měsíc
+04.03.03.01,1,1 ks/ 1 rok
+04.03.03.02,1,1 ks/ 1 rok
+04.03.03.03,1,1 ks/ 1 rok
+04.03.03.04,1,1 ks/ 1 rok
+04.03.04.01,1,1 ks/ 1 rok
+04.03.04.02,1,1 ks/ 1 rok
+04.03.04.03,1,1 ks/ 1 rok
+04.03.04.04,1,1 ks/ 1 rok
+04.03.05.01,1,1 ks/ 1 rok
+04.04.01.01,1,1 ks/ 1 rok
+04.04.01.02,1,1 ks/ 1 rok
+04.04.01.03,1,1 ks/ 1 rok
+04.04.01.04,1,1 ks/ 1 rok
+04.04.01.05,1,1 ks/ 1 rok
+04.04.02.01,1,1 ks/ 1 rok
+06.01.08.02,1,1 ks/ 3 roky
+06.01.09.01,2,2 ks/ 1 rok
+06.01.09.02,2,2 ks/ 1 rok
+06.01.09.03,2,2 ks/ 1 rok
+06.01.09.04,2,2 ks/ 1 rok
+06.01.10.01,1,1 ks/ 1 rok
+06.01.11.01,2,2 ks / 6 měsíců
+06.01.11.02,2,2 ks / 6 měsíců
+06.01.11.03,2,2 ks / 6 měsíců
+06.01.11.04,2,2 ks / 6 měsíců
+06.02.01.01,1,1 ks/ 5 let
+06.02.01.02,1,1 ks/ 2 roky
+06.02.01.03,1,1 ks/ 2 roky
+06.02.01.04,1,1 ks/ 2 roky
+06.02.01.05,1,1 ks/ 2 roky
+06.02.01.07,1,1 ks/ 2 roky
+06.03.01.01,6,"6 ks/ 1 rok; nejdéle po dobu jednoho roku"
+06.03.01.03,6,"6 ks/ 1 rok; nejdéle po dobu jednoho roku"
+06.03.01.04,6,"6 ks/ 1 rok; nejdéle po dobu jednoho roku"
+04.04.02.02,1,1 ks/ 1 rok
+04.04.02.03,1,1 ks/ 1 rok
+04.04.02.04,1,1 ks/ 1 rok
+04.04.02.05,1,1 ks/ 1 rok
+04.04.02.06,1,1 ks/ 1 rok
+04.04.02.07,1,1 ks/ 1 rok
+04.04.03.01,1,1 ks/ 1 rok
+04.04.03.02,1,1 ks/ 1 rok
+04.04.03.03,2,1 ks/ 1 rok. 2 ks/ rok u dětí do1 roku včetně
+04.05.01.01,1,1 ks/ 1 rok
+04.05.01.02,8,8 ks/ 1 rok
+04.06.01.01,1,1 ks
+04.06.01.02,1,1 ks/ 2 roky
+04.06.01.03,1,1 ks/ 2 roky
+04.07.01.01,1,1 ks / 1 končetina / 1 rok
+04.07.02.01,2,2 páry/ 1 rok
+04.07.03.01,1,1 pár/ 2 roky
+05.01.01.01,1,1 ks/ 5 let
+05.02.01.01,1,1 ks/ 6 let
+05.02.01.02,1,1 ks/ 6 let
+05.02.01.03,1,1 ks/ 6 let
+05.02.01.04,1,1 ks/ 6 let
+05.02.02.01,2500,2500 ks/ 1 rok
+05.02.02.02,50,50 ks/ 1 rok
+05.02.03.01,50,50 ks/ 1 rok
+05.02.04.01,1,1 ks/ 4 roky
+05.03.02.01,200,200 ks/ 1 rok
+05.03.03.01,1,1 ks/ 4 roky
+05.03.03.02,1,1 ks/ 4 roky
+05.03.03.03,1,1 ks/ 4 roky
+05.03.03.04,1,"1 ks pro pacienty, kteří systém použijí ""krátkodobě"", max. do 1 roku, např. gestační diabetes	 1 ks / 4 roky	"
+05.03.04.01,150,150 ks/ 1 rok
+05.03.04.02,2,2 ks/ 2 roky
+05.03.05.01,100,100 ks/ 1 rok - při léčbě perorálními antidiabetiky
+05.03.05.02,500,500 ks/ 1 rok
+05.03.05.04,150,
+05.03.05.06,180,
+05.03.05.07,130,
+05.03.05.08,40,40 ks/ 1 měsíc
+05.03.05.09,20,20 ks/ 1 měsíc
+05.03.05.10,80,80 ks/ 1 měsíc
+05.03.05.11,40,40 ks/ 1 měsíc
+05.03.05.12,40,40 ks/ 1 měsíc
+06.01.02.01,2,2 páry/ 1 rok
+06.01.02.02,2,2 páry/ 1 rok
+06.01.02.03,2,2 páry/ 1 rok
+06.01.02.04,1,1 set/ 1 rok/ 1 končetina
+06.01.03.01,2,2 páry/ 1 rok
+06.01.03.02,2,2 páry/ 1 rok
+06.01.04.01,2,2 páry/ 1 rok
+06.01.04.02,2,2 páry/ 1 rok
+06.01.04.03,2,2 páry/ 1 rok
+06.01.04.04,2,2 ks/ 1 rok/ 1 končetina
+06.01.04.05,2,2 ks/ 1 rok/ 1 končetina
+06.01.05.01,2,2 ks/ 1 rok
+06.01.05.02,2,2 ks/ 1 rok
+06.01.06.01,1,1 ks/ 1 rok
+06.01.06.02,1,1 ks/ 1 rok
+06.01.07.01,2,2 ks/ 1 rok
+06.01.07.02,2,2 ks/ 1 rok
+06.01.08.01,1,1 ks/ 1 rok
+07.01.02.01,1,1 ks/ 7 let
+07.01.02.02,1,1 ks/ 7 let
+07.01.02.03,1,1 ks/ 7 let
+07.01.02.04,1,1 ks/ 7 let
+07.01.02.05,1,1 ks/ 7 let
+07.01.03.01,1,1 ks/ 5 let
+07.01.03.02,1,1 ks/ 7 let
+07.01.03.03,1,1 ks/ 5 let
+07.01.03.04,1,1 ks/ 7 let
+07.01.03.05,1,1 ks/ 7 let
+07.01.03.06,1,1 ks/ 7 let
+07.01.03.07,1,1 ks/ 7 let
+07.02.01.01,1,1 ks/ 3 roky
+07.02.02.01,1,1 ks/ 3 roky
+07.02.03.01,1,1 ks/ 3 roky
+07.02.04.01,1,1 ks/ 5 let
+07.02.05.01,1,1 ks/ 3 roky
+07.02.05.02,1,1 ks/ 5 let
+07.06.01.01,1,1 ks/ 3 roky
+07.06.01.02,1,1 ks/ 3 roky
+07.06.01.03,1,1 ks/ 3 roky
+07.06.01.04,1,1 ks/ 3 roky
+07.06.02.01,1,1 ks/ 3 roky
+07.06.02.02,1,1 ks/ 3 roky
+07.06.02.03,1,1 ks/ 3 roky
+07.06.02.04,1,1 ks/ 3 roky
+07.03.01.01,1,1 pár/ 2 roky
+07.03.01.02,2,2 ks/ 2 roky
+07.03.01.03,2,1 ks nebo 1 pár/ 2 roky
+07.03.02.01,1,1 ks/ 5 let
+07.03.02.02,1,1 ks/ 5 let
+07.03.02.03,1,1 ks/ 5 let
+07.03.02.04,1,1 ks/ 5 let
+07.03.02.05,1,1 ks/ 5 let
+07.03.02.06,1,1 ks/ 5 let
+07.03.02.07,1,1 ks/ 5 let
+07.03.03.01,1,1 ks/ 5 let
+07.04.01.01,1,1 ks/ 3 roky
+07.04.02.01,1,1 ks/ 5 let
+07.04.02.02,1,1 ks/ 5 let
+07.05.01.01,1,1 ks/ 10 let
+07.05.01.02,1,1 ks/ 7 let
+07.05.02.01,1,1 ks/ 7 let
+07.05.02.02,1,1 ks/ 7 let
+07.05.02.03,1,1 ks/ 7 let
+07.05.02.04,1,1 ks/ 7 let
+07.05.03.01,1,1 ks/ 10 let
+07.05.03.02,1,1 ks/ 3 roky
+07.05.04.01,1,1 ks/ 10 let
+06.03.01.05,6,"6 ks/ 1 rok; nejdéle po dobu jednoho roku"
+06.03.01.06,6,"6 ks/ 1 rok; nejdéle po dobu jednoho roku"
+06.03.01.07,6,"6 ks/ 1 rok; nejdéle po dobu jednoho roku"
+06.03.01.08,6,"6 ks/ 1 rok; nejdéle po dobu jednoho roku"
+06.04.01.01,2,2 ks/ 1 rok/ 1 končetina
+06.04.01.02,2,2 ks/ 1 rok/ 1 končetina
+06.04.01.03,2,2 ks/ 1 rok/ 1 končetina
+06.04.02.01,2,2 ks/ 1 rok/ 1 končetina
+06.04.02.02,2,2 ks/ 1 rok/ 1 končetina
+06.04.02.03,2,2 ks/ 1 rok/ 1 končetina
+06.04.02.04,2,2 ks/ 1 rok/ 1 končetina
+06.04.02.05,2,2 ks/ 1 rok/ 1 končetina
+07.01.01.01,1,1 ks/ 5 let
+07.01.01.02,1,1 ks/ 5 let
+07.01.01.03,1,1 ks/ 5 let
+07.01.01.04,1,1 ks/ 5 let
+07.01.01.05,1,1 ks/ 5 let
+07.01.01.06,1,1 ks/ 5 let
+07.01.01.07,1,1 ks/ 5 let
+07.01.01.08,1,1 ks/ 5 let
+07.01.01.09,1,1 ks/ 5 let
+07.01.01.10,1,1 ks/ 5 let
+07.01.01.11,1,1 ks/ 5 let
+07.01.01.12,1,1 ks/ 5 let
+07.01.01.13,1,1 ks/ 5 let
+07.01.01.14,1,1 ks/ 5 let
+07.06.03.01,1,1 ks/ 3 roky
+07.06.03.02,1,1 ks/ 3 roky
+07.06.04.01,1,1 ks/ 3 roky
+08.01.01.01,1,1 ks/ 5 let
+08.01.01.02,2,2 ks/ 5 let
+08.01.01.03,1,1 ks/ 5 let
+08.01.01.04,2,2 ks/ 5 let
+10.04.04.07,2,2 ks/ 1 rok
+10.04.04.08,2,2 ks/ 1 rok
+10.04.04.09,2,2 ks/ 1 rok
+10.04.04.10,2,2 ks/ 1 rok
+10.04.04.11,1,1 ks/ 4 roky
+10.04.04.12,2,2 ks/ 1 rok
+10.04.04.13,1,1 ks/ 2 roky
+10.05.01.01,2,2 ks/ 1 měsíc
+10.05.01.02,2,2 ks/ 1 měsíc
+10.05.01.03,6,6 ks/ 1 rok
+10.05.01.04,6,6 ks/ 1 rok
+10.05.01.05,6,6 ks/ 1 rok
+10.05.01.06,3,3 ks/ 2 roky
+10.05.01.07,6,6 ks/ 1 rok
+10.05.01.08,6,6 ks/ 1 rok
+10.05.01.09,1,1 ks/ 1 rok
+10.05.01.10,30,30 ks/ měsíc
+10.05.01.11,1,1 sada/ 1 rok
+08.01.02.01,1,1 ks/ 5 let
+08.01.02.02,1,1 ks/ 5 let
+08.01.02.03,1,1 ks/ 5 let
+08.01.02.04,1,1 ks/ 7let
+08.02.01.01,1,1 ks / 7 let / 1 ucho
+09.01.01.01,400,400 ks/ 1 rok
+09.03.01.01,1,1 ks/ 7 let
+09.03.01.02,1,1 ks/ 7 let
+09.03.02.01,1,1 ks/ 5 let
+09.04.01.01,1,1 ks/ 7 let
+09.04.02.01,1,1 ks/ 2 roky
+09.04.03.01,3,3 ks / 1 rok
+09.04.03.02,3,3 ks / 1 rok
+09.04.04.01,3,3 ks / 1 rok
+10.01.01.01,1,1 ks/ 5 let
+10.01.01.02,1,1 ks/ 5 let
+10.01.01.03,1,1 ks/ 5 let
+10.01.01.04,1,1 ks/ 2 roky
+10.01.01.05,1,1 ks/ 2 roky
+10.01.01.06,1,1 ks/ 2 roky
+10.01.01.07,4,4 ks/ 1 rok
+10.01.02.01,1,1 ks/ 2 roky
+10.02.01.01,1,1 ks/ 1 rok
+10.02.02.01,1,1 ks/ 1 rok
+10.02.02.02,1,1 ks/ 2 roky
+10.04.01.01,1,1 ks/ 7 let
+10.04.01.02,1,1 ks/ 7 let
+10.04.02.01,1,1 ks/ 7 let
+10.04.02.02,1,1 ks/ 7 let
+10.04.02.03,1,1 ks/ 7 let
+10.04.02.04,1,1 ks/ 7 let
+10.04.03.01,1,1 ks/ 7 let
+10.04.03.02,1,1 ks/ 7 let
+10.04.03.03,1,1 ks/ 7 let
+10.04.03.04,1,1 ks/ 7 let
+10.04.03.05,1,1 ks/ 7 let
+10.04.03.06,1,1 ks/ 7 let
+10.04.03.07,1,1 ks/ 7 let
+10.04.03.08,1,1 ks/ 7 let
+10.04.04.01,2,2 ks/ 1 rok
+10.04.04.02,2,2 ks/ 1 rok
+10.04.04.03,1,2 ks/ 1 rok
+10.04.04.04,1,1 ks/ 1 rok
+10.04.04.05,2,2 ks/ 1 rok
+03.02.01.01,10,"10 ks / měsíc - kolostomie; trvalá drenáž; pištěl; 15 ks / měsíc - ileostomie; urostomie; pro děti do 6 let včetně řídká, vodnatá nebo agresivní stolice nad 1000 ml / 24 hod; komplikované peristomální okolí (jizvy, kožní útvary, pigmentové skvrny, kožní nerovnosti); poškození peristomální oblasti (iritace nebo macerace kůže, stehové píštěle, granulomy, abscesové dutiny, chronické píštěle u IBD, alergická reakce, kontaktní dermatitida, lupénka, atopický ekzém); stomie v úrovni nebo pod úrovní kůž"
+10.04.04.06,2,2 ks / 1 rok
+06.01.11.05,1,
+10.07.02.02,1,
+06.01.11.06,1,
+07.07.01.01,1,
+10.05.01.12,3,3 sady / 2 roky
+10.05.01.13,1,1 sada / 1 měsíc
+10.06.01.01,1,1 ks/ 5 let
+10.06.01.02,400,400 ks/ 1 rok
+10.07.01.01,2,2 balení / 6 měsíců
+10.07.01.02,1,1 ks / 1 den
+10.07.02.01,1,1 ks/ 10 let
+11,,"dle písemného souhlasu ve smyslu § 39r odst. 5 písm. j), anebo dle smlouvy o sdílení rizik"
+03.10.01.01,15,15 ks/ měsíc
+06.03.01.02,6,"6 ks/ 1 rok; nejdéle po dobu jednoho roku"
+03.08.01.02,120,120 ks / měsíc
+06.02.01.06,1,1 ks/ 2 roky
+03.01.03.01,60,"urostomie; nekomplikovaná stomie; rovné peristomální okolí; zdravá nebo mírně poškozená peristomální kůže; píštěl; drén - 30 ks/měsíc; do 6 let včetně komplikované peristomální okolí (jizvy, kožní útvary, pigmentové skvrny, kožní nerovnosti); poškození peristomální oblasti (iritace nebo macerace kůže, stehové píštěle, granulomy, abscesové dutiny, chronické píštěle u IBD, alergická reakce, kontaktní dermatitida, lupénka, atopický ekzém); stomie v úrovni nebo pod úrovní kůže nebo v kožním záhybu; "
+05.03.01.01,2,"1 ks / 3 rok - diabetes mellitus, nejvíce 2 dávky inzulínu denně	;    2 ks / 3 roky - diabetes mellitus léčený intenzifikovanou inzulínovou terapií; (3 a více dávek inzulínu denně); diabetes mellitus při souběžné aplikaci	; nebo 2 druhů inzulínu		"

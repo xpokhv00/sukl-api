@@ -1,0 +1,53 @@
+kod,nazev
+01,ZP krycí
+02,ZP pro inkontinentní pacienty
+03,ZP pro pacienty se stomií
+04,ZP ortopedicko protetické a ortopedická obuv
+05,ZP pro pacienty s diabetem a s jinými poruchami metabolismu
+06,ZP pro kompresivní terapii
+07,ZP pro pacienty s poruchou mobility
+08,ZP pro pacienty s poruchou sluchu
+09,ZP pro pacienty s poruchou zraku
+10,"ZP respirační, inhalační a pro aplikaci enterální výživy"
+11,ZP nekategorizované
+12,Kompenzační pomůcky pro tělesně postižené
+13,Dále nespecifikované pomůcky
+14,Kompenzační pomůcky pro zrakově postižené
+15,Kompenzační pomůcky pro sluchově postižené
+16,Obuv ortopedická
+17,Pomůcky pro laryngektomované
+24,ZP ortopedicko-protetické - na zakázku
+26,ZP pro kompresní terapii - na zakázku
+30,Opravy a úpravy ZP
+41,Implantáty biologické lidského a zvířecího původu
+42,"Implantáty spinální,spondylochirurgie"
+43,"Systémy hydrocephalní drenážní, monitorovací likvorové, čidla"
+44,Implantáty pro chirurgii hlavy a krku
+53,"Kardiostimulátory,defibrilátory,elektrody,chlopně"
+54,"Systémy implantabilní neurostimulační, elektrody epileptologické"
+55,Cévní protézy
+56,Další chirurgický materiál
+59,Fixační pomůcky
+60,Jehly
+62,"Kanyly tracheální, tracheostomické"
+64,"Implantáty kostní, urologické, mammární"
+67,"Katetry,dráty,drény,sety,sondy,soupravy,systémy,vodiče,zavaděče"
+68,"Staplery, prostředky pro laparoskopii"
+69,"Prostředky pro infuzi, transfuzi a dialýzu"
+70,Prostředky pro anesteziologii a resuscitaci
+71,"Prostř.pro invaz.použití v perif.,intrakran. a neurovask. oblasti"
+77,Prostředky pro intenzivní a invazivní kardiologii
+78,Stenty a stentgrafty
+80,Prostředky pro použití v GIT
+81,RTG filmy a radiodiagnostické ZP
+82,Prostředky k laparoskopickým výkonům ZUM obligatórní (paušál)
+83,"Porty,katetry implantabilní,katetry centrální žilní"
+84,Další osteosyntetický materiál
+85,Oxygenátory
+86,Komponenty pro náhrady kolenního kloubu
+87,Komponenty pro náhrady kyčelního kloubu
+88,Komponenty pro náhrady ostatních kloubů
+89,Cementy kostní
+90,ZP pro robotické výkony
+91,Komponenty pro osteosyntetickou zevní fixaci
+92,Kardiostehy
