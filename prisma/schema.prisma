@@ -190,7 +190,7 @@ model DispensingRestriction {
 }
 
 model Pharmacy {
-  id          String   @id @default(cuid())
+  id          String   @id @map("pharmacy_id")
   name        String   @map("name")
   street      String?  @map("street")
   city        String?  @map("city")
