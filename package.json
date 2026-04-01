@@ -9,7 +9,9 @@
     "start": "node dist/server.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
-    "prisma:studio": "prisma studio"
+    "prisma:studio": "prisma studio",
+    "seed": "tsx src/seed.ts",
+    "reset_db": "prisma migrate reset"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +25,7 @@
     "express": "^5.2.1",
     "fast-csv": "^5.0.5",
     "helmet": "^8.1.0",
+    "iconv-lite": "^0.7.2",
     "pg": "^8.20.0",
     "pino": "^10.3.1",
     "pino-http": "^11.0.0",

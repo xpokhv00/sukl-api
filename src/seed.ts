@@ -13,7 +13,7 @@ import {
   loadSynonyms,
   loadMedicationDocuments,
   loadDisruptions,
-  //loadPriceReports,
+  loadPriceReports,
   //loadDispensingRestrictions,
   loadPharmacyTypes,
   loadPharmacies,
@@ -27,7 +27,7 @@ async function main() {
     await loadOrganizations("data/DLP20260227/dlp_organizace.csv");
     await loadPharmaceuticalForms("data/DLP20260227/dlp_formy.csv");
     await loadAdministrationRoutes("data/DLP20260227/dlp_cesty.csv");
-    //await loadDispensingCategories("data/DLP20260227");
+    // await loadDispensingCategories("data/DLP20260227");
     //await loadRegistrationStatuses("data/DLP20260227/dlp_registration_statuses.csv");
 
     // Substances
@@ -37,11 +37,13 @@ async function main() {
     await loadMedications("data/DLP20260227/dlp_lecivepripravky.csv");
 
     // Child tables
-    await loadCompositions("data/DLP20260227/dlp_compositions.csv");
+    await loadCompositions("data/DLP20260227/dlp_slozeni.csv");
     await loadSynonyms("data/DLP20260227/dlp_synonyma.csv");
-    await loadMedicationDocuments("data/DLP20260227/dlp_dokumenty.csv");
-    //await loadDisruptions("data/");
-    //await loadPriceReports("data/price_reports.csv");
+
+
+    // await loadMedicationDocuments("data/DLP20260227/dlp_dokumenty.csv");
+    await loadDisruptions("data/mr/mr_hlaseni.csv");
+    await loadPriceReports("data/LEK13_202602v01.csv");
     //await loadDispensingRestrictions("data/dispensing_restrictions.csv");
 
     // Pharmacies require a type map first

@@ -7,6 +7,7 @@ import { createLoader } from "./utils/createLoader";
 export const loadSubstances = createLoader(
   prisma.substance,
   row => ({
+    id: Parsers.string(row.KOD_LATKY),
     name: Parsers.string(row.NAZEV),
     innName: Parsers.optionalString(row.NAZEV_INN),
   }),
@@ -31,7 +32,7 @@ export const loadAtcNodes = createLoader(
     code: Parsers.string(row.ATC),
     name: Parsers.string(row.NAZEV),
     parentCode: Parsers.optionalString(row.parent_code),
-    level: Parsers.string(row.NT) ?? "",
+    level: Parsers.number(row.NT) ?? null,
   }),
   "ATC nodes"
 );
@@ -91,18 +92,39 @@ export const loadRegistrationStatuses = createLoader(
 );
 
 // ----------------- Compositions -----------------
-export const loadCompositions = createLoader(
-  prisma.composition,
-  row => ({
-    medicationSuklCode: Parsers.string(row.KOD_SUKL),
-    substanceId: Parsers.string(row.KOD_LATKY),
-    amount: Parsers.number(row.AMNT) ?? Parsers.number(row.AMNT_OD),
-    unit: Parsers.optionalString(row.UN),
-    type: "ACTIVE",
-    note: null,
-  }),
-  "compositions"
-);
+export async function loadCompositions(filePath: string) {
+  const validSubstances = await prisma.substance.findMany({ select: { id: true } });
+  const validSubstanceIds = new Set(validSubstances.map(s => s.id));
+
+  const validMedications = await prisma.medication.findMany({ select: { suklCode: true } });
+  const validMedicationIds = new Set(validMedications.map(m => m.suklCode));
+
+  // create filtered data loader
+  const baseLoader = createLoader(
+    prisma.composition,
+    row => {
+      const suklCode = Parsers.string(row.KOD_SUKL);
+      const substanceId = Parsers.string(row.KOD_LATKY);
+
+      // ignore dirty data (non-existing IDs)
+      if (!validMedicationIds.has(suklCode) || !validSubstanceIds.has(substanceId)) {
+        return [];
+      }
+
+      return {
+        medicationSuklCode: suklCode,
+        substanceId: substanceId,
+        amount: Parsers.number(row.AMNT) ?? Parsers.number(row.AMNT_OD),
+        unit: Parsers.optionalString(row.UN),
+        type: "ACTIVE",
+        note: null,
+      };
+    },
+    "compositions"
+  );
+
+  await baseLoader(filePath);
+}
 
 // ----------------- Synonyms -----------------
 export const loadSynonyms = createLoader(
@@ -132,40 +154,69 @@ export const loadMedicationDocuments = createLoader(
 );
 
 // ----------------- Disruptions -----------------
-export const loadDisruptions = createLoader(
-  prisma.disruption,
-  row => {
-    const sukl = Parsers.string(row.KOD_SUKL);
-    if (!sukl) return [];
-    return {
-      medicationSuklCode: sukl,
-      type: normalizeType(row.TYP_OZNAMENI),
-      reason: Parsers.optionalString(row.DUVOD_PRERUSENI_UKONCENI),
-      isActive: Parsers.boolean(row.POSLEDNI_PLATNE_HLASENI),
-      reportedAt: Parsers.date(row.DATUM_HLASENI) ?? undefined,
-      startDate: Parsers.date(row.PLATNOST_OD) ?? undefined,
-      endDate: Parsers.date(row.TERMIN_OBNOVENI) ?? undefined,
-      replacementSuklCode: extractFirstCode(row.NAHRAZUJICI_LP),
-    };
-  },
-  "disruptions"
-);
+export async function loadDisruptions(filePath: string) {
+  const validMedications = await prisma.medication.findMany({ select: { suklCode: true } });
+  const validMedicationIds = new Set(validMedications.map(m => m.suklCode));
 
-//TODO: add price reports
+  // create filtered data loader
+  const baseLoader = createLoader(
+    prisma.disruption,
+    row => {
+      const suklCode = Parsers.string(row.KOD_SUKL);
+
+      // ignore dirty data (non-existing IDs)
+      if (!validMedicationIds.has(suklCode)) {
+        return [];
+      }
+
+      return {
+        medicationSuklCode: suklCode,
+        type: normalizeType(row.TYP_OZNAMENI),
+        reason: Parsers.optionalString(row.DUVOD_PRERUSENI_UKONCENI),
+        isActive: Parsers.boolean(row.POSLEDNI_PLATNE_HLASENI),
+        reportedAt: Parsers.date(row.DATUM_HLASENI) ?? undefined,
+        startDate: Parsers.date(row.PLATNOST_OD) ?? undefined,
+        endDate: Parsers.date(row.TERMIN_OBNOVENI) ?? undefined,
+        replacementSuklCode: extractFirstCode(row.NAHRAZUJICI_LP),
+      };
+    },
+    "disruptions"
+  );
+
+  await baseLoader(filePath);
+}
+
+//TODO: reimbursement, patientCopay and reportedAt
 // ----------------- Price Reports -----------------
-/*export const loadPriceReports = createLoader(
-  prisma.priceReport,
-  row => ({
-    medicationSuklCode: Parsers.string(row.medication_sukl_code),
-    period: Parsers.string(row.period),
-    maxPrice: row.max_price ?? null,
-    reimbursement: row.reimbursement ?? null,
-    patientCopay: row.patient_copay ?? null,
-    dispensingMode: Parsers.optionalString(row.dispensing_mode),
-    reportedAt: Parsers.date(row.reported_at) ?? undefined,
-  }),
-  "price reports"
-);*/
+export async function loadPriceReports(filePath: string) {
+  const validMedications = await prisma.medication.findMany({ select: { suklCode: true } });
+  const validMedicationIds = new Set(validMedications.map(m => m.suklCode));
+
+  // create filtered data loader
+  const baseLoader = createLoader(
+    prisma.priceReport,
+    row => {
+      const suklCode = Parsers.string(row['Kód SÚKL']);
+
+      // ignore dirty data (non-existing IDs)
+      if (!validMedicationIds.has(suklCode)) {
+        return [];
+      }
+      return {
+        medicationSuklCode: suklCode,
+        period: Parsers.string(row['Období']),
+        maxPrice: Parsers.number(row['Konečná prodejní cena s DPH']) ?? null,
+        reimbursement: row.reimbursement ?? null,
+        patientCopay: row.patient_copay ?? null,
+        dispensingMode: Parsers.optionalString(row['Způsob výdeje']),
+        reportedAt: Parsers.date(row.reported_at) ?? undefined,
+      };
+    },
+    "price reports"
+  );
+
+  await baseLoader(filePath);
+}
 
 //TODO: add dispensing restrictions
 // ----------------- Dispensing Restrictions -----------------
@@ -184,6 +235,7 @@ export const loadDisruptions = createLoader(
 
 // ----------------- Pharmacies -----------------
 import { readCsv } from "./utils/csv";
+import { exit } from "node:process";
 
 export async function loadPharmacyTypes(filePath: string): Promise<Record<string, string>> {
   const rows = await readCsv(filePath, ";");

@@ -95,7 +95,7 @@ model AtcNode {
   code       String  @id @map("code")
   name       String  @map("name")
   parentCode String? @map("parent_code")
-  level      Int     @map("level")
+  level      Int?     @map("level")
 
   parent      AtcNode?     @relation("AtcTree", fields: [parentCode], references: [code])
   children    AtcNode[]    @relation("AtcTree")
