@@ -21,7 +21,14 @@ export const loadMedications = createLoader(
     suklCode: Parsers.string(row.KOD_SUKL),
     name: Parsers.string(row.NAZEV),
     strength: Parsers.optionalString(row.SILA),
+    ean: Parsers.optionalString(row.EAN),
+    registrationNumber: Parsers.optionalString(row.RC),
     atcCode: Parsers.optionalString(row.ATC_WHO),
+    organizationCode: Parsers.optionalString(row.DRZ),
+    formCode: Parsers.optionalString(row.FORMA),
+    routeCode: Parsers.optionalString(row.CESTA),
+    dispensingCategoryCode: Parsers.optionalString(row.VYDEJ),
+    registrationStatusCode: Parsers.optionalString(row.REG),
     dependencyCategoryCode: Parsers.optionalString(row.ZAV),
     medicationTypeCode: Parsers.optionalString(row.TYP_LP),
     indicationGroupCode: Parsers.optionalString(row.LL),
@@ -33,7 +40,12 @@ export const loadMedications = createLoader(
 
 export async function updateMedicationFks(filePath: string) {
   // Load valid codes for each FK to avoid constraint violations on dirty data
-  const [deps, typs, inds, nars] = await Promise.all([
+  const [forms, routes, orgs, statuses, dispensing, deps, typs, inds, nars] = await Promise.all([
+    prisma.pharmaceuticalForm.findMany({ select: { code: true } }).then(r => new Set(r.map(x => x.code))),
+    prisma.administrationRoute.findMany({ select: { code: true } }).then(r => new Set(r.map(x => x.code))),
+    prisma.organization.findMany({ select: { code: true } }).then(r => new Set(r.map(x => x.code))),
+    prisma.registrationStatus.findMany({ select: { code: true } }).then(r => new Set(r.map(x => x.code))),
+    prisma.dispensingCategory.findMany({ select: { code: true } }).then(r => new Set(r.map(x => x.code))),
     prisma.dependencyCategory.findMany({ select: { code: true } }).then(r => new Set(r.map(x => x.code))),
     prisma.medicationType.findMany({ select: { code: true } }).then(r => new Set(r.map(x => x.code))),
     prisma.indicationGroup.findMany({ select: { code: true } }).then(r => new Set(r.map(x => x.code))),
@@ -44,35 +56,57 @@ export async function updateMedicationFks(filePath: string) {
     code !== null && set.has(code) ? code : null;
 
   const stream = streamCsv(filePath);
-  type Row = { suklCode: string; dep: string | null; typ: string | null; ind: string | null; nar: string | null };
+  type Row = {
+    suklCode: string;
+    ean: string | null; reg: string | null;
+    form: string | null; route: string | null; org: string | null;
+    status: string | null; disp: string | null;
+    dep: string | null; typ: string | null; ind: string | null; nar: string | null;
+  };
   let batch: Row[] = [];
   let total = 0;
 
   const flush = async (rows: Row[]) => {
     const values = rows
-      .map(r => `(${[r.suklCode, r.dep, r.typ, r.ind, r.nar].map(v => v === null ? 'NULL' : `'${v.replace(/'/g, "''")}'`).join(',')})`)
+      .map(r => `(${[r.suklCode, r.ean, r.reg, r.form, r.route, r.org, r.status, r.disp, r.dep, r.typ, r.ind, r.nar]
+        .map(v => v === null ? 'NULL' : `'${v.replace(/'/g, "''")}'`).join(',')})`)
       .join(',');
 
     await prisma.$executeRawUnsafe(`
       UPDATE medications AS m
       SET
+        ean                      = v.ean::text,
+        registration_number      = v.reg::text,
+        form_code                = v.form::text,
+        route_code               = v.route::text,
+        organization_code        = v.org::text,
+        registration_status_code = v.status::text,
+        dispensing_category_code = v.disp::text,
         dependency_category_code = v.dep::text,
         medication_type_code     = v.typ::text,
         indication_group_code    = v.ind::text,
         narcotic_category_code   = v.nar::text
-      FROM (VALUES ${values}) AS v(sukl_code, dep, typ, ind, nar)
+      FROM (VALUES ${values}) AS v(sukl_code, ean, reg, form, route, org, status, disp, dep, typ, ind, nar)
       WHERE m.sukl_code = v.sukl_code
     `);
     total += rows.length;
   };
 
   for await (const row of stream) {
+    const r = row as any;
     batch.push({
-      suklCode: Parsers.string((row as any).KOD_SUKL),
-      dep: valid(Parsers.optionalString((row as any).ZAV) ?? null, deps),
-      typ: valid(Parsers.optionalString((row as any).TYP_LP) ?? null, typs),
-      ind: valid(Parsers.optionalString((row as any).LL) ?? null, inds),
-      nar: valid(Parsers.optionalString((row as any).NARVLA) ?? null, nars),
+      suklCode: Parsers.string(r.KOD_SUKL),
+      ean:      Parsers.optionalString(r.EAN)    ?? null,
+      reg:      Parsers.optionalString(r.RC)     ?? null,
+      form:     valid(Parsers.optionalString(r.FORMA)  ?? null, forms),
+      route:    valid(Parsers.optionalString(r.CESTA)  ?? null, routes),
+      org:      valid(Parsers.optionalString(r.DRZ)    ?? null, orgs),
+      status:   valid(Parsers.optionalString(r.REG)    ?? null, statuses),
+      disp:     valid(Parsers.optionalString(r.VYDEJ)  ?? null, dispensing),
+      dep:      valid(Parsers.optionalString(r.ZAV)    ?? null, deps),
+      typ:      valid(Parsers.optionalString(r.TYP_LP) ?? null, typs),
+      ind:      valid(Parsers.optionalString(r.LL)     ?? null, inds),
+      nar:      valid(Parsers.optionalString(r.NARVLA) ?? null, nars),
     });
     if (batch.length >= 2000) {
       await flush(batch);
