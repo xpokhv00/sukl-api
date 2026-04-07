@@ -20,6 +20,11 @@ model Medication {
   dispensingCategoryCode String? @map("dispensing_category_code")
   registrationStatusCode String? @map("registration_status_code")
 
+  dependencyCategoryCode String? @map("dependency_category_code")
+  medicationTypeCode     String? @map("medication_type_code")
+  indicationGroupCode    String? @map("indication_group_code")
+  narcoticCategoryCode   String? @map("narcotic_category_code")
+
   isReimbursed Boolean? @map("is_reimbursed")
   isActive     Boolean? @default(true) @map("is_active")
 
@@ -32,12 +37,17 @@ model Medication {
   route              AdministrationRoute? @relation(fields: [routeCode], references: [code])
   dispensingCategory DispensingCategory?  @relation(fields: [dispensingCategoryCode], references: [code])
   registrationStatus RegistrationStatus?  @relation(fields: [registrationStatusCode], references: [code])
+  dependencyCategory DependencyCategory?  @relation(fields: [dependencyCategoryCode], references: [code])
+  medicationType     MedicationType?      @relation(fields: [medicationTypeCode], references: [code])
+  indicationGroup    IndicationGroup?     @relation(fields: [indicationGroupCode], references: [code])
+  narcoticCategory   NarcoticCategory?    @relation(fields: [narcoticCategoryCode], references: [code])
 
   compositions           Composition[]
   documents              MedicationDocument[]
   disruptions            Disruption[]
   priceReports           PriceReport[]
   dispensingRestrictions DispensingRestriction[]
+  dopingEntries          MedicationDoping[]
 
   @@index([name])
   @@index([atcCode])
@@ -285,4 +295,90 @@ enum RestrictionType {
   PHARMACIST
   PATIENT
   OTHER
+}
+
+model DopingCategory {
+  code          String             @id @map("code")
+  name          String             @map("name")
+  dopingEntries MedicationDoping[]
+
+  @@map("doping_categories")
+}
+
+model MedicationDoping {
+  medicationSuklCode String @map("medication_sukl_code")
+  dopingCategoryCode String @map("doping_category_code")
+
+  medication     Medication     @relation(fields: [medicationSuklCode], references: [suklCode], onDelete: Cascade)
+  dopingCategory DopingCategory @relation(fields: [dopingCategoryCode], references: [code])
+
+  @@id([medicationSuklCode, dopingCategoryCode])
+  @@map("medication_doping")
+}
+
+model DependencyCategory {
+  code        String       @id @map("code")
+  name        String       @map("name")
+  medications Medication[]
+
+  @@map("dependency_categories")
+}
+
+model MedicationType {
+  code        String       @id @map("code")
+  name        String       @map("name")
+  nameEn      String?      @map("name_en")
+  medications Medication[]
+
+  @@map("medication_types")
+}
+
+model IndicationGroup {
+  code        String       @id @map("code")
+  name        String       @map("name")
+  medications Medication[]
+
+  @@map("indication_groups")
+}
+
+model NarcoticCategory {
+  code        String       @id @map("code")
+  name        String       @map("name")
+  medications Medication[]
+
+  @@map("narcotic_categories")
+}
+
+model RegistrationChange {
+  id                 String    @id @default(cuid())
+  changeType         String    @map("change_type")
+  name               String    @map("name")
+  strength           String?   @map("strength")
+  formCode           String?   @map("form_code")
+  routeCode          String?   @map("route_code")
+  registrationNumber String?   @map("registration_number")
+  mrpNumber          String?   @map("mrp_number")
+  holder             String?   @map("holder")
+  effectiveDate      DateTime? @map("effective_date")
+  statusCode         String?   @map("status_code")
+
+  @@index([changeType])
+  @@index([registrationNumber])
+  @@map("registration_changes")
+}
+
+model Prescription {
+  id           String  @id @default(cuid())
+  districtCode String  @map("district_code")
+  districtName String? @map("district_name")
+  year         Int     @map("year")
+  month        Int     @map("month")
+  suklCode     String  @map("sukl_code")
+  quantity     Int     @map("quantity")
+
+  @@unique([districtCode, year, month, suklCode])
+  @@index([suklCode])
+  @@index([year, month])
+  @@index([districtCode])
+  @@map("prescriptions")
 }

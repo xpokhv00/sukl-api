@@ -28,13 +28,14 @@ export function createLoader<T>(
   mapRow: Mapper<T>,
   label: string,
   delimiter = ";",
-  batchSize = 1000
+  batchSize = 1000,
+  encoding = "win1250"
 ) {
   return async (filePath: string) => {
     let batch: any[] = [];
     let totalLoaded = 0;
 
-    const stream = streamCsv(filePath, delimiter);
+    const stream = streamCsv(filePath, delimiter, encoding);
 
     for await (const row of stream) {
       const result = mapRow(row as CsvRow);
