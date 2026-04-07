@@ -18,8 +18,8 @@ export function readCsv(filePath: string, delimiter = ";"): Promise<CsvRow[]> {
 }
 
 // for parsing large amount of data
-export function streamCsv(filePath: string, delimiter = ";") {
+export function streamCsv(filePath: string, delimiter = ";", encoding = "win1250") {
   return fs.createReadStream(filePath)
-    .pipe(iconv.decodeStream("win1250"))
+    .pipe(iconv.decodeStream(encoding))
     .pipe(parse({ headers: true, delimiter }));
 }
