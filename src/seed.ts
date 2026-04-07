@@ -28,7 +28,7 @@ async function main() {
     await loadPharmaceuticalForms("data/DLP20260227/dlp_formy.csv");
     await loadAdministrationRoutes("data/DLP20260227/dlp_cesty.csv");
     // await loadDispensingCategories("data/DLP20260227");
-    //await loadRegistrationStatuses("data/DLP20260227/dlp_registration_statuses.csv");
+    await loadRegistrationStatuses("data/DLP20260227/dlp_stavyreg.csv");
 
     // Substances
     await loadSubstances("data/DLP20260227/dlp_latky.csv");
