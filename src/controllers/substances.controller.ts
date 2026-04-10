@@ -8,7 +8,7 @@ export async function listSubstances(req: Request, res: Response) {
 }
 
 export async function getSubstance(req: Request, res: Response) {
-    const substance = await getSubstanceById(req.params.id);
+    const substance = await getSubstanceById(req.params.id as string);
     if (!substance) throw new AppError(404, "Substance not found");
     res.json(substance);
 }

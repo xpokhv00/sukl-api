@@ -8,7 +8,7 @@ export async function listPharmacies(req: Request, res: Response) {
 }
 
 export async function getPharmacy(req: Request, res: Response) {
-    const pharmacy = await getPharmacyById(req.params.id);
+    const pharmacy = await getPharmacyById(req.params.id as string);
     if (!pharmacy) throw new AppError(404, "Pharmacy not found");
     res.json(pharmacy);
 }

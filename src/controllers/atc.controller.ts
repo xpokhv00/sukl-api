@@ -9,7 +9,7 @@ export async function listAtcNodes(req: Request, res: Response) {
 }
 
 export async function getAtc(req: Request, res: Response) {
-    const node = await getAtcNode(req.params.code.toUpperCase());
+    const node = await getAtcNode((req.params.code as string).toUpperCase());
     if (!node) throw new AppError(404, "ATC code not found");
     res.json(node);
 }
