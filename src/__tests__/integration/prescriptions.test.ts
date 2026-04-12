@@ -110,4 +110,50 @@ describe('Prescriptions Endpoints E2E Tests', () => {
       expect(response.status).toBe(400);
     });
   });
+
+  describe('GET /prescriptions/total', () => {
+    it('should return total ', async () => {
+      const response = await request(app).get('/prescriptions/total');
+
+      expect(response.status).toBe(200);
+      expect(response.body).toHaveProperty('total');
+      expect(response.body).toHaveProperty('filters');
+      expect(typeof response.body.total).toBe('number');
+      expect(response.body.total).toBeGreaterThan(0);
+    });
+
+    it('should filter by suklCode and return total', async () => {
+      const response = await request(app).get('/prescriptions/total?suklCode=0010602');
+
+      expect(response.status).toBe(200);
+      expect(response.body.total).toBeGreaterThan(0);
+      expect(response.body.filters.suklCode).toBe('0010602');
+    });
+    it('should filter by year and month', async () => {
+      const response = await request(app).get('/prescriptions/total?year=2026&month=2');
+
+      expect(response.status).toBe(200);
+      expect(typeof response.body.total).toBe('number');
+      expect(response.body.filters).toEqual({ year: 2026, month: 2 });
+    });
+
+    it('should filter by suklCode, year, and month', async () => {
+      const response = await request(app).get('/prescriptions/total?suklCode=0010602&year=2026&month=2');
+
+      expect(response.status).toBe(200);
+      expect(response.body.total).toBeGreaterThan(0);
+      expect(response.body.filters).toEqual({
+        suklCode: '0010602',
+        year: 2026,
+        month: 2,
+      });
+    });
+
+    it('should return 0 for non-existent year', async () => {
+      const response = await request(app).get('/prescriptions/total?year=9999');
+
+      expect(response.status).toBe(200);
+      expect(response.body.total).toBe(0);
+    });
+  });
 });
