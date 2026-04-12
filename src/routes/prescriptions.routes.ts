@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { listPrescriptions } from "../controllers/prescriptions.controller";
+import { listPrescriptions, getTotalPrescriptions } from "../controllers/prescriptions.controller";
 import { validate } from "../middleware/validate";
-import { prescriptionsQuerySchema } from "../schemas/prescriptions";
+import { prescriptionsQuerySchema, prescriptionsTotalQuerySchema } from "../schemas/prescriptions";
 
 const router = Router();
 
@@ -52,5 +52,45 @@ const router = Router();
  *             schema: { $ref: '#/components/schemas/ErrorResponse' }
  */
 router.get("/", validate(prescriptionsQuerySchema), listPrescriptions);
+
+/**
+ * @swagger
+ * /prescriptions/total:
+ *   get:
+ *     summary: Get total prescription quantity
+ *     description: Returns the sum of all prescription quantities across all districts matching the filters (no pagination).
+ *     tags: [Prescriptions]
+ *     parameters:
+ *       - in: query
+ *         name: suklCode
+ *         schema: { type: string, pattern: '^\d{7}$' }
+ *         description: Filter by SUKL code
+ *       - in: query
+ *         name: year
+ *         schema: { type: integer, example: 2026 }
+ *       - in: query
+ *         name: month
+ *         schema: { type: integer, minimum: 1, maximum: 12 }
+ *     responses:
+ *       200:
+ *         description: Total prescription quantity
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 total:
+ *                   type: number
+ *                   description: Sum of all quantities across all districts
+ *                 filters:
+ *                   type: object
+ *                   description: Applied filters
+ *       400:
+ *         description: Invalid query parameters
+ *         content:
+ *           application/json:
+ *             schema: { $ref: '#/components/schemas/ErrorResponse' }
+ */
+router.get("/total", validate(prescriptionsTotalQuerySchema), getTotalPrescriptions);
 
 export default router;

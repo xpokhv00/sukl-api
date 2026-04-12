@@ -35,3 +35,21 @@ export async function getPrescriptions(params: ListParams) {
         meta: { page, limit, total, totalPages: Math.ceil(total / limit) },
     };
 }
+
+export async function getPrescriptionsTotal(params: ListParams) {
+    const where = {
+        ...(params.suklCode && { suklCode: params.suklCode }),
+        ...(params.year && { year: params.year }),
+        ...(params.month && { month: params.month }),
+    };
+
+    const result = await prisma.prescription.aggregate({
+        where,
+        _sum: { quantity: true },
+    });
+
+    return {
+        total: result._sum.quantity || 0,
+        filters: params,
+    };
+}
