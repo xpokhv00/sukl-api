@@ -22,6 +22,17 @@ describe('ATC Endpoints E2E Tests', () => {
       expect(firstNode).toHaveProperty('name');
       expect(firstNode).toHaveProperty('level');
     });
+
+    it('should filter by parent code', async () => {
+      const response = await request(app).get('/atc?parent=A');
+
+      expect(response.status).toBe(200);
+      expect(response.body).toHaveProperty('data');
+      expect(Array.isArray(response.body.data)).toBe(true);
+      response.body.data.forEach((node: any) => {
+        expect(node.code).toMatch(/^A/);
+      });
+    });
   });
 
   describe('GET /atc/:code', () => {
