@@ -14,6 +14,7 @@ module.exports = {
   ],
   setupFilesAfterEnv: ['<rootDir>/src/__tests__/setup.ts'],
   testTimeout: 1500000,
+  maxWorkers: 1,
   transform: {
     '^.+\\.ts$': ['ts-jest', {
       tsconfig: {

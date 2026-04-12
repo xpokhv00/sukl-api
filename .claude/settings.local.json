@@ -9,7 +9,11 @@
       "Bash(npx tsc:*)",
       "Bash(node --env-file=.env -e \":*)",
       "Bash(npx tsx:*)",
-      "Bash(rm src/gen-swagger.ts)"
+      "Bash(rm src/gen-swagger.ts)",
+      "Bash(npm test:*)",
+      "Bash(npm install:*)",
+      "Bash(npx jest:*)",
+      "Bash(grep -v \"^$\")"
     ]
   }
 }
