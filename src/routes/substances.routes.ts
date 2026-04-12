@@ -10,13 +10,17 @@ const router = Router();
  * /substances:
  *   get:
  *     summary: List active substances
- *     description: Search substances by name or INN name. Each substance can appear in multiple medications.
+ *     description: Search substances by name, INN name, or synonyms. Results are ordered by match quality (exact name match first, then synonym matches, then partial matches). Each substance can appear in multiple medications.
  *     tags: [Substances]
  *     parameters:
  *       - in: query
  *         name: name
  *         schema: { type: string }
- *         description: Case-insensitive search across name and INN name
+ *         description: Case-insensitive search across name, INN name, and synonyms (ordered by match quality)
+ *       - in: query
+ *         name: searchSynonyms
+ *         schema: { type: boolean, default: true }
+ *         description: Search in substance synonyms (default is true, set to false to search only name and INN)
  *       - in: query
  *         name: page
  *         schema: { type: integer, default: 1, minimum: 1 }
