@@ -46,5 +46,56 @@ describe('ATC Endpoints E2E Tests', () => {
       expect(response.status).toBe(200);
       expect(response.body.code).toBe('A');
     });
+
+    it('should return known code A01 (Stomatological preparations)', async () => {
+      const response = await request(app).get('/atc/A01');
+
+      expect(response.status).toBe(200);
+      expect(response.body.code).toBe('A01');
+      expect(response.body.name).toBeDefined();
+      expect(response.body.level).toBeDefined();
+      expect(response.body).toHaveProperty('children');
+      expect(Array.isArray(response.body.children)).toBe(true);
+      expect(response.body).toHaveProperty('medicationCount');
+      expect(typeof response.body.medicationCount).toBe('number');
+    });
+
+    it('should return known code A01A (Stomatological preparations)', async () => {
+      const response = await request(app).get('/atc/A01A');
+
+      expect(response.status).toBe(200);
+      expect(response.body.code).toBe('A01A');
+      expect(response.body.name).toBeDefined();
+      expect(response.body).toHaveProperty('children');
+      expect(Array.isArray(response.body.children)).toBe(true);
+      expect(response.body).toHaveProperty('medicationCount');
+    });
+
+    it('should return known code A01AA (Caries prophylactic agents)', async () => {
+      const response = await request(app).get('/atc/A01AA');
+
+      expect(response.status).toBe(200);
+      expect(response.body.code).toBe('A01AA');
+      expect(response.body.name).toBeDefined();
+      expect(response.body).toHaveProperty('children');
+      expect(response.body).toHaveProperty('medicationCount');
+    });
+
+    it('should return known code A01AA01 (Sodium fluoride)', async () => {
+      const response = await request(app).get('/atc/A01AA01');
+
+      expect(response.status).toBe(200);
+      expect(response.body.code).toBe('A01AA01');
+      expect(response.body.name).toBeDefined();
+      expect(response.body).toHaveProperty('medicationCount');
+      expect(typeof response.body.medicationCount).toBe('number');
+    });
+
+    it('should handle known codes case-insensitively', async () => {
+      const response = await request(app).get('/atc/a01aa01');
+
+      expect(response.status).toBe(200);
+      expect(response.body.code).toBe('A01AA01');
+    });
   });
 });
