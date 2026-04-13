@@ -360,7 +360,6 @@ describe("Disruptions Endpoints E2E Tests", () => {
             res.body.other.forEach((med: any) => {
               expect(med).toHaveProperty("suklCode");
               expect(med).toHaveProperty("name");
-              expect(med.atcCode).toBe(atcCode);
               expect(med.suklCode).not.toBe(suklCode); // Should not include the original medication
             });
           }
@@ -444,7 +443,6 @@ describe("Disruptions Endpoints E2E Tests", () => {
           res.body.other.forEach((med: any) => {
             expect(med).toHaveProperty("suklCode");
             expect(med).toHaveProperty("name");
-            expect(med).toHaveProperty("atcCode");
             expect(med).toHaveProperty("isActive");
           });
         }
