@@ -23,9 +23,13 @@ describe("Statistics Endpoints E2E Tests", () => {
         expect(item).toHaveProperty("atcName");
         expect(item).toHaveProperty("activeDisruptions");
         expect(item).toHaveProperty("totalPrescriptions");
+        expect(item).toHaveProperty("missingVolume");
+        expect(item).toHaveProperty("marketShareRatio");
         expect(item).toHaveProperty("riskScore");
         expect(typeof item.activeDisruptions).toBe("number");
         expect(typeof item.totalPrescriptions).toBe("number");
+        expect(typeof item.missingVolume).toBe("number");
+        expect(typeof item.marketShareRatio).toBe("number");
         expect(typeof item.riskScore).toBe("number");
       }
     });
