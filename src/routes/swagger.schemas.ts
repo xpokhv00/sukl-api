@@ -265,6 +265,22 @@
  *               type: array
  *               items: { $ref: '#/components/schemas/AtcNode' }
  *             medicationCount: { type: integer, example: 142 }
+ *
+ *     Intermediary:
+ *       type: object
+ *       properties:
+ *         ic:                 { type: string, example: "17594332" }
+ *         name:               { type: string, nullable: true, example: "ICG Farma, s.r.o." }
+ *         city:               { type: string, nullable: true, example: "Mělany" }
+ *         street:             { type: string, nullable: true }
+ *         streetNumber:       { type: string, nullable: true }
+ *         streetNumberOrient: { type: string, nullable: true }
+ *         isLegalPerson:      { type: boolean, nullable: true, example: true }
+ *         title:              { type: string, nullable: true }
+ *         firstName:          { type: string, nullable: true }
+ *         lastName:           { type: string, nullable: true }
+ *         phone:              { type: string, nullable: true }
+ *         email:              { type: string, nullable: true }
  */
 
 // This file exists only to hold shared Swagger component definitions.

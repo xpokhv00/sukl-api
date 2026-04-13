@@ -382,3 +382,24 @@ model Prescription {
   @@index([districtCode])
   @@map("prescriptions")
 }
+
+model Intermediary {
+  ic                String   @id @map("ic")
+  name              String?  @map("name")
+  city              String?  @map("city")
+  street            String?  @map("street")
+  streetNumber      String?  @map("street_number")
+  streetNumberOrient String? @map("street_number_orient")
+  isLegalPerson     Boolean? @map("is_legal_person")
+  title             String?  @map("title")
+  firstName         String?  @map("first_name")
+  lastName          String?  @map("last_name")
+  phone             String?  @map("phone")
+  email             String?  @map("email")
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  @@index([name])
+  @@index([city])
+  @@map("intermediaries")
+}

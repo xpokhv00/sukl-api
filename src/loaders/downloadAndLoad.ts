@@ -42,6 +42,7 @@ import {
   loadPrescriptions,
   loadPriceReports,
   loadDispensingRestrictions,
+  loadIntermediaries,
 } from './index';
 
 const useReducedData = process.env.REDUCED_DATA === 'true';
@@ -213,12 +214,12 @@ export async function downloadAndLoadZPROSTRED(): Promise<void> {
 
   try {
     await downloadZPROSTRED(dataDir);
-    console.log('ZPROSTRED downloaded (TODO: implement loader if needed, extension)');
-    // TODO: Implement loader if needed, currently just downloading and deleting
-    console.log('ZPROSTRED cleanup...');
+    await loadIntermediaries(zprostredFile);
+
+    console.log('ZPROSTRED load completed, cleaning up file...');
     await fsPromises.unlink(zprostredFile).catch(() => {});
   } catch (error) {
-    console.error('ZPROSTRED download failed:', error);
+    console.error('ZPROSTRED download/load failed:', error);
     throw error;
   }
 }
