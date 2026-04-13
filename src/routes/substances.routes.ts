@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { listSubstances, getSubstance } from "../controllers/substances.controller";
+import { listSubstances, getSubstance, getSubstanceMedicationsController } from "../controllers/substances.controller";
 import { validate } from "../middleware/validate";
 import { substancesQuerySchema } from "../schemas/substances";
 
@@ -46,6 +46,69 @@ const router = Router();
  *             schema: { $ref: '#/components/schemas/ErrorResponse' }
  */
 router.get("/", validate(substancesQuerySchema), listSubstances);
+
+/**
+ * @swagger
+ * /substances/{id}/medications:
+ *   get:
+ *     summary: Get all medications containing a substance
+ *     description: Returns paginated list of all medications that contain the specified substance, including composition details and latest pricing information if available.
+ *     tags: [Substances]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema: { type: string }
+ *         description: Substance ID
+ *       - in: query
+ *         name: page
+ *         schema: { type: integer, default: 1, minimum: 1 }
+ *       - in: query
+ *         name: limit
+ *         schema: { type: integer, default: 20, minimum: 1, maximum: 100 }
+ *     responses:
+ *       200:
+ *         description: Paginated list of medications containing the substance
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 substance:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: string
+ *                     name:
+ *                       type: string
+ *                     innName:
+ *                       type: string
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       suklCode:
+ *                         type: string
+ *                       name:
+ *                         type: string
+ *                       strength:
+ *                         type: string
+ *                       isActive:
+ *                         type: boolean
+ *                       composition:
+ *                         type: object
+ *                       latestPrice:
+ *                         type: object
+ *                 meta:
+ *                   $ref: '#/components/schemas/PaginationMeta'
+ *       404:
+ *         description: Substance not found
+ *         content:
+ *           application/json:
+ *             schema: { $ref: '#/components/schemas/ErrorResponse' }
+ */
+router.get("/:id/medications", validate(substancesQuerySchema), getSubstanceMedicationsController);
 
 /**
  * @swagger

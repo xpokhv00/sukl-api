@@ -292,4 +292,64 @@ describe('Substances Endpoints E2E Tests', () => {
       }
     });
   });
+
+  describe('GET /substances/{id}/medications', () => {
+    let substanceId: string | null = null;
+
+    beforeAll(async () => {
+      // Find a substance with medications
+      const response = await request(app).get('/substances?limit=1');
+      if (response.body.data.length > 0) {
+        substanceId = response.body.data[0].id;
+      }
+    });
+
+    it('should return medications containing the substance', async () => {
+      if (!substanceId) {
+        console.warn('No substance ID available for testing');
+        return;
+      }
+
+      const response = await request(app).get(`/substances/${substanceId}/medications`);
+
+      expect(response.status).toBe(200);
+      expect(response.body).toHaveProperty('substance');
+      expect(response.body).toHaveProperty('data');
+      expect(response.body).toHaveProperty('meta');
+      expect(Array.isArray(response.body.data)).toBe(true);
+    });
+
+    it('should have correct substance info in response', async () => {
+      if (!substanceId) {
+        console.warn('No substance ID available for testing');
+        return;
+      }
+
+      const response = await request(app).get(`/substances/${substanceId}/medications`);
+
+      expect(response.status).toBe(200);
+      expect(response.body.substance).toHaveProperty('id');
+      expect(response.body.substance).toHaveProperty('name');
+      expect(response.body.substance.id).toBe(substanceId);
+    });
+
+    it('should have correct medication structure', async () => {
+      if (!substanceId) {
+        console.warn('No substance ID available for testing');
+        return;
+      }
+
+      const response = await request(app).get(`/substances/${substanceId}/medications`);
+
+      expect(response.status).toBe(200);
+      if (response.body.data.length > 0) {
+        const med = response.body.data[0];
+        expect(med).toHaveProperty('suklCode');
+        expect(med).toHaveProperty('name');
+        expect(med).toHaveProperty('isActive');
+        expect(med).toHaveProperty('composition');
+        expect(med).toHaveProperty('latestPrice');
+      }
+    });
+  });
 });
