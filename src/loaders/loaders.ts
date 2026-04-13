@@ -1,6 +1,6 @@
 import { prisma } from "../db/prisma";
 import { Parsers } from "./utils/parsers";
-import { extractFirstCode, normalizeType } from "./utils/helpers";
+import { extractFirstCode, normalizeSuklCode, normalizeType } from "./utils/helpers";
 import { createLoader } from "./utils/createLoader";
 import { readCsv, streamCsv } from "./utils/csv";
 
@@ -18,7 +18,7 @@ export const loadSubstances = createLoader(
 export const loadMedications = createLoader(
   prisma.medication,
   row => ({
-    suklCode: Parsers.string(row.KOD_SUKL),
+    suklCode: normalizeSuklCode(row.KOD_SUKL) || "0",
     name: Parsers.string(row.NAZEV),
     strength: Parsers.optionalString(row.SILA),
     atcCode: Parsers.optionalString(row.ATC_WHO),
@@ -97,7 +97,7 @@ export async function updateMedicationFks(filePath: string) {
   for await (const row of stream) {
     const r = row as any;
     batch.push({
-      suklCode: Parsers.string(r.KOD_SUKL),
+      suklCode: normalizeSuklCode(r.KOD_SUKL) || "0",
       ean:      Parsers.optionalString(r.EAN)    ?? null,
       reg:      Parsers.optionalString(r.RC)     ?? null,
       form:     valid(Parsers.optionalString(r.FORMA)  ?? null, forms),
@@ -196,11 +196,11 @@ export async function loadCompositions(filePath: string) {
   const baseLoader = createLoader(
     prisma.composition,
     row => {
-      const suklCode = Parsers.string(row.KOD_SUKL);
+      const suklCode = normalizeSuklCode(row.KOD_SUKL);
       const substanceId = Parsers.string(row.KOD_LATKY);
 
       // ignore dirty data (non-existing IDs)
-      if (!validMedicationIds.has(suklCode) || !validSubstanceIds.has(substanceId)) {
+      if (!suklCode || !validMedicationIds.has(suklCode) || !validSubstanceIds.has(substanceId)) {
         return [];
       }
 
@@ -233,7 +233,9 @@ export const loadSynonyms = createLoader(
 export const loadMedicationDocuments = createLoader(
   prisma.medicationDocument,
   row => {
-    const sukl = Parsers.string(row.KOD_SUKL);
+    const sukl = normalizeSuklCode(row.KOD_SUKL);
+    if (!sukl) return [];
+    
     const docs = [];
 
     if (row.PIL) docs.push({ medicationSuklCode: sukl, type: "PIL", title: "Patient Information Leaflet", url: row.PIL, updatedAt: Parsers.date(row.DAT_ROZ_PIL) ?? undefined });
@@ -255,10 +257,10 @@ export async function loadDisruptions(filePath: string) {
   const baseLoader = createLoader(
     prisma.disruption,
     row => {
-      const suklCode = Parsers.string(row.KOD_SUKL);
+      const suklCode = normalizeSuklCode(row.KOD_SUKL);
 
       // ignore dirty data (non-existing IDs)
-      if (!validMedicationIds.has(suklCode)) {
+      if (!suklCode || !validMedicationIds.has(suklCode)) {
         return [];
       }
 
@@ -270,7 +272,7 @@ export async function loadDisruptions(filePath: string) {
         reportedAt: Parsers.date(row.DATUM_HLASENI) ?? undefined,
         startDate: Parsers.date(row.PLATNOST_OD) ?? undefined,
         endDate: Parsers.date(row.TERMIN_OBNOVENI) ?? undefined,
-        replacementSuklCode: extractFirstCode(row.NAHRAZUJICI_LP),
+        replacementSuklCode: normalizeSuklCode(extractFirstCode(row.NAHRAZUJICI_LP)),
       };
     },
     "disruptions"
@@ -289,10 +291,10 @@ export async function loadPriceReports(filePath: string) {
   const baseLoader = createLoader(
     prisma.priceReport,
     row => {
-      const suklCode = Parsers.string(row['Kód SÚKL']);
+      const suklCode = normalizeSuklCode(row['Kód SÚKL']);
 
       // ignore dirty data (non-existing IDs)
-      if (!validMedicationIds.has(suklCode)) {
+      if (!suklCode || !validMedicationIds.has(suklCode)) {
         return [];
       }
       return {
@@ -319,8 +321,8 @@ export async function loadDispensingRestrictions(filePath: string) {
   const baseLoader = createLoader(
     prisma.dispensingRestriction,
     row => {
-      const suklCode = Parsers.string(row.KOD_SUKL);
-      if (!validIds.has(suklCode)) return [];
+      const suklCode = normalizeSuklCode(row.KOD_SUKL);
+      if (!suklCode || !validIds.has(suklCode)) return [];
 
       const validFrom = Parsers.date(row.PLATNOST_OD) ?? undefined;
       const validTo = Parsers.date(row.PLATNOST_DO) ?? undefined;
@@ -445,8 +447,8 @@ export async function loadMedicationDoping(filePath: string) {
   const baseLoader = createLoader(
     prisma.medicationDoping,
     row => {
-      const suklCode = Parsers.string(row.KOD_SUKL);
-      if (!validIds.has(suklCode)) return [];
+      const suklCode = normalizeSuklCode(row.KOD_SUKL);
+      if (!suklCode || !validIds.has(suklCode)) return [];
       return {
         medicationSuklCode: suklCode,
         dopingCategoryCode: Parsers.string(row.KOD_DOPING),
@@ -486,8 +488,8 @@ export async function loadPrescriptions(filePath: string) {
   const baseLoader = createLoader(
     prisma.prescription,
     row => {
-      const suklCode = Parsers.string(row.KOD_SUKL);
-      if (!validIds.has(suklCode)) return [];
+      const suklCode = normalizeSuklCode(row.KOD_SUKL);
+      if (!suklCode || !validIds.has(suklCode)) return [];
       return {
         districtCode: Parsers.string(row.OKRES_KOD),
         districtName: Parsers.optionalString(row.OKRES_NAZEV),
