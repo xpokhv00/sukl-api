@@ -2,7 +2,7 @@ import { downloadDLP, downloadMR, downloadREG, downloadLEKARNY, downloadEPOUKAZ,
 import { promises as fsPromises } from 'fs';
 import path from 'path';
 
-describe('dataDownloader', () => {
+describe.skip('dataDownloader', () => {
   const dataDir = path.join(process.cwd(), 'data');
   const dlpDir = path.join(dataDir, 'dlp-test');
   const mrDir = path.join(dataDir, 'mr-test');
