@@ -10,6 +10,7 @@ import substancesRoutes from "./routes/substances.routes";
 import pharmaciesRoutes from "./routes/pharmacies.routes";
 import prescriptionsRoutes from "./routes/prescriptions.routes";
 import registrationChangesRoutes from "./routes/registrationChanges.routes";
+import disruptionsRoutes from "./routes/disruptions.routes";
 import atcRoutes from "./routes/atc.routes";
 import { errorHandler } from "./middleware/errorHandler";
 
@@ -33,13 +34,14 @@ app.use("/substances", substancesRoutes);
 app.use("/pharmacies", pharmaciesRoutes);
 app.use("/prescriptions", prescriptionsRoutes);
 app.use("/registration-changes", registrationChangesRoutes);
+app.use("/disruptions", disruptionsRoutes);
 app.use("/atc", atcRoutes);
 
 app.get("/", (_req, res) => {
     res.json({
         status: "ok",
         service: "sukl-api",
-        endpoints: ["/medications", "/substances", "/pharmacies", "/prescriptions", "/registration-changes", "/atc", "/docs"],
+        endpoints: ["/medications", "/substances", "/pharmacies", "/prescriptions", "/registration-changes", "/disruptions", "/atc", "/docs"],
     });
 });
 
