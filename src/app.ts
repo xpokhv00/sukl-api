@@ -14,6 +14,7 @@ import disruptionsRoutes from "./routes/disruptions.routes";
 import atcRoutes from "./routes/atc.routes";
 import metaRoutes from "./routes/meta.routes";
 import intermediariesRoutes from "./routes/intermediaries.routes";
+import organizationsRoutes from "./routes/organizations.routes";
 import { errorHandler } from "./middleware/errorHandler";
 
 const app = express();
@@ -33,6 +34,7 @@ app.use(rateLimit({
 
 app.use("/medications", medicationsRoutes);
 app.use("/substances", substancesRoutes);
+app.use("/organizations", organizationsRoutes);
 app.use("/pharmacies", pharmaciesRoutes);
 app.use("/prescriptions", prescriptionsRoutes);
 app.use("/registration-changes", registrationChangesRoutes);
@@ -45,7 +47,7 @@ app.get("/", (_req, res) => {
     res.json({
         status: "ok",
         service: "sukl-api",
-        endpoints: ["/medications", "/substances", "/pharmacies", "/prescriptions", "/registration-changes", "/disruptions", "/atc", "/meta", "/intermediaries", "/docs"],
+        endpoints: ["/medications", "/substances", "/organizations", "/pharmacies", "/prescriptions", "/registration-changes", "/disruptions", "/atc", "/meta", "/intermediaries", "/docs"],
     });
 });
 

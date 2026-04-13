@@ -281,6 +281,17 @@
  *         lastName:           { type: string, nullable: true }
  *         phone:              { type: string, nullable: true }
  *         email:              { type: string, nullable: true }
+ *
+ *     Organization:
+ *       type: object
+ *       properties:
+ *         code:        { type: string, example: "0217580" }
+ *         name:        { type: string, example: "TEVA Czech Industries s.r.o." }
+ *         countryCode: { type: string, nullable: true, example: "CZ" }
+ *         email:       { type: string, nullable: true }
+ *         phone:       { type: string, nullable: true }
+ *         website:     { type: string, nullable: true }
+ *         address:     { type: string, nullable: true }
  */
 
 // This file exists only to hold shared Swagger component definitions.
