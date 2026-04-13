@@ -506,3 +506,24 @@ export async function loadPrescriptions(filePath: string) {
   );
   await baseLoader(filePath);
 }
+
+// ----------------- Intermediaries -----------------
+export const loadIntermediaries = createLoader(
+  prisma.intermediary,
+  row => ({
+    ic: Parsers.string(row.IC),
+    name: Parsers.optionalString(row.NAZEV),
+    city: Parsers.optionalString(row.NAZEV_OBCE),
+    street: Parsers.optionalString(row.NAZEV_ULICE),
+    streetNumber: Parsers.optionalString(row.CISLO_POPISNE),
+    streetNumberOrient: Parsers.optionalString(row.CISLO_ORIENTACNI),
+    isLegalPerson: Parsers.boolean(row.PRAVNICKA_OSOBA),
+    title: Parsers.optionalString(row.TITUL),
+    firstName: Parsers.optionalString(row.JMENO),
+    lastName: Parsers.optionalString(row.PRIJMENI),
+    phone: Parsers.optionalString(row.TELEFON),
+    email: Parsers.optionalString(row.EMAIL),
+  }),
+  "intermediaries",
+  ";"
+);

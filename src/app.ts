@@ -13,6 +13,7 @@ import registrationChangesRoutes from "./routes/registrationChanges.routes";
 import disruptionsRoutes from "./routes/disruptions.routes";
 import atcRoutes from "./routes/atc.routes";
 import metaRoutes from "./routes/meta.routes";
+import intermediariesRoutes from "./routes/intermediaries.routes";
 import { errorHandler } from "./middleware/errorHandler";
 
 const app = express();
@@ -38,12 +39,13 @@ app.use("/registration-changes", registrationChangesRoutes);
 app.use("/disruptions", disruptionsRoutes);
 app.use("/atc", atcRoutes);
 app.use("/meta", metaRoutes);
+app.use("/intermediaries", intermediariesRoutes);
 
 app.get("/", (_req, res) => {
     res.json({
         status: "ok",
         service: "sukl-api",
-        endpoints: ["/medications", "/substances", "/pharmacies", "/prescriptions", "/registration-changes", "/disruptions", "/atc", "/meta", "/docs"],
+        endpoints: ["/medications", "/substances", "/pharmacies", "/prescriptions", "/registration-changes", "/disruptions", "/atc", "/meta", "/intermediaries", "/docs"],
     });
 });
 

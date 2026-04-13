@@ -28,6 +28,7 @@ import {
   loadMedicationDoping,
   loadRegistrationChanges,
   loadPrescriptions,
+  loadIntermediaries,
 } from '../loaders';
 
 declare global {
@@ -76,6 +77,8 @@ async function loadAllTestData() {
 
     await loadPrescriptions('data-test-snapshot/erecept_predpis_202602.csv');
 
+    await loadIntermediaries('data-test-snapshot/zprostredkovatele.csv');
+
     console.log('Test data loaded successfully!');
   } catch (error) {
     console.error('Failed to load test data:', error);
@@ -99,7 +102,7 @@ beforeAll(async () => {
     await prisma.$connect();
     console.log('Test database connected');
     // Comment this out when developing as it takes minutes to upsert all test data.
-    //await loadAllTestData();
+    await loadAllTestData();
   } catch (error) {
     console.error('Test setup failed:', error);
     throw error;
