@@ -50,4 +50,4 @@ jobs:
         run: npx prisma migrate deploy
 
       - name: Run Tests
-        run: npm test
+        run: npm test --detectOpenHandles
