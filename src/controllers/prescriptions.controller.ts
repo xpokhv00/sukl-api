@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getPrescriptions, getPrescriptionsTotal } from "../services/prescriptions.service";
+import { getPrescriptions, getPrescriptionsTotal, getTopPrescriptions } from "../services/prescriptions.service";
 
 export async function listPrescriptions(req: Request, res: Response) {
     const params = (req as any).parsed_query ?? {};
@@ -12,5 +12,10 @@ export async function listPrescriptions(req: Request, res: Response) {
 export async function getTotalPrescriptions(req: Request, res: Response) {
     const params = (req as any).parsed_query ?? {};
     const result = await getPrescriptionsTotal(params);
+    res.json(result);
+}
+
+export async function getTopPrescriptionsHandler(req: Request, res: Response) {
+    const result = await getTopPrescriptions((req as any).parsed_query);
     res.json(result);
 }

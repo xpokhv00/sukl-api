@@ -29,7 +29,8 @@ describe('Prescriptions Endpoints E2E Tests', () => {
       expect(response.status).toBe(200);
       if (response.body.data.length > 0) {
         const prescription = response.body.data[0];
-        expect(prescription).toHaveProperty('suklCode');
+        expect(prescription).toHaveProperty('medication');
+        expect(prescription.medication).toHaveProperty('suklCode');
         expect(prescription).toHaveProperty('districtCode');
       }
     });
@@ -39,13 +40,13 @@ describe('Prescriptions Endpoints E2E Tests', () => {
       expect(medResponse.status).toBe(200);
 
       if (medResponse.body.data.length > 0) {
-        const { suklCode } = medResponse.body.data[0];
+        const suklCode = medResponse.body.data[0].medication.suklCode;
         const response = await request(app).get(`/prescriptions?suklCode=${suklCode}`);
 
         expect(response.status).toBe(200);
         expect(Array.isArray(response.body.data)).toBe(true);
         response.body.data.forEach((p: any) => {
-          expect(p.suklCode).toBe(suklCode);
+          expect(p.medication.suklCode).toBe(suklCode);
         });
       }
     });
@@ -153,6 +154,54 @@ describe('Prescriptions Endpoints E2E Tests', () => {
       const response = await request(app).get('/prescriptions/total?year=9999');
 
       expect(response.status).toBe(400);
+    });
+  });
+
+    describe('GET /prescriptions/top', () => {
+    it('should return top prescribed medications nationally', async () => {
+      const response = await request(app).get('/prescriptions/top');
+
+      expect(response.status).toBe(200);
+      expect(response.body).toHaveProperty('data');
+      expect(response.body).toHaveProperty('meta');
+      expect(Array.isArray(response.body.data)).toBe(true);
+      if (response.body.data.length > 0) {
+        expect(response.body.data[0]).toHaveProperty('suklCode');
+        expect(response.body.data[0]).toHaveProperty('name');
+        expect(response.body.data[0]).toHaveProperty('totalQuantity');
+      }
+    });
+
+    it('should sort by totalQuantity descending', async () => {
+      const response = await request(app).get('/prescriptions/top');
+
+      expect(response.status).toBe(200);
+      if (response.body.data.length > 1) {
+        const first = response.body.data[0].totalQuantity;
+        const second = response.body.data[1].totalQuantity;
+        expect(first).toBeGreaterThanOrEqual(second);
+      }
+    });
+
+    it('should filter by district code', async () => {
+      const response = await request(app).get('/prescriptions/top?districtCode=3100');
+
+      expect(response.status).toBe(200);
+      expect(Array.isArray(response.body.data)).toBe(true);
+    });
+
+    it('should filter by ATC code', async () => {
+      const response = await request(app).get('/prescriptions/top?atcCode=A10');
+
+      expect(response.status).toBe(200);
+      expect(Array.isArray(response.body.data)).toBe(true);
+      if (response.body.data.length > 0) {
+        response.body.data.forEach((med: any) => {
+          if (med.atcCode) {
+            expect(med.atcCode).toMatch(/^A10/);
+          }
+        });
+      }
     });
   });
 });
