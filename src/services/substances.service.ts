@@ -107,3 +107,81 @@ export async function getSubstanceById(id: string) {
         },
     });
 }
+
+export async function getSubstanceMedications(id: string, page: number = 1, limit: number = 20) {
+    limit = Math.min(limit, 100);
+    const offset = (page - 1) * limit;
+
+    const substance = await prisma.substance.findUnique({
+        where: { id },
+        select: { id: true, name: true, innName: true }
+    });
+
+    if (!substance) return null;
+
+    const [medications, total] = await Promise.all([
+        prisma.medication.findMany({
+            where: {
+                compositions: {
+                    some: { substanceId: id }
+                }
+            },
+            select: {
+                suklCode: true,
+                name: true,
+                strength: true,
+                isActive: true,
+                atcCode: true,
+                formCode: true,
+                routeCode: true,
+                priceReports: {
+                    select: {
+                        period: true,
+                        maxPrice: true,
+                        reimbursement: true,
+                        patientCopay: true
+                    },
+                    orderBy: { period: "desc" as const },
+                    take: 1 
+                },
+                compositions: {
+                    where: { substanceId: id },
+                    select: {
+                        amount: true,
+                        unit: true,
+                        type: true
+                    }
+                }
+            },
+            skip: offset,
+            take: limit,
+            orderBy: { name: "asc" }
+        }),
+        prisma.medication.count({
+            where: {
+                compositions: { some: { substanceId: id } }
+            }
+        })
+    ]);
+
+    return {
+        substance,
+        data: medications.map(med => ({
+            suklCode: med.suklCode,
+            name: med.name,
+            strength: med.strength,
+            isActive: med.isActive,
+            atcCode: med.atcCode,
+            formCode: med.formCode,
+            routeCode: med.routeCode,
+            composition: med.compositions[0],
+            latestPrice: med.priceReports[0] || null
+        })),
+        meta: {
+            page,
+            limit,
+            total,
+            totalPages: Math.ceil(total / limit)
+        }
+    };
+}
