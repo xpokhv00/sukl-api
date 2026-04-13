@@ -44,11 +44,14 @@ npm install
 
 ### Configure environment
 
-Create .env:
+Create .env (REDUCED_DATA=true for testing with smaller datasets):
 
 DATABASE_URL="postgresql://USER:PASSWORD@HOST:5432/postgres?sslmode=require"
 DIRECT_URL="postgresql://USER:PASSWORD@HOST:5432/postgres?sslmode=require"
 PORT=3000
+REDUCED_DATA=true
+
+
 
 ### Run migrations
 

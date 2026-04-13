@@ -1,0 +1,165 @@
+Datová sada;Poøadí sloupce;Název sloupce;Typ položky;Význam
+dlp_atc;1;ATC;VARCHAR2(7);Anatomicko-terapeuticko-chemická (ATC) skupina
+dlp_atc;2;NT;VARCHAR2(1);typ: N-podle ATC indexu,C-stanoveno SÚKLem
+dlp_atc;3;NAZEV;VARCHAR2(200);Èeský název ATC skupiny
+dlp_atc;4;NAZEV_EN;VARCHAR2(200);Anglický název ATC skupiny
+dlp_cesty;1;CESTA;VARCHAR2(15);Zkratka cesty podání
+dlp_cesty;2;NAZEV;VARCHAR2(255);Èeský název cesty
+dlp_cesty;3;NAZEV_EN;VARCHAR2(255);Anglický název cesty
+dlp_cesty;4;NAZEV_LAT;VARCHAR2(255);Latinský název cesty
+dlp_cesty;5;KOD_EDQM;NUMBER(8, 0);Kód EDQM
+dlp_doping;1;DOPING;VARCHAR2(5);Doping
+dlp_doping;2;NAZEV;VARCHAR2(300);Èeský název
+dlp_formy;1;FORMA;VARCHAR2(19);Zkratka lékové formy
+dlp_formy;2;NAZEV;VARCHAR2(255);Èeský název lékové formy
+dlp_formy;3;NAZEV_EN;VARCHAR2(255);Anglický název lékové formy
+dlp_formy;4;NAZEV_LAT;VARCHAR2(255);Latinský název lékové formy
+dlp_formy;5;JE_KONOPI;VARCHAR2(1);Pøíznak, zda se léková forma používá pøi pøedepisování léèebného konopí. Pokud ano, obsahuje položka hodnotu A, jinak položka je prázdná
+dlp_formy;6;KOD_EDQM;NUMBER(8, 0);Kód EDQM
+dlp_indikacniskupiny;1;INDSK;VARCHAR2(2);Èíslo indikaèní skupiny
+dlp_indikacniskupiny;2;NAZEV;VARCHAR2(58);Èeský název indikaèní skupiny
+dlp_jednotky;1;JD;VARCHAR2(6);Zkratka jednotky
+dlp_jednotky;2;NAZEV;VARCHAR2(250);Èeský název jednotky
+dlp_latky;1;KOD_LATKY;NUMBER(5,0);Kód látky
+dlp_latky;2;ZDROJ;VARCHAR2(4);Zdroj
+dlp_latky;3;NAZEV_INN;VARCHAR2(1000);Mezinárodní nechránìný název (pøednostní)
+dlp_latky;4;NAZEV_EN;VARCHAR2(1000);Anglický název léèivé látky
+dlp_latky;5;NAZEV;VARCHAR2(1000);Èeský název léèivé látky
+dlp_latky;6;ZAV;VARCHAR2(2);Závislost
+dlp_latky;7;DOP;VARCHAR2(4);Doping
+dlp_latky;8;NARVLA;VARCHAR2(2);Oznaèení látky podle Naøízení vlády 454/2009 Sb.
+dlp_lecivelatky;1;KOD_LATKY;NUMBER(5,0);Kód látky
+dlp_lecivelatky;2;NAZEV_INN;VARCHAR2(1000);Mezinárodní nechránìný název (pøednostní)
+dlp_lecivelatky;3;NAZEV_EN;VARCHAR2(1000);Anglický název léèivé látky
+dlp_lecivelatky;4;NAZEV;VARCHAR2(1000);Èeský název léèivé látky
+dlp_lecivelatky;5;ZAV;VARCHAR2(1);Závislost - skupina omamných nebo psychotropních látek (návykové látky)
+dlp_lecivepripravky;1;KOD_SUKL;VARCHAR2(7);Kód léèivého pøípravku (dále LP) pøidìlený SÚKL variantì LP v rámci rozhodnutí o registraci LP, pøidìlený neregistrovanému LP zaøazenému do specifického léèebného programu (dále SLP) nebo pøidìlený potravinì pro zvláštní lékaøské úèely (dále PZLÚ)
+dlp_lecivepripravky;2;H;VARCHAR2(1);Oznaèení LP, který podléhá povinnému hlášení (povinnost pøedkládat Ústavu pøed propuštìním na trh vzorky každé šarže pøípravku k pøezkoušení, § 32 odst. 4 písm.a) zákona o léèivech
+dlp_lecivepripravky;3;NAZEV;VARCHAR2(70);Název LP nebo PZLÚ
+dlp_lecivepripravky;4;SILA;VARCHAR2(24);Síla LP, kterou se rozumí obsah léèivých látek vyjádøený kvantitativnì vzhledem k jednotce dávky, objemu nebo hmotnosti podle lékové formy
+dlp_lecivepripravky;5;FORMA;VARCHAR2(27);Léková forma 
+dlp_lecivepripravky;6;BALENI;VARCHAR2(22);Velikost balení 
+dlp_lecivepripravky;7;CESTA;VARCHAR2(15);Cesta podání
+dlp_lecivepripravky;8;DOPLNEK;VARCHAR2(75);Doplnìk názvu LP, který jednoznaènì urèuje variantu LP, sestávající z integrace cesty podání LP, jeho lékové formy, velikosti balení a síly. Jedná se o starší položku èíselníku, dále upøesnìnou v položkách CESTA, FORMA, BALENÍ a SÍLA
+dlp_lecivepripravky;9;OBAL;VARCHAR2(3);Vnitøní obal LP, kterým se rozumí taková forma obalu, který je v bezprostøedním kontaktu s LP
+dlp_lecivepripravky;10;DRZ;VARCHAR2(4);Držitel rozhodnutí o registraci
+dlp_lecivepripravky;11;ZEMDRZ;VARCHAR2(3);Zemì sídla držitele rozhodnutí o registraci
+dlp_lecivepripravky;12;AKT_DRZ;VARCHAR2(3);Aktuální držitel reg.rozhodnutí. Uvádí se jen u registrací B
+dlp_lecivepripravky;13;AKT_ZEM;VARCHAR2(3);Zemì aktuálního držitele rozhodnutí o reg.
+dlp_lecivepripravky;14;REG;VARCHAR2(2);Stav registrace
+dlp_lecivepripravky;15;V_PLATDO;DATE, formát 'DDMMRR';Platnost registrace do, není-li stanovena neomezená platnost podle § 34 zákona o léèivech. Uvádí se jen u registrací B, C, Y, F
+dlp_lecivepripravky;16;NEOMEZ;VARCHAR2(1);V poli vyplnìno (X) v pøípadì neomezené  platnosti registrace (podle § 34 zákona o léèivech)
+dlp_lecivepripravky;17;UVADENIDO;DATE, formát 'DDMMRR';Uvádìní na trh do, není-li stanovena neomezená platnost podle § 34 zákona o léèivech. Uvádí se jen u registrací B, C, Y
+dlp_lecivepripravky;18;IS_;NUMBER(2,0);Indikaèní skupina
+dlp_lecivepripravky;19;ATC_WHO;VARCHAR2(7);Anatomicko-terapeuticko-chemická skupina (WHO Index)
+dlp_lecivepripravky;20;RC;VARCHAR2(16);Registraèní èíslo
+dlp_lecivepripravky;21;SDOV;VARCHAR2(11);"Identifikaèní èíslo soubìžného dovozu, které se váže na odkazovaný referenèní pøípravek dle registraèního èísla; zpravidla ve tvaru PI/xxx/yyyy"
+dlp_lecivepripravky;22;SDOV_DOD;VARCHAR2(4);Zkratka dovozce u soubìžného dovozu
+dlp_lecivepripravky;23;SDOV_ZEM;VARCHAR2(3);Zemì dovozce u soubìžného dovozu
+dlp_lecivepripravky;24;REG_PROC;VARCHAR2(3);Registraèní procedura
+dlp_lecivepripravky;25;DDDAMNT_WHO;NUMBER(6,3);množství léèivé látky v definované denní dávce (DDD)
+dlp_lecivepripravky;26;DDDUN_WHO;VARCHAR2(4);jednotka množství léèivé látky v DDD
+dlp_lecivepripravky;27;DDDP_WHO;NUMBER(11,4);Poèet DDD v balení (na 4 desetinná místa)
+dlp_lecivepripravky;28;ZDROJ_WHO;VARCHAR2(4);WHO Index
+dlp_lecivepripravky;29;LL;VARCHAR2(2000);Seznam léèivých látek, oddìlený èárkami
+dlp_lecivepripravky;30;VYDEJ;VARCHAR2(1);Klasifikace typu výdeje léèivého pøípravku 
+dlp_lecivepripravky;31;ZAV;VARCHAR2(2);Závislost - skupina omamných nebo psychotropních látek (návykové látky)
+dlp_lecivepripravky;32;DOPING;VARCHAR2(7);Doping - od 1. 6. 2025 není vyplnìno, novì jsou údaje o dopingu uvedeny v souboru dlp_dopinglp.csv
+dlp_lecivepripravky;33;NARVLA;VARCHAR2(2);Oznaèení látky s anabolickým a jiným hormonálním úèinkem podle naøízení vlády 454/2009 Sb.
+dlp_lecivepripravky;34;DODAVKY;VARCHAR2(1);Pøípravek byl dodáván do lékáren a zdr. zaøízení v posledních 6 mìsících
+dlp_lecivepripravky;35;EAN;VARCHAR2(13);Pole je prázdné, údaje již nejsou k dispozici
+dlp_lecivepripravky;36;BRAILLOVO_PISMO;VARCHAR2(1);Braillovo písmo: schváleno (S), výjimka (V), nežádáno (mezera)
+dlp_lecivepripravky;37;EXP;VARCHAR2(3);Expirace
+dlp_lecivepripravky;38;EXP_T;VARCHAR2(1);Expirace typ: hodiny H, dny D, týdny W, mìsíce M
+dlp_lecivepripravky;39;NAZEV_REG;VARCHAR2(70);Registrovaný název LP nebo PZLÚ
+dlp_lecivepripravky;40;MRP_CISLO;VARCHAR2(13);MRP Èíslo
+dlp_lecivepripravky;41;PRAVNI_ZAKLAD_REGISTRACE;VARCHAR2(4);Právní základ registrace
+dlp_lecivepripravky;42;OCHRANNY_PRVEK;VARCHAR2(1);Ocharnný prvek, hodnota A  - leèivý pøípravek musí mít ochranný prvek
+dlp_lecivepripravky;43;OMEZENI_PRESKRIPCE_SMP;VARCHAR2(1);Omezení používání dle SmPC, hodnota A - léèivý pøípravek má omezení používání dle SmPC ve smyslu §33 odst. 2 Vyhlášky è. 376/2011 Sb.
+dlp_lecivepripravky;44;TYP_LP;VARCHAR2(10);Typ léèivého pøípravku
+dlp_narvla;1;NARVLA;VARCHAR2(5);Látky s anabolickým a jiným hormonálním úèinkem - Naøízení vlády 454/2009 Sb.
+dlp_narvla;2;NAZEV;VARCHAR2(300);Èeský název lékové formy
+dlp_nazvydokumentu;1;KOD_SUKL;VARCHAR2(7);Kód léèivého pøípravku
+dlp_nazvydokumentu;2;PIL;VARCHAR2(50);Soubor s textem PIL (pøíbalový leták - patient information leaflet)
+dlp_nazvydokumentu;3;DAT_ROZ_PIL;DATE;Datum rozhodnutí pro PIL
+dlp_nazvydokumentu;4;SPC;VARCHAR2(50);Soubor s textem SPC (souhrn údajù o léèivém pøípravku - summary of product characteristics)
+dlp_nazvydokumentu;5;DAT_ROZ_SPC;DATE;Datum rozhodnutí pro SPC
+dlp_nazvydokumentu;6;OBAL_TEXT;VARCHAR2(50);Soubor s textem na obalu
+dlp_nazvydokumentu;7;DAT_ROZ_OBAL;DATE;Datum rozhodnutí pro OBAL
+dlp_nazvydokumentu;8;NR;VARCHAR2(50);Soubor s textem Rozhodnutí o registraci (u nových registrací)
+dlp_nazvydokumentu;9;DAT_NPM_NR;DATE;Datum nabytí právní moci rozhodnutí pro NR
+dlp_obaly;1;OBAL;VARCHAR2(3);Zkratka obalu
+dlp_obaly;2;NAZEV;VARCHAR2(255);Èeský název obalu
+dlp_obaly;3;NAZEV_EN;VARCHAR2(255);Anglický název obalu
+dlp_obaly;4;KOD_EDQM;NUMBER(8, 0);Kód EDQM
+dlp_organizace;1;ZKR_ORG;VARCHAR2(4);Zkratka držitele rozhodnutí o registraci nebo výrobce, ZKR_ORG+ZEM tvoøí jednoznaèné oznaèení organizace
+dlp_organizace;2;ZEM;VARCHAR2(3);Zemì sídla držitele rozhodnutí o registraci nebo výrobce
+dlp_organizace;3;NAZEV;VARCHAR2(200);Název držitele rozhodnutí o registraci nebo výrobce
+dlp_organizace;4;VYROBCE;VARCHAR2(1);V - jedná se o výrobce
+dlp_organizace;5;DRZITEL;VARCHAR2(1);D - jedná se o držitele
+dlp_regproc;1;REG_PROC;VARCHAR2(3);Registraèní procedura
+dlp_regproc;2;NAZEV;VARCHAR2(100);Název registraèní procedury
+dlp_slozeni;1;KOD_SUKL;VARCHAR2(7);Kód léèivého pøípravku
+dlp_slozeni;2;KOD_LATKY;NUMBER(5,0);Kód látky ve složení
+dlp_slozeni;3;SQ;NUMBER(3,0);Poøadí øádku složení
+dlp_slozeni;4;S;VARCHAR2(1);Pøíznak složení léèivého pøípravku (napø. léèivá nebo pomocná látka)
+dlp_slozeni;5;AMNT_OD;VARCHAR2(12);Množství látky od (v pøípadì uvádìného rozmezí), pro pomocnou látku jen PL
+dlp_slozeni;6;AMNT;VARCHAR2(12);Množství látky (do), pro pomocnou látku jen PL
+dlp_slozeni;7;UN;VARCHAR2(4);Jednotka množství látky
+dlp_soli;1;KOD_LATKY;NUMBER(5,0);Kód základní látky
+dlp_soli;2;KOD_SOLI;NUMBER(5,0);Kód soli
+dlp_splp;1;KOD_SUKL;VARCHAR2(7);Kód léèivého pøípravku ve specifickém léèebném programu povoleném MZÈR
+dlp_splp;2;DAT_OD;DATE;Platnost výjimky od
+dlp_splp;3;DAT_DO;DATE;Platnost výjimky do
+dlp_splp;4;POVOL_BALENI;VARCHAR2(10);Poèet balení, pro která platí výjimka
+dlp_splp;5;UCEL;VARCHAR2(350);Úèel výjimky
+dlp_splp;6;PRACOVISTE;VARCHAR2(4000);Pracovištì, pro které paltí výjimka
+dlp_splp;7;DISTRIBUTOR;VARCHAR2(2000);Distributor
+dlp_splp;8;POZNAMKA;VARCHAR2(2000);Poznámka
+dlp_splp;9;PREDKLADATEL;VARCHAR2(2000);Pøedkladatel
+dlp_splp;10;VYROBCE;VARCHAR2(2000);Výrobce
+dlp_stavyreg;1;REG;VARCHAR2(5);Stav registrace
+dlp_stavyreg;2;NAZEV;VARCHAR2(300);Název stavu registrace
+dlp_synonyma;1;KOD_LATKY;NUMBER(5,0);Kód látky
+dlp_synonyma;2;SQ;NUMBER(2,0);Poøadové èíslo synonyma
+dlp_synonyma;3;ZDROJ;VARCHAR2(4);Zdroj
+dlp_synonyma;4;NAZEV;VARCHAR2(1000);Název synonyma
+dlp_slozenipriznak;1;S;VARCHAR2(1);Pøíznak složení léèivého pøípravku (napø. léèivá nebo pomocná látka)
+dlp_slozenipriznak;2;VYZNAM;VARCHAR2(500);Upøesòující informace ke složení
+dlp_vpois;1;KOD_SUKL;VARCHAR2(7);Kód léèivého pøípravku
+dlp_vpois;2;VPOIS_NAZEV_SPOLECNOSTI;VARCHAR2(200);Informaèní servis držitele - název spoleènosti
+dlp_vpois;3;VPOIS_WWW;VARCHAR2(500);Informaèní servis držitele - www stránky
+dlp_vpois;4;VPOIS_EMAIL;VARCHAR2(100);Informaèní servis držitele - email
+dlp_vpois;5;VPOIS_TEL;VARCHAR2(50);Informaèní servis držitele - telefon
+dlp_vydej;1;VYDEJ;VARCHAR2(5);Typ výdeje léèivého pøípravku
+dlp_vydej;2;NAZEV;VARCHAR2(300);Název zpùsobu výdeje
+dlp_zavislost;1;ZAV;VARCHAR2(5);Závislost
+dlp_zavislost;2;NAZEV;VARCHAR2(300);Èeský název závislosti
+dlp_zdroje;1;ZDROJ;VARCHAR2(4);Zdroj
+dlp_zdroje;2;NAZEV;VARCHAR2(68);Název zdroje
+dlp_zeme;1;ZEM;VARCHAR2(3);Zkratka zemì
+dlp_zeme;2;NAZEV;VARCHAR2(100);Èeský název zemì
+dlp_zeme;3;NAZEV_EN;VARCHAR2(100);Anglický název zemì
+dlp_zeme;4;KOD_EDQM;VARCHAR2(2);Kód EDQM
+dlp_pravnizakladreg;1;KOD;VARCHAR2(4);Kód právního základu registrace
+dlp_pravnizakladreg;2;NAZEV;VARCHAR2(200);Èeský název
+dlp_zruseneregistrace;1;NAZEV;VARCHAR2(70);Název LP nebo PZLÚ
+dlp_zruseneregistrace;2;CESTA;VARCHAR2(15);Cesta podání
+dlp_zruseneregistrace;3;FORMA;VARCHAR2(27);Léková forma 
+dlp_zruseneregistrace;4;SILA;VARCHAR2(24);Síla LP, kterou se rozumí obsah léèivých látek vyjádøený kvantitativnì vzhledem k jednotce dávky, objemu nebo hmotnosti podle lékové formy
+dlp_zruseneregistrace;5;REGISTRACNI_CISLO;VARCHAR2(16);Registraèní èíslo
+dlp_zruseneregistrace;6;SOUBEZNY_DOVOZ;VARCHAR2(11);"Identifikaèní èíslo soubìžného dovozu, které se váže na odkazovaný referenèní pøípravek dle registraèního èísla; zpravidla ve tvaru PI/xxx/yyyy"
+dlp_zruseneregistrace;7;MRP_CISLO;VARCHAR2(13);MRP Èíslo
+dlp_zruseneregistrace;8;TYP_REGISTRACE;VARCHAR2(3);Typ registrace
+dlp_zruseneregistrace;9;PRAVNI_ZAKLAD_REGISTRACE;VARCHAR2(4);Kód právního základu registrace
+dlp_zruseneregistrace;10;DRZITEL;VARCHAR2(4);Držitel rozhodnutí o registraci
+dlp_zruseneregistrace;11;ZEME_DRZITELE;VARCHAR2(3);Zemì sídla držitele rozhodnutí o registraci
+dlp_zruseneregistrace;12;KONEC_PLATNOSTI_REGISTRACE;DATE;Datum konce platnosti registrace
+dlp_zruseneregistrace;13;STAV_REGISTRACE;VARCHAR2(2);Stav registrace
+dlp_platnost;1;PLATNOST_OD;DATE;Platnost datové sady od
+dlp_platnost;2;PLATNOST_DO;DATE;Platnost datové sady do
+dlp_typlp;1;TYP_LP;VARCHAR2(10);Zkratka typu léèivého pøípravku
+dlp_typlp;2;NAZEV;VARCHAR2(255);Název typu léèivého pøípravku
+dlp_typlp;3;NAZEV_EN;VARCHAR2(255);Název typu léèivého pøípravku anglicky
+dlp_dopinglp;1;KOD_SUKL;VARCHAR2(7);Kód léèivého pøípravku
+dlp_dopinglp;2;KOD_DOPING;VARCHAR2(5);Kód pro doping
