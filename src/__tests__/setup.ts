@@ -99,7 +99,7 @@ beforeAll(async () => {
     await prisma.$connect();
     console.log('Test database connected');
     // Comment this out when developing as it takes minutes to upsert all test data.
-    // await loadAllTestData();
+    await loadAllTestData();
   } catch (error) {
     console.error('Test setup failed:', error);
     throw error;
