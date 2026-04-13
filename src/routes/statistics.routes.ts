@@ -42,9 +42,12 @@ const router = Router();
  *                       totalPrescriptions:
  *                         type: integer
  *                         description: Total prescription volume for this ATC group
- *                       disruptionRatio:
+ *                       missingVolume:
+ *                         type: integer
+ *                         description: Prescription volume represented by currently disrupted medications
+ *                       marketShareRatio:
  *                         type: number
- *                         description: Ratio of disrupted medications to total medications in the ATC group
+ *                         description: Ratio of disrupted prescription volume to total ATC prescription volume
  *                       riskScore:
  *                         type: number
  *                         description: Risk score (disruptions weighted by prescription volume)

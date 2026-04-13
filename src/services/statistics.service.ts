@@ -1,5 +1,10 @@
 import { prisma } from "../db/prisma";
 
+const DEFAULT_SUPPLY_RISK_CACHE_TTL_MS = 60_000;
+const supplyRiskCacheTtlMs = Number.parseInt(process.env.SUPPLY_RISK_CACHE_TTL_MS || "", 10) || DEFAULT_SUPPLY_RISK_CACHE_TTL_MS;
+
+let supplyRiskCache: { data: SupplyRiskItem[]; expiresAt: number } | null = null;
+
 export interface SupplyRiskItem {
   atcCode: string;
   atcName: string;
@@ -11,6 +16,11 @@ export interface SupplyRiskItem {
 }
 
 export async function getSupplyRiskStatistics(limit: number = 20): Promise<SupplyRiskItem[]> {
+  const now = Date.now();
+  if (supplyRiskCache && supplyRiskCache.expiresAt > now) {
+    return supplyRiskCache.data.slice(0, limit);
+  }
+
   const activeDisruptions = await prisma.disruption.findMany({
     where: { isActive: true },
     include: {
@@ -114,7 +124,12 @@ export async function getSupplyRiskStatistics(limit: number = 20): Promise<Suppl
     }
   );
 
-  return results
-    .sort((a, b) => b.riskScore - a.riskScore)
-    .slice(0, limit);
+  const sortedResults = results.sort((a, b) => b.riskScore - a.riskScore);
+
+  supplyRiskCache = {
+    data: sortedResults,
+    expiresAt: Date.now() + supplyRiskCacheTtlMs,
+  };
+
+  return sortedResults.slice(0, limit);
 }
