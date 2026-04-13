@@ -4,7 +4,7 @@ export function extractFirstCode(value?: string): string | null {
   return value.split(",")[0].trim() || null;
 }
 
-export function normalizeSuklCode(value?: string): string | null {
+export function normalizeSuklCode(value?: string | null): string | null {
   if (!value) return null;
   // Pad SUKL code to 7 digits with leading zeros
   const trimmed = value.trim();

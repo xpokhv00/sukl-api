@@ -149,11 +149,10 @@ describe('Prescriptions Endpoints E2E Tests', () => {
       });
     });
 
-    it('should return 0 for non-existent year', async () => {
+    it('should return error for non-existent year', async () => {
       const response = await request(app).get('/prescriptions/total?year=9999');
 
-      expect(response.status).toBe(200);
-      expect(response.body.total).toBe(0);
+      expect(response.status).toBe(400);
     });
   });
 });
