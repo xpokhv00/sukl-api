@@ -28,7 +28,6 @@ import {
   loadMedicationDoping,
   loadRegistrationChanges,
   loadPrescriptions,
-  loadIntermediaries,
 } from '../loaders';
 
 declare global {
@@ -76,8 +75,6 @@ async function loadAllTestData() {
     await loadRegistrationChanges('data-test-snapshot/REG2026022/reg_zrusene_eu.csv', 'CANCELLED_EU');
 
     await loadPrescriptions('data-test-snapshot/erecept_predpis_202602.csv');
-
-    await loadIntermediaries('data-test-snapshot/zprostredkovatele.csv');
 
     console.log('Test data loaded successfully!');
   } catch (error) {
