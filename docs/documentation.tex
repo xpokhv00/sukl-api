@@ -1,0 +1,345 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[czech]{babel}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+
+\geometry{
+  a4paper,
+  top=2.5cm,
+  bottom=2.5cm,
+  left=3cm,
+  right=2.5cm
+}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  citecolor=black
+}
+
+\definecolor{codebg}{RGB}{248,249,250}
+\definecolor{codeframe}{RGB}{220,220,220}
+\definecolor{keyword}{RGB}{37,99,235}
+\definecolor{comment}{RGB}{100,116,139}
+\definecolor{string}{RGB}{22,163,74}
+
+\lstdefinestyle{code}{
+  backgroundcolor=\color{codebg},
+  frame=single,
+  rulecolor=\color{codeframe},
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{keyword}\bfseries,
+  commentstyle=\color{comment}\itshape,
+  stringstyle=\color{string},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2,
+  showstringspaces=false,
+  numbers=none
+}
+
+\lstset{style=code}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small SÚKL API}
+\fancyhead[R]{\small Dokumentace projektu}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\title{
+  \vspace{2cm}
+  {\Large Dokumentace projektu}\\[0.5em]
+  {\LARGE \textbf{SÚKL API}}\\[0.5em]
+  {\large REST API pro agregaci dat z Českého registru léčivých přípravků}\\[2em]
+}
+\author{Vsevolod Pokhvalenko}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\vspace{2cm}
+
+\tableofcontents
+\newpage
+
+% ─────────────────────────────────────────────────────────────────
+\section{Úvod a cíl projektu}
+
+Cílem projektu je implementace REST API, které agreguje a zpřístupňuje veřejná data Státního ústavu pro kontrolu léčiv (SÚKL). SÚKL zveřejňuje rozsáhlé datové sady ve formátu CSV popisující léčivé přípravky registrované v České republice, jejich složení, ceny, výpadky v dodávkách, preskripci, lékárny a další. Tato data jsou volně dostupná na portálu otevřených dat SÚKL (\url{https://opendata.sukl.cz}), avšak jejich přímé využití vyžaduje stažení velkých CSV souborů a jejich lokální zpracování.
+
+Výsledné API umožňuje programatický přístup k těmto datům prostřednictvím standardního HTTP rozhraní s JSON odpověďmi, stránkováním, filtrováním a dokumentací ve formátu OpenAPI (Swagger). API je navrženo jako \textbf{read-only} (pouze čtení) -- všechny endpointy používají metodu GET.
+
+% ─────────────────────────────────────────────────────────────────
+\section{Architektura a technologické volby}
+
+\subsection{Přehled architektury}
+
+Aplikace je postavena na klasické třívrstvé architektuře:
+
+\begin{enumerate}
+  \item \textbf{Vrstva routování a validace} -- Express router + Zod schémata
+  \item \textbf{Vrstva řadičů a služeb} -- Controllers delegují na Services
+  \item \textbf{Datová vrstva} -- Prisma ORM komunikuje s PostgreSQL databází
+\end{enumerate}
+
+\begin{lstlisting}[language=bash, caption={Zjednodušený tok požadavku}]
+HTTP Request
+  -> Express Router
+    -> Zod Validation Middleware
+      -> Controller
+        -> Service
+          -> Prisma ORM
+            -> PostgreSQL (Supabase)
+\end{lstlisting}
+
+\subsection{Volba technologií}
+
+\textbf{Node.js s TypeScriptem} byl zvolen jako runtime prostředí. TypeScript přináší statickou typovou kontrolu, která je klíčová při práci s komplexními datovými modely (24 Prisma modelů, stovky polí). Chyby při mapování dat z CSV jsou odhaleny v době kompilace, nikoliv až za běhu.
+
+\textbf{Express 5} byl zvolen jako HTTP framework. Verze 5 přináší oproti verzi 4 zásadní vylepšení: automatické zachytávání chyb z asynchronních handlerů bez nutnosti volat \texttt{next(err)}. Díky tomu stačí v kontrolérech jednoduché \texttt{async/await} bez explicitního \texttt{try/catch} bloku pro každý endpoint.
+
+\textbf{Prisma ORM} s adaptérem \texttt{@prisma/adapter-pg} byl zvolen pro správu databázového schématu a dotazů. Prisma poskytuje migrace s verzováním (\texttt{prisma migrate}), typově bezpečné dotazy generované ze schématu a přehlednou definici relací v souboru \texttt{schema.prisma}. Adaptér \texttt{adapter-pg} umožňuje přímé využití connection poolingu přes \texttt{pg} bez zprostředkující vrstvy.
+
+\textbf{PostgreSQL na Supabase} byl zvolen jako databázové řešení. Supabase poskytuje spravovanou PostgreSQL instanci s connection poolingem přes PgBouncer, SSL připojením a bezplatným plánem dostačujícím pro tento projekt.
+
+\textbf{Zod} byl zvolen pro validaci vstupních parametrů. Zod umožňuje definovat schémata dotazovacích parametrů (query strings) přímo v TypeScriptu, automaticky provádí typovou koerci (string \(\to\) number pro parametr \texttt{page}) a generuje srozumitelné chybové zprávy ve formátu JSON. Schémata jsou sdílena přes \texttt{src/schemas/} a znovupoužívána ve validačním middlewaru.
+
+\textbf{Pino} přes \texttt{pino-http} zajišťuje strukturované logování HTTP požadavků ve formátu JSON s minimálním výkonnostním dopadem.
+
+\textbf{Swagger/OpenAPI} dokumentace je generována automaticky ze JSDoc komentářů v souborech routerů pomocí \texttt{swagger-jsdoc} a servírována přes \texttt{swagger-ui-express} na cestě \texttt{/docs}.
+
+% ─────────────────────────────────────────────────────────────────
+\section{Datové zdroje}
+
+Veškerá data pocházejí z portálu otevřených dat SÚKL (\url{https://opendata.sukl.cz}). Data jsou stahována automaticky pomocí modulu \texttt{src/loaders/downloadAndLoad.ts} a načítána do databáze přes upsert operace (vložení nebo aktualizace dle primárního klíče).
+
+\subsection{Přehled datových sad}
+
+\begin{longtable}{@{}lp{7cm}@{}}
+\toprule
+\textbf{Datová sada} & \textbf{Obsah} \\
+\midrule
+\endhead
+DLP & Databáze léčivých přípravků -- hlavní datová sada. Obsahuje přípravky, složení, ATC klasifikaci, organizace, lékové formy, cesty podání, kategorie výdeje, statusy registrace a další číselníky. \\[0.5em]
+MR & Hlášení o výpadcích v dodávkách léčivých přípravků. \\[0.5em]
+REG & Nové a zrušené registrace léčivých přípravků (včetně zrušení v rámci EU). \\[0.5em]
+LEKARNY & Seznam lékáren v ČR s adresami a provozní dobou. \\[0.5em]
+LEK-13 & Měsíční reporty maximálních cen a výše úhrady přípravků. \\[0.5em]
+DIS-13 & Historická data výpadků v dodávkách. \\[0.5em]
+ERECEPT & Historie předepsaných léčivých přípravků ze systému eRecept -- statistiky preskripce dle okresu. \\[0.5em]
+POVINNOST\_DODAVEK & Povinná množství přípravků zajišťovaná držitelem rozhodnutí o registraci. \\
+\bottomrule
+\end{longtable}
+
+\subsection{Načítání dat}
+
+Načítání probíhá ve dvou krocích:
+\begin{enumerate}
+  \item \textbf{Stažení} -- ZIP archivy nebo přímé CSV soubory jsou staženy z SÚKL serverů a uloženy do dočasného adresáře.
+  \item \textbf{Zpracování} -- Soubory jsou streamově parsovány pomocí \texttt{fast-csv} a \texttt{iconv-lite} (SÚKL exportuje data v kódování Windows-1250). Záznamy jsou dávkově vkládány do databáze přes \texttt{prisma.upsert}.
+\end{enumerate}
+
+Načítání lze spustit manuálně nebo je plánováno pomocí \texttt{node-cron}.
+
+% ─────────────────────────────────────────────────────────────────
+\section{Databázové schéma}
+
+Schéma je definováno v souboru \texttt{prisma/schema.prisma} a obsahuje \textbf{24 modelů} rozdělených do tematických skupin:
+
+\begin{itemize}
+  \item \textbf{Jádro přípravků:} \texttt{Medication}, \texttt{Substance}, \texttt{Composition}, \texttt{Synonym}, \texttt{MedicationDocument}, \texttt{MedicationDoping}
+  \item \textbf{Klasifikační číselníky:} \texttt{AtcNode}, \texttt{PharmaceuticalForm}, \texttt{AdministrationRoute}, \texttt{DispensingCategory}, \texttt{RegistrationStatus}, \texttt{DependencyCategory}, \texttt{MedicationType}, \texttt{IndicationGroup}, \texttt{NarcoticCategory}, \texttt{DopingCategory}
+  \item \textbf{Organizace a distribuce:} \texttt{Organization}, \texttt{Pharmacy}, \texttt{PharmacyHour}
+  \item \textbf{Transakční data:} \texttt{Prescription}, \texttt{PriceReport}, \texttt{Disruption}, \texttt{DispensingRestriction}, \texttt{RegistrationChange}
+\end{itemize}
+
+Migrace jsou verzovány v adresáři \texttt{prisma/migrations/} a jsou nasazovány příkazem \texttt{npx prisma migrate deploy}.
+
+% ─────────────────────────────────────────────────────────────────
+\section{Popis API endpointů}
+
+Kompletní interaktivní dokumentace všech endpointů včetně příkladů požadavků a odpovědí je dostupná přes Swagger UI na adrese \texttt{/docs} po spuštění serveru. Níže je uveden přehled skupin endpointů.
+
+\subsection{Přehled skupin}
+
+\begin{longtable}{@{}llp{7.5cm}@{}}
+\toprule
+\textbf{Prefix} & \textbf{Metody} & \textbf{Popis} \\
+\midrule
+\endhead
+\texttt{/medications} & GET & Seznam léčivých přípravků s filtrováním dle názvu, ATC kódu, účinné látky, formy a kategorie výdeje. Detail přípravku včetně složení, dokumentů, výpadků a cenových reportů. Statistiky preskripce dle přípravku. \\[0.5em]
+\texttt{/substances} & GET & Vyhledávání účinných látek dle názvu nebo INN (včetně synonym). Detail látky s výčtem přípravků, které ji obsahují. \\[0.5em]
+\texttt{/pharmacies} & GET & Seznam lékáren s filtrováním dle města, PSČ, zásilkového výdeje a pohotovostního provozu. Detail lékárny s otevírací dobou. \\[0.5em]
+\texttt{/disruptions} & GET & Výpadky v dodávkách -- všechny, pouze aktivní, aktivní s náhradními přípravky. Historie výpadků pro konkrétní přípravek a jeho doporučené náhrady. \\[0.5em]
+\texttt{/atc} & GET & Procházení ATC klasifikační hierarchie. Detail ATC uzlu s počtem registrovaných přípravků. \\[0.5em]
+\texttt{/prescriptions} & GET & Statistiky preskripce dle okresu, roku a měsíce. Nejprescribovanější přípravky. Celkový součet předepsaných balení dle filtru. \\[0.5em]
+\texttt{/organizations} & GET & Držitelé rozhodnutí o registraci s filtrováním dle názvu a země. Léčiva a výpadky organizace. \\[0.5em]
+\texttt{/registration-changes} & GET & Nové, zrušené a EU-zrušené registrace s filtrováním dle typu, názvu a držitele. \\[0.5em]
+\texttt{/statistics} & GET & Dashboard rizika výpadků dle ATC skupin -- kombinuje počet aktivních výpadků, objem preskripce a chybějící množství do skóre rizika. \\[0.5em]
+\texttt{/meta} & GET & Referenční číselníky: lékové formy, cesty podání, kategorie výdeje, statusy registrace, dopingové kategorie, typy léčiv, indikační skupiny, narkotické kategorie. \\[0.5em]
+\texttt{/health} & GET & Kontrola stavu serveru. \\
+\bottomrule
+\end{longtable}
+
+\subsection{Společné vlastnosti}
+
+Všechny listovací endpointy podporují stránkování přes parametry \texttt{page} (výchozí: 1) a \texttt{limit} (výchozí: 20, maximum: 100). Odpověď vždy obsahuje objekt \texttt{meta} s celkovým počtem záznamů a počtem stránek.
+
+Textové filtry jsou case-insensitive. Filtrování dle kódů (ATC, SÚKL kód) funguje jako prefix match.
+
+API je chráněno rate limitingem: \textbf{120 požadavků za 60 sekund} na IP adresu.
+
+% ─────────────────────────────────────────────────────────────────
+\section{Použité knihovny}
+
+\begin{longtable}{@{}llp{7cm}@{}}
+\toprule
+\textbf{Knihovna} & \textbf{Verze} & \textbf{Účel} \\
+\midrule
+\endhead
+express & 5.2.1 & HTTP server framework s nativní podporou async chyb \\
+@prisma/client & 7.6.0 & Typově bezpečný ORM klient generovaný ze schématu \\
+@prisma/adapter-pg & 7.6.0 & PostgreSQL driver adapter pro Prisma s connection poolingem \\
+prisma & 7.6.0 & CLI nástroj pro správu migrací a generování klienta \\
+pg & 8.20.0 & Node.js PostgreSQL klient (využíván Prisma adaptérem) \\
+zod & 4.3.6 & Validace a typová koercie vstupních parametrů \\
+dotenv & 17.3.1 & Načítání konfigurace z \texttt{.env} souboru \\
+helmet & 8.1.0 & Bezpečnostní HTTP hlavičky \\
+cors & 2.8.6 & Cross-Origin Resource Sharing \\
+express-rate-limit & 8.3.2 & Ochrana API rate limitingem \\
+pino & 10.3.1 & Výkonné strukturované logování \\
+pino-http & 11.0.0 & HTTP request/response logging middleware \\
+swagger-jsdoc & 6.2.8 & Generování OpenAPI specifikace z JSDoc komentářů \\
+swagger-ui-express & 5.0.1 & Servírování Swagger UI \\
+fast-csv & 5.0.5 & Streamové parsování CSV souborů \\
+iconv-lite & 0.7.2 & Konverze kódování (Windows-1250 \(\to\) UTF-8) \\
+unzipper & 0.12.3 & Rozbalování ZIP archivů při stahování dat \\
+node-cron & 4.2.1 & Plánování automatického stahování dat \\
+tsx & 4.21.0 & TypeScript runner pro vývoj (bez kompilačního kroku) \\
+jest & 30.3.0 & Testovací framework \\
+supertest & 7.2.2 & HTTP integrace pro testování Express endpointů \\
+ts-jest & 29.4.9 & TypeScript transformátor pro Jest \\
+typescript & 6.0.2 & Statická typová kontrola \\
+\bottomrule
+\end{longtable}
+
+% ─────────────────────────────────────────────────────────────────
+\section{Testování}
+
+Projekt obsahuje automatizované testy v adresáři \texttt{src/\_\_tests\_\_/} rozdělené na:
+
+\subsection{E2E (end-to-end) testy}
+
+Testy spouští skutečný Express server a odesílají HTTP požadavky přes \texttt{supertest}. Každá skupina endpointů má vlastní testovací soubor:
+
+\begin{itemize}
+  \item \texttt{medications.test.ts} -- filtrování, stránkování, detail přípravku, 404 pro neexistující kód
+  \item \texttt{substances.test.ts} -- vyhledávání dle názvu a INN, synonyma
+  \item \texttt{pharmacies.test.ts} -- filtrování dle města, zásilkový výdej, otevírací doba
+  \item \texttt{disruptions.test.ts} -- aktivní výpadky, výpadky s náhradami, filtrování dle ATC
+  \item \texttt{atc.test.ts} -- procházení ATC stromu, detail uzlu
+  \item \texttt{prescriptions.test.ts} -- statistiky, top přípravky, celkový součet
+  \item \texttt{organizations.test.ts} -- vyhledávání, léčiva a výpadky organizace
+  \item \texttt{registrationChanges.test.ts} -- filtrování dle typu změny
+  \item \texttt{statistics.test.ts} -- supply risk dashboard
+  \item \texttt{meta.test.ts} -- všechny číselníkové endpointy
+  \item \texttt{root.test.ts} -- health check, kořenový endpoint
+
+\end{itemize}
+
+\subsection{Unit testy}
+
+\begin{itemize}
+  \item \texttt{dataDownloader.test.ts} -- testování stahování a rozbalování datových souborů
+  \item \texttt{dataLoaderScheduler.service.test.ts} -- testování plánování automatického načítání dat
+\end{itemize}
+
+\subsection{Spuštění testů}
+
+\begin{lstlisting}[language=bash]
+npm test
+\end{lstlisting}
+
+% ─────────────────────────────────────────────────────────────────
+\section{Instalace a spuštění}
+
+\subsection{Požadavky}
+
+\begin{itemize}
+  \item Node.js v22 LTS nebo novější
+  \item Přístup k PostgreSQL databázi (např. Supabase)
+\end{itemize}
+
+\subsection{Postup}
+
+\begin{lstlisting}[language=bash]
+# 1. Instalace závislostí
+npm install
+
+# 2. Konfigurace prostředí
+cp .env.example .env
+# Vyplnit DATABASE_URL a DIRECT_URL v souboru .env
+
+# 3. Nasazení databázových migrací
+npx prisma migrate deploy
+
+# 4. Generování Prisma klienta
+npx prisma generate
+
+# 5. Spuštění vývojového serveru
+npm run dev
+\end{lstlisting}
+
+Server poté běží na \texttt{http://localhost:3000} a Swagger dokumentace je dostupná na \texttt{http://localhost:3000/docs}.
+
+\subsection{Proměnné prostředí}
+
+\begin{lstlisting}[caption={.env.example}]
+DATABASE_URL=postgresql://user:password@host:5432/dbname
+DIRECT_URL=postgresql://user:password@host:5432/dbname
+PORT=3000
+NODE_ENV=development
+\end{lstlisting}
+
+% ─────────────────────────────────────────────────────────────────
+\section{Omezení a možná rozšíření}
+
+\subsection{Současná omezení}
+
+\begin{itemize}
+  \item \textbf{Pole \texttt{level} a \texttt{parentCode} v ATC} -- Zdrojová data SÚKL neobsahují explicitní úroveň ani rodičovský kód v ATC klasifikaci. Hierarchie je odvozitelná z délky kódu (1, 3, 4, 5, 7 znaků), ale pole jsou v databázi prázdná.
+  \item \textbf{Pouze čtení} -- API neposkytuje žádné write operace (POST, PUT, DELETE). Data jsou aktualizována výhradně přes datové loadery.
+  \item \textbf{Žádná autentizace} -- API je veřejné, ochrana je zajištěna pouze rate limitingem. Pro produkční nasazení by bylo vhodné doplnit API klíče.
+\end{itemize}
+
+\subsection{Možná budoucí rozšíření}
+
+\begin{itemize}
+  \item Automatické periodické stahování a aktualizace dat ze SÚKL
+  \item Fulltextové vyhledávání přes PostgreSQL \texttt{tsvector}
+  \item Cachování výsledků statistických dotazů (Redis)
+  \item GraphQL vrstva nad existujícími službami
+\end{itemize}
+
+% ─────────────────────────────────────────────────────────────────
+\section{Závěr}
+
+Výsledkem projektu je funkční REST API zpřístupňující data Státního ústavu pro kontrolu léčiv. API pokrývá všechny hlavní datové sady dostupné na portálu SÚKL a poskytuje 41 endpointů ve 10 skupinách s filtrováním, stránkováním a kompletní OpenAPI dokumentací. Projekt demonstruje použití moderního Node.js stacku s důrazem na typovou bezpečnost (TypeScript + Prisma + Zod), automatizované testování (Jest + Supertest) a standardizovanou dokumentaci (Swagger/OpenAPI).
+
+\end{document}
