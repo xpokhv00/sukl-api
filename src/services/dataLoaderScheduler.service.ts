@@ -8,7 +8,6 @@ import {
   downloadAndLoadEPOUKAZ,
   downloadAndLoadOPVYJIMKY,
   downloadAndLoadCEDI,
-  downloadAndLoadZPROSTRED,
   downloadAndLoadLEK13,
   downloadAndLoadDIS13,
   downloadAndLoadREG13,
@@ -126,7 +125,6 @@ class DataLoaderScheduler {
     await downloadAndLoadEPOUKAZ();
     await downloadAndLoadOPVYJIMKY();
     await downloadAndLoadCEDI();
-    await downloadAndLoadZPROSTRED();
     await downloadAndLoadLEK13();
     await downloadAndLoadDIS13();
     await downloadAndLoadREG13();
