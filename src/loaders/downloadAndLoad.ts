@@ -8,7 +8,6 @@ import {
   downloadEPOUKAZ,
   downloadOPVYJIMKY,
   downloadCEDI,
-  downloadZPROSTRED,
   downloadLEK13,
   downloadDIS13,
   downloadREG13,
@@ -42,7 +41,6 @@ import {
   loadPrescriptions,
   loadPriceReports,
   loadDispensingRestrictions,
-  loadIntermediaries,
 } from './index';
 
 const useReducedData = process.env.REDUCED_DATA === 'true';
@@ -203,23 +201,6 @@ export async function downloadAndLoadCEDI(): Promise<void> {
     await fsPromises.unlink(cediFile).catch(() => {});
   } catch (error) {
     console.error('CEDI download/load failed:', error);
-    throw error;
-  }
-}
-
-export async function downloadAndLoadZPROSTRED(): Promise<void> {
-  console.log('=== Starting ZPROSTRED Download & Load ===');
-  const dataDir = path.join(process.cwd(), 'data');
-  const zprostredFile = path.join(dataDir, 'zprostredkovatele.csv');
-
-  try {
-    await downloadZPROSTRED(dataDir);
-    await loadIntermediaries(zprostredFile);
-
-    console.log('ZPROSTRED load completed, cleaning up file...');
-    await fsPromises.unlink(zprostredFile).catch(() => {});
-  } catch (error) {
-    console.error('ZPROSTRED download/load failed:', error);
     throw error;
   }
 }

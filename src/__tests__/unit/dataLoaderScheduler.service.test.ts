@@ -46,7 +46,6 @@ describe('DataLoaderScheduler', () => {
       (downloadAndLoad.downloadAndLoadEPOUKAZ as jest.Mock).mockResolvedValue(undefined);
       (downloadAndLoad.downloadAndLoadOPVYJIMKY as jest.Mock).mockResolvedValue(undefined);
       (downloadAndLoad.downloadAndLoadCEDI as jest.Mock).mockResolvedValue(undefined);
-      (downloadAndLoad.downloadAndLoadZPROSTRED as jest.Mock).mockResolvedValue(undefined);
       (downloadAndLoad.downloadAndLoadLEK13 as jest.Mock).mockResolvedValue(undefined);
       (downloadAndLoad.downloadAndLoadDIS13 as jest.Mock).mockResolvedValue(undefined);
       (downloadAndLoad.downloadAndLoadREG13 as jest.Mock).mockResolvedValue(undefined);
