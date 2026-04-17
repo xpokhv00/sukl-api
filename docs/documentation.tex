@@ -66,7 +66,12 @@
   {\LARGE \textbf{SÚKL API}}\\[0.5em]
   {\large REST API pro agregaci dat z Českého registru léčivých přípravků}\\[2em]
 }
-\author{Vsevolod Pokhvalenko}
+\author{
+  Vsevolod Pokhvalenko \\
+  Lukáš Csáder \\
+  Michael Janeček \\
+  Michal Žatečka
+}
 \date{\today}
 
 \begin{document}
@@ -112,7 +117,7 @@ HTTP Request
 
 \textbf{Node.js s TypeScriptem} byl zvolen jako runtime prostředí. TypeScript přináší statickou typovou kontrolu, která je klíčová při práci s komplexními datovými modely (24 Prisma modelů, stovky polí). Chyby při mapování dat z CSV jsou odhaleny v době kompilace, nikoliv až za běhu.
 
-\textbf{Express 5} byl zvolen jako HTTP framework. Verze 5 přináší oproti verzi 4 zásadní vylepšení: automatické zachytávání chyb z asynchronních handlerů bez nutnosti volat \texttt{next(err)}. Díky tomu stačí v kontrolérech jednoduché \texttt{async/await} bez explicitního \texttt{try/catch} bloku pro každý endpoint.
+\textbf{Express} byl zvolen oproti nativnímu Node.js HTTP modulu kvůli jeho middleware-based architektuře a abstrakci nad routováním. Native HTTP server v Node.js vyžaduje manuální implementaci routing logiky, parsování request body a centralizaci error handlingu, což zvyšuje komplexitu při větším počtu endpointů. Express tyto mechanismy standardizuje a umožňuje modulární strukturu aplikace, která lépe odpovídá vrstvené architektuře projektu (router → controller → service → data layer).
 
 \textbf{Prisma ORM} s adaptérem \texttt{@prisma/adapter-pg} byl zvolen pro správu databázového schématu a dotazů. Prisma poskytuje migrace s verzováním (\texttt{prisma migrate}), typově bezpečné dotazy generované ze schématu a přehlednou definici relací v souboru \texttt{schema.prisma}. Adaptér \texttt{adapter-pg} umožňuje přímé využití connection poolingu přes \texttt{pg} bez zprostředkující vrstvy.
 
