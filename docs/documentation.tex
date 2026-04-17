@@ -48,7 +48,14 @@
   breakatwhitespace=true,
   tabsize=2,
   showstringspaces=false,
-  numbers=none
+  numbers=none,
+  extendedchars=true,
+  literate={á}{{\'a}}1 {č}{{\v{c}}}1 {ď}{{\v{d}}}1 {é}{{\'e}}1 {ě}{{\v{e}}}1
+           {í}{{\'i}}1 {ň}{{\v{n}}}1 {ó}{{\'o}}1 {ř}{{\v{r}}}1 {š}{{\v{s}}}1
+           {ť}{{\v{t}}}1 {ú}{{\'u}}1 {ů}{{\r{u}}}1 {ý}{{\'y}}1 {ž}{{\v{z}}}1
+           {Á}{{\'A}}1 {Č}{{\v{C}}}1 {Ď}{{\v{D}}}1 {É}{{\'E}}1 {Ě}{{\v{E}}}1
+           {Í}{{\'I}}1 {Ň}{{\v{N}}}1 {Ó}{{\'O}}1 {Ř}{{\v{R}}}1 {Š}{{\v{S}}}1
+           {Ť}{{\v{T}}}1 {Ú}{{\'U}}1 {Ů}{{\r{U}}}1 {Ý}{{\'Y}}1 {Ž}{{\v{Z}}}1
 }
 
 \lstset{style=code}
@@ -320,6 +327,59 @@ DATABASE_URL=postgresql://user:password@host:5432/dbname
 DIRECT_URL=postgresql://user:password@host:5432/dbname
 PORT=3000
 NODE_ENV=development
+\end{lstlisting}
+
+% ─────────────────────────────────────────────────────────────────
+\section{Testovací webová aplikace (sukl-FE)}
+
+Součástí projektu je testovací React aplikace \texttt{sukl-FE}, která slouží jako demonstrace a ověření funkčnosti API v reálném uživatelském rozhraní. Aplikace je záměrně minimalistická -- jejím cílem není produkční UI, ale pokrytí všech endpointů API a ověření správnosti dat.
+
+\subsection{Technologie}
+
+\begin{itemize}
+  \item \textbf{React 19} s \textbf{TypeScriptem} -- komponentový UI framework s typovou bezpečností
+  \item \textbf{React Router DOM v7} -- klientské routování s deep-linkingem na detail stránky
+  \item \textbf{Vite} -- build nástroj a vývojový server s hot-reload
+  \item Žádná externí UI knihovna -- vlastní CSS třídy
+\end{itemize}
+
+\subsection{Stránky a pokrytí API}
+
+Aplikace obsahuje 13 stránek mapovaných na skupiny endpointů API:
+
+\begin{longtable}{@{}lp{9cm}@{}}
+\toprule
+\textbf{Stránka (route)} & \textbf{Popis} \\
+\midrule
+\endhead
+\texttt{/} & Seznam léčivých přípravků s vyhledáváním (debounce 400 ms) a stránkováním \\[0.3em]
+\texttt{/:suklCode} & Detail přípravku -- složení, ceny, výpadky, preskripční statistiky \\[0.3em]
+\texttt{/substances} & Vyhledávání účinných látek \\[0.3em]
+\texttt{/substances/:id} & Detail látky se složením přípravků \\[0.3em]
+\texttt{/pharmacies} & Seznam lékáren s filtry (město, zásilkový výdej, pohotovost) \\[0.3em]
+\texttt{/pharmacies/:id} & Detail lékárny s otevírací dobou \\[0.3em]
+\texttt{/disruptions} & Výpadky ve třech záložkách: všechny / aktivní / aktivní s náhradami \\[0.3em]
+\texttt{/atc} & Interaktivní stromové procházení ATC klasifikace \\[0.3em]
+\texttt{/prescriptions} & Statistiky preskripce -- nejprescribovanější přípravky a filtrovaný přehled \\[0.3em]
+\texttt{/organizations} & Seznam organizací (držitelé registrací) s filtrováním \\[0.3em]
+\texttt{/organizations/:code} & Detail organizace s léčivy a výpadky \\[0.3em]
+\texttt{/registration-changes} & Log změn registrací s filtrováním dle typu \\[0.3em]
+\texttt{/statistics} & Dashboard rizika výpadků dle ATC skupin \\
+\bottomrule
+\end{longtable}
+
+\subsection{Architektura}
+
+Všechna volání API jsou centralizována v souboru \texttt{src/services/api.ts} přes generickou funkci \texttt{apiFetch<T>}, která obaluje \texttt{fetch} API s typovými parametry a chybovým handlingem. Stav aplikace je řízen lokálními React hooky (\texttt{useState}, \texttt{useEffect}) bez externí state management knihovny. Znovupoužitelné komponenty (\texttt{Pagination}, \texttt{SearchBar}, \texttt{MedicationCard}) jsou sdíleny napříč stránkami.
+
+\subsection{Spuštění}
+
+\begin{lstlisting}[language=bash]
+cd ../sukl-FE
+npm install
+npm run dev
+# Aplikace běží na http://localhost:5173
+# Vyžaduje spuštěné API na http://localhost:3000
 \end{lstlisting}
 
 % ─────────────────────────────────────────────────────────────────
