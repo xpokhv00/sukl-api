@@ -107,7 +107,9 @@ export async function listActiveDisruptionsWithReplacement(params: ListParams) {
     prisma.disruption.count({ where }),
   ]);
 
-  // Enrich with replacement medication info and check if replacement is also disrupted
+  // replacementSuklCode is a denormalized field on each disruption row, not a relation Prisma
+  // can join. We fetch replacement details and their own active disruption status per-item.
+  // Acceptable here because page sizes are small (≤100) and this data is not cached.
   const data = await Promise.all(
     disruptions.map(async (disruption) => {
       let replacement = null;

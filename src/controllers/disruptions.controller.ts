@@ -1,19 +1,25 @@
 import { Request, Response } from "express";
 import { listDisruptions, listActiveDisruptions, listActiveDisruptionsWithReplacement, getDisruptionsBySuklCode, getReplacementOptions } from "../services/disruptions.service";
 import { AppError } from "../middleware/errorHandler";
+import { z } from "zod";
+import { disruptionsQuerySchema, disruptionsActiveQuerySchema } from "../schemas/disruptions";
+
+type DisruptionsQuery = z.infer<typeof disruptionsQuerySchema>;
+type DisruptionsActiveQuery = z.infer<typeof disruptionsActiveQuerySchema>;
 
 export async function getDisruptions(req: Request, res: Response) {
-  const result = await listDisruptions((req as any).parsed_query);
+  // parsed_query is attached by the validate middleware with coerced/typed values.
+  const result = await listDisruptions(req.parsed_query as DisruptionsQuery);
   res.json(result);
 }
 
 export async function getActiveDisruptions(req: Request, res: Response) {
-  const result = await listActiveDisruptions((req as any).parsed_query);
+  const result = await listActiveDisruptions(req.parsed_query as DisruptionsActiveQuery);
   res.json(result);
 }
 
 export async function getActiveDisruptionsWithReplacement(req: Request, res: Response) {
-  const result = await listActiveDisruptionsWithReplacement((req as any).parsed_query);
+  const result = await listActiveDisruptionsWithReplacement(req.parsed_query as DisruptionsActiveQuery);
   res.json(result);
 }
 

@@ -1,4 +1,3 @@
-/* Parsers for common data types from CSV files */
 export const Parsers = {
   string: (v?: string) => (v?.trim() ? v.trim() : ""),
 

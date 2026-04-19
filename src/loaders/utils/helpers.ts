@@ -1,4 +1,3 @@
-/* Helpers for data processing */
 export function extractFirstCode(value?: string): string | null {
   if (!value) return null;
   return value.split(",")[0].trim() || null;
@@ -6,7 +5,8 @@ export function extractFirstCode(value?: string): string | null {
 
 export function normalizeSuklCode(value?: string | null): string | null {
   if (!value) return null;
-  // Pad SUKL code to 7 digits with leading zeros
+  // SUKL codes in source CSV can be shorter than 7 digits; the canonical form always has
+  // leading zeros (e.g. "12345" → "0012345"). This must match the DB primary key format.
   const trimmed = value.trim();
   if (!trimmed) return null;
   return trimmed.padStart(7, "0");

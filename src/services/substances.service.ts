@@ -24,8 +24,9 @@ export async function getSubstances(params: ListParams) {
         }),
     };
 
-    // If searching with a name, fetch all results with synonyms for better sorting
-    // Prisma doesn't really support better way to do this...
+    // When synonyms are involved, Prisma can't sort by match quality in SQL, so we fetch
+    // all candidates and rank in memory. For large datasets this is a trade-off — acceptable
+    // because substance counts are small and the synonym join already limits the result set.
     if (params.name && searchSynonyms) {
         const substancesWithSynonyms = await prisma.substance.findMany({
             where,
@@ -37,7 +38,10 @@ export async function getSubstances(params: ListParams) {
             const name = substance.name.toLowerCase();
             const innName = substance.innName!.toLowerCase();
 
-            if (name === searchTerm) return { substance, score: 1000 };
+            // Tiers: exact name > exact INN > prefix name > prefix INN > exact synonym > prefix synonym.
+        // Score gaps are wide enough that a lower tier never beats a higher one regardless of
+        // secondary sort. Unmatched results (score 0) sink to the bottom.
+        if (name === searchTerm) return { substance, score: 1000 };
             if (innName === searchTerm) return { substance, score: 900 };
             if (name.startsWith(searchTerm)) return { substance, score: 800 };
             if (innName.startsWith(searchTerm)) return { substance, score: 700 };

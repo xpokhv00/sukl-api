@@ -103,6 +103,8 @@ async function removeFile(filePath: string): Promise<void> {
   }
 }
 
+// Merges extracted files into an existing directory, preserving any files already there.
+// Use when the destination may already contain data you want to keep (e.g. incremental updates).
 async function moveContents(
   extractDir: string,
   finalDir: string,
@@ -135,6 +137,8 @@ async function moveContents(
   console.log(`Files moved to ${finalDir}`);
 }
 
+// Replaces the destination directory entirely before moving files.
+// Use for full dataset refreshes where stale files from a previous download must not remain.
 async function moveContentsWithCleanup(
   extractDir: string,
   finalDir: string,
@@ -151,7 +155,7 @@ async function moveContentsWithCleanup(
     console.log(`Removing existing folder at ${finalDir}...`);
     await fsPromises.rm(finalDir, { recursive: true });
   } catch {
-    // Folder doesn't exist yet
+    // finalDir does not exist yet; nothing to remove
   }
 
   await fsPromises.mkdir(finalDir, { recursive: true });
@@ -387,6 +391,7 @@ async function downloadPovinnostCsvFiles(
     const csvLinks = matches
       .map((m) => m[1])
       .filter((url) => {
+
         // Match povinnost_dodavek_po_preruseni_YYYYMM.csv where YYYYMM >= 202501
         const match = url.match(/povinnost_dodavek_po_preruseni_(\d{6})\.csv/);
         if (!match) return false;

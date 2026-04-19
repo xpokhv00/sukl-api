@@ -17,7 +17,7 @@ export function readCsv(filePath: string, delimiter = ";"): Promise<CsvRow[]> {
   });
 }
 
-// for parsing large amount of data
+// Streams rows one-by-one to avoid loading the entire CSV into memory; use for files >10k rows.
 export function streamCsv(filePath: string, delimiter = ";", encoding = "win1250") {
   return fs.createReadStream(filePath)
     .pipe(iconv.decodeStream(encoding))

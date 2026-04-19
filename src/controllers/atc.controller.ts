@@ -9,6 +9,8 @@ export async function listAtcNodes(req: Request, res: Response) {
 }
 
 export async function getAtc(req: Request, res: Response) {
+
+    // ATC codes are stored uppercase in DB; normalize to avoid case-sensitive mismatches.
     const node = await getAtcNode((req.params.code as string).toUpperCase());
     if (!node) throw new AppError(404, "ATC code not found");
     res.json(node);

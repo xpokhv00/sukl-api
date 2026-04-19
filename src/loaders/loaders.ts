@@ -24,7 +24,8 @@ export const loadMedications = createLoader(
     atcCode: Parsers.optionalString(row.ATC_WHO),
     isActive: true,
 
-    // initialize FK fields for the record
+    // FK columns are nullable because medications are loaded first and FKs are
+    // populated in a second pass (updateMedicationFks), so initialize them as null.
     ean: null,
     registrationNumber: null,
     organizationCode: null,
@@ -136,7 +137,6 @@ export const loadOrganizations = createLoader(
     code: Parsers.string(row.ZKR_ORG),
     name: Parsers.string(row.NAZEV),
     countryCode: Parsers.optionalString(row.ZEM),
-    //TODO: maybe from another source 
     email: Parsers.optionalString(row.email),
     phone: Parsers.optionalString(row.phone),
     website: Parsers.optionalString(row.website),
@@ -281,7 +281,6 @@ export async function loadDisruptions(filePath: string) {
   await baseLoader(filePath);
 }
 
-//TODO: reimbursement, patientCopay and reportedAt
 // ----------------- Price Reports -----------------
 export async function loadPriceReports(filePath: string) {
   const validMedications = await prisma.medication.findMany({ select: { suklCode: true } });

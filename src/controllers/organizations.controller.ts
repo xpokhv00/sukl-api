@@ -6,9 +6,19 @@ import {
     getOrganizationDisruptions,
 } from "../services/organizations.service";
 import { AppError } from "../middleware/errorHandler";
+import { z } from "zod";
+import {
+    organizationsQuerySchema,
+    organizationMedicationsQuerySchema,
+    organizationDisruptionsQuerySchema,
+} from "../schemas/organizations";
+
+type OrganizationsQuery = z.infer<typeof organizationsQuerySchema>;
+type OrgMedicationsQuery = z.infer<typeof organizationMedicationsQuerySchema>;
+type OrgDisruptionsQuery = z.infer<typeof organizationDisruptionsQuerySchema>;
 
 export async function listOrganizations(req: Request, res: Response) {
-    const result = await getOrganizations((req as any).parsed_query);
+    const result = await getOrganizations(req.parsed_query as OrganizationsQuery);
     res.json(result);
 }
 
@@ -21,7 +31,7 @@ export async function getOrganization(req: Request, res: Response) {
 export async function getOrganizationMedicationsHandler(req: Request, res: Response) {
     const result = await getOrganizationMedications({
         code: req.params.code as string,
-        ...(req as any).parsed_query,
+        ...(req.parsed_query as OrgMedicationsQuery),
     });
     res.json(result);
 }
@@ -29,7 +39,7 @@ export async function getOrganizationMedicationsHandler(req: Request, res: Respo
 export async function getOrganizationDisruptionsHandler(req: Request, res: Response) {
     const result = await getOrganizationDisruptions({
         code: req.params.code as string,
-        ...(req as any).parsed_query,
+        ...(req.parsed_query as OrgDisruptionsQuery),
     });
     res.json(result);
 }

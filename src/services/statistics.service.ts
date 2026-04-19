@@ -99,17 +99,25 @@ export async function getSupplyRiskStatistics(limit: number = 20): Promise<Suppl
       const rawMarketShareRatio = totalVolume > 0 ? missingVolume / totalVolume : countRatio;
       const marketShareRatio = Math.min(rawMarketShareRatio, 1);
 
+      // Sigmoid amplifies the penalty nonlinearly: scores near 0.6 market share get a steep
+      // jump, below ~0.3 the penalty stays low, above ~0.9 it saturates near 1.
+      // k=10 controls steepness; x0=0.6 is the inflection point (tuned empirically).
       const k = 10;
-      const x0 = 0.6; 
+      const x0 = 0.6;
       const sigmoidPenalty = 1 / (1 + Math.exp(-k * (marketShareRatio - x0)));
 
+      // Normalize so the maximum possible sigmoid value maps to 1, keeping scores comparable.
       const maxSigmoid = 1 / (1 + Math.exp(-k * (1 - x0)));
       const normalizedPenalty = sigmoidPenalty / maxSigmoid;
 
-      const riskScore = totalVolume > 0 
+      // When prescription volume is known, weight by actual usage impact (log scale to avoid
+      // outliers dominating). Fall back to disruption count ratio when no volume data exists.
+      const riskScore = totalVolume > 0
         ? normalizedPenalty * Math.log10(totalVolume + 1) * 100
         : countRatio * 2 * 100;
 
+      // Small log boost for ATC groups with many distinct disrupted medications, so a single
+      // high-volume disruption doesn't always outrank many smaller ones.
       const modifiedRiskScore = riskScore * (1 + (Math.log10(count + 1) * 0.05));
         
       return {
