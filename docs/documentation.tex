@@ -98,6 +98,48 @@ Cílem projektu je implementace REST API, které agreguje a zpřístupňuje veř
 Výsledné API umožňuje programatický přístup k těmto datům prostřednictvím standardního HTTP rozhraní s JSON odpověďmi, stránkováním, filtrováním a dokumentací ve formátu OpenAPI (Swagger). API je navrženo jako \textbf{read-only} (pouze čtení) -- všechny endpointy používají metodu GET.
 
 % ─────────────────────────────────────────────────────────────────
+\section{Autoři a rozdělení práce}
+
+Projekt realizoval tým čtyř studentů. Níže je uveden přehled příspěvků každého člena na základě obou repozitářů (\texttt{sukl-api} a \texttt{sukl-FE}).
+
+\begin{longtable}{@{}p{4cm}p{10cm}@{}}
+\toprule
+\textbf{Autor} & \textbf{Příspěvky} \\
+\midrule
+\endhead
+\textbf{Vsevolod Pokhvalenko} \newline (xpokhv00) &
+Iniciální nastavení projektu a základní architektura Express aplikace.
+Implementace endpointů: léčiva, účinné látky, lékárny, preskripce, ATC browser, změny registrací.
+Validační middleware (Zod), rate limiting, Swagger/OpenAPI dokumentace.
+Typová bezpečnost (rozšíření Express typů, \texttt{z.infer<>} na controllerech).
+E2E testovací suite (Jest + Supertest), changelog, projektová dokumentace.
+Frontend: navigační lišta, sekce preskripčních statistik na detailu léčiva.
+\\[0.5em]
+\textbf{Michael Janeček} \newline (YanehCheck) &
+Endpoint pro hodnocení rizika výpadků (\texttt{/statistics/supply-risk}) s TTL cache.
+Endpoint organizací (\texttt{/organizations}) včetně čtyř sub-endpointů (léčiva, výpadky).
+Všechny tři varianty endpointů výpadků (\texttt{/disruptions}).
+Metadatové endpointy (\texttt{/meta}), filtrování preskripce dle ATC kódu, celkový součet preskripce.
+Vyhledávání účinných látek se synonym matching a in-memory řazením dle relevance.
+CI/CD pipeline (GitHub Actions), automatické spouštění datových loaderů.
+Oprava normalizace SÚKL kódu, infrastruktura E2E testů.
+\\[0.5em]
+\textbf{Michal Žatečka} \newline (MikiiN) &
+Validace cizích klíčů při načítání dat (ochrana před nevalidními FK záznamy).
+Opravy kódování zdrojových souborů a dávkového zpracování.
+Oprava sloupce zdrojového statusu registrace v loaderu.
+Frontend (sukl-FE): inicializace projektu (Vite + React), základní seznam léčiv s vyhledáváním a stránkováním, detail léčiva, extrakce komponenty \texttt{MedicationCard}, oprava klikatelných karet.
+\\[0.5em]
+\textbf{Lukáš Csáder} \newline (LukasCsader) &
+Generická továrna \texttt{createLoader} sdílená všemi datovými loadery.
+Loadery pro hlavní tabulky: léčiva, účinné látky, organizace, lékárny, cenové reporty.
+Hlavní soubor \texttt{seed.ts} (vstupní bod pro naplnění databáze).
+Oprava FK pro otevírací dobu lékáren.
+\\
+\bottomrule
+\end{longtable}
+
+% ─────────────────────────────────────────────────────────────────
 \section{Architektura a technologické volby}
 
 \subsection{Přehled architektury}
