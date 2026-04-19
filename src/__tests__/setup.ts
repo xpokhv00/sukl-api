@@ -89,17 +89,22 @@ beforeAll(async () => {
     if (!connectionString) {
       throw new Error('DATABASE_URL environment variable is not set');
     }
-    
+
     const adapter = new PrismaPg({
       connectionString: connectionString,
     });
-    
+
     prisma = new PrismaClient({ adapter });
     global.prisma = prisma;
     await prisma.$connect();
     console.log('Test database connected');
-    // Comment this out when developing as it takes minutes to upsert all test data.
-    //await loadAllTestData();
+
+    // Automatically load data if running in CI or if explicitly requested
+    if (process.env.CI === 'true' || process.env.FORCE_SEED === 'true') {
+      await loadAllTestData();
+    } else {
+      console.log('Skipping data load for local development. Run tests with FORCE_SEED=true to seed locally.');
+    }
   } catch (error) {
     console.error('Test setup failed:', error);
     throw error;
