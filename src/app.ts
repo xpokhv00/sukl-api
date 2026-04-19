@@ -22,15 +22,23 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
-app.use(pinoHttp());
 
-app.use(rateLimit({
-    windowMs: 60 * 1000,
-    max: 120,
-    standardHeaders: true,
-    legacyHeaders: false,
-    message: { error: { message: "Too many requests, please try again later." } },
+// Disable logger output during tests to keep your terminal clean
+app.use(pinoHttp({
+    autoLogging: process.env.NODE_ENV !== "test",
+    quietReqLogger: process.env.NODE_ENV === "test"
 }));
+
+// Disable rate limiting during tests to prevent Jest from hanging
+if (process.env.NODE_ENV !== "test") {
+    app.use(rateLimit({
+        windowMs: 60 * 1000,
+        max: 120,
+        standardHeaders: true,
+        legacyHeaders: false,
+        message: { error: { message: "Too many requests, please try again later." } },
+    }));
+}
 
 app.use("/medications", medicationsRoutes);
 app.use("/substances", substancesRoutes);
